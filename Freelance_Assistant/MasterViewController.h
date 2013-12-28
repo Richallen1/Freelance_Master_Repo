@@ -7,16 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class DetailViewController;
-
 #import <CoreData/CoreData.h>
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@class DetailViewContainerController;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@protocol dataPassDelegate
+@optional
+-(void)passDataWithString:(NSString *)data;
+@end
+
+@interface MasterViewController : UITableViewController 
+
+@property (nonatomic, strong) NSArray *menuItems;
+@property (strong, nonatomic) DetailViewContainerController *detailViewContainerController;
+@property (nonatomic, weak) id <dataPassDelegate> delegate;
+
 
 @end
