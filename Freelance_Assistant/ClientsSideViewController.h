@@ -14,7 +14,7 @@
 
 @protocol clientSideViewController
 @optional
--(void)fillDetailViewWithClientData:(Client *)client;
+-(void)fillDetailViewWithClientData:(Client *)client fromSender:(id)sender;
 @end
 
 @interface ClientsSideViewController : CoreDataTableViewController

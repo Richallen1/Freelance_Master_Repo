@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class ClientsSideViewController;
+
+@protocol ClientDetailDelegate <NSObject>
+@optional
+-(void)tableViewReload;
+@end
+
 @interface ClientsDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *surname;
@@ -20,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UITextField *country;
 @property (weak, nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) id<ClientDetailDelegate> delgate;
 
 
 

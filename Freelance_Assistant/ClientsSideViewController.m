@@ -10,8 +10,9 @@
 #import "AppDelegate.h"
 #import "Client.h"
 #import "AddClientPopoverViewController.h"
+#import "ClientsDetailViewController.h"
 
-@interface ClientsSideViewController () <addClientDelegate, UIPopoverControllerDelegate>
+@interface ClientsSideViewController () <addClientDelegate, ClientDetailDelegate, UIPopoverControllerDelegate>
 {
     NSManagedObjectContext *context;
     NSArray *clientsArray;
@@ -69,7 +70,7 @@
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     Client *selectedClient = [self.fetchedResultsController objectAtIndexPath:path];
     
-    [self.delegate fillDetailViewWithClientData:selectedClient];
+    [self.delegate fillDetailViewWithClientData:selectedClient fromSender:self];
 }
 -(void)done
 {
@@ -91,4 +92,9 @@
     
     
 }
+-(void)tableViewReload
+{
+    [self.tableView reloadData];
+}
+
 @end

@@ -11,9 +11,10 @@
 #import "ClientsSideViewController.h"
 #import "Client.h"
 
-@interface ClientsDetailViewController ()<clientSideViewController, UIPopoverControllerDelegate>
+@interface ClientsDetailViewController ()<clientSideViewController, UIPopoverControllerDelegate, UITextFieldDelegate>
 {
     NSManagedObjectContext *context;
+    Client *selectedClient;
 }
 @end
 
@@ -53,12 +54,36 @@
 
 }
 
-- (IBAction)deleteClient:(id)sender {
+- (IBAction)deleteClient:(id)sender
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
+    request.predicate = [NSPredicate predicateWithFormat:@"company = %@", selectedClient.company];
+    NSError *error = nil;
+    NSArray *clients = [context executeFetchRequest:request error:&error];
+    
+    if (clients.count > 0) {
+        [context deleteObject:selectedClient];
+    }
+    
+    self.firstName.text = @"";
+    self.surname.text = @"";
+    self.company.text = @"";
+    self.address.text = @"";
+    self.address2.text = @"";
+    self.city.text = @"";
+    self.state.text = @"";
+    self.zip.text = @"";
+    self.phone.text = @"";
+    self.email.text = @"";
+    
+    [self.delgate tableViewReload];
 }
--(void)fillDetailViewWithClientData:(Client *)client
+-(void)fillDetailViewWithClientData:(Client *)client fromSender:(id)sender
 {
     NSLog(@"%@", client);
     if (client != nil) {
+        
+        selectedClient = client;
 
     self.firstName.text = client.firstName;
     self.surname.text = client.lastName;
@@ -71,5 +96,8 @@
     self.phone.text = client.phone;
     self.email.text = client.email;
     }
+    self.delgate = sender;
+    
 }
+
 @end

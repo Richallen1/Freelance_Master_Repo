@@ -50,18 +50,22 @@
         case 0:
             viewController = self.detailViewController1;
             [sender setDelegate:viewController];
+            NSLog(@"VC1 Loaded");
             break;
         case 1:
             viewController = self.detailViewController2;
             [sender setDelegate:viewController];
+            NSLog(@"VC2 Loaded");
             break;
         case 2:
             viewController = self.detailViewController3;
-            [sender setDelegate:viewController];
+            //[sender setDelegate:viewController];
+            NSLog(@"VC3 Loaded");
             break;
         case 3:
             viewController = self.detailViewController4;
             [sender setDelegate:viewController];
+            NSLog(@"VC4 Loaded");
             break;
     }
     [self showChildViewController:viewController];

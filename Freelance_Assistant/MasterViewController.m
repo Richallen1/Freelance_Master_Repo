@@ -29,6 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"Rich Allen" forKey:@"User_Name"];
+    [defaults setObject:@"27 Ecton Road" forKey:@"User_Address_1"];
+    [defaults setObject:@"KT15 1UE" forKey:@"User_Address_2"];
+    [defaults setObject:@"rich.allenlx@gmail.com" forKey:@"User_Email"];
+    
     
     _menuItems = @[@"Invoices", @"Clients", @"Settings", @"Help"];
     self.detailViewContainerController = (DetailViewContainerController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -69,9 +75,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([indexPath row] < 3)
-    {
-        
+    if (indexPath.row == 2) {
+        [self.detailViewContainerController showViewWithId:2 withSender:self];
     }
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -86,7 +91,7 @@
     }
     if ([segue.identifier isEqualToString:@"settings_segue"])
     {
-        [self.detailViewContainerController showViewWithId:2 withSender:segue.destinationViewController];
+       //[self.detailViewContainerController showViewWithId:2 withSender:segue.destinationViewController];
     }
     if ([segue.identifier isEqualToString:@"help_segue"])
     {
