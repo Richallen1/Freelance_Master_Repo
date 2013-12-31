@@ -20,4 +20,5 @@
 @property (strong, nonatomic) DetailViewController *detailViewController2;
 @property (strong, nonatomic) DetailViewController *detailViewController3;
 @property (strong, nonatomic) DetailViewController *detailViewController4;
+
 @end

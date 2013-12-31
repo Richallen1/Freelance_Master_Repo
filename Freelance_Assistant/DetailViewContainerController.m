@@ -8,25 +8,19 @@
 #import "MasterViewController.h"
 #import "DetailViewContainerController.h"
 
+
 @interface DetailViewContainerController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
 
 @implementation DetailViewContainerController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
+    
 	self.detailViewController1 = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController1"];
     self.detailViewController2 = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController2"];
     self.detailViewController3 = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController3"];
@@ -35,6 +29,11 @@
     [self addChildViewController:self.detailViewController2];
     [self addChildViewController:self.detailViewController3];
     [self addChildViewController:self.detailViewController4];
+
+    
+    
+    
+    [self FirstStartUp];
     // Do any additional setup after loading the view.
 }
 
@@ -45,6 +44,7 @@
 }
 
 -(void)showViewWithId:(int)viewId withSender:(id)sender {
+    NSLog(@"%@", sender);
     UIViewController *viewController;
     switch (viewId) {
         case 0:
@@ -59,7 +59,7 @@
             break;
         case 2:
             viewController = self.detailViewController3;
-            //[sender setDelegate:viewController];
+            [sender setDelegate:viewController];
             NSLog(@"VC3 Loaded");
             break;
         case 3:
@@ -67,12 +67,11 @@
             [sender setDelegate:viewController];
             NSLog(@"VC4 Loaded");
             break;
+
     }
     [self showChildViewController:viewController];
       
 }
-
-
 
 -(void)showChildViewController:(UIViewController*)content {
     if(topController != content) {
@@ -82,7 +81,6 @@
         topController = content;
     }
 }
-
 
 
 #pragma mark - Split view
@@ -99,5 +97,26 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+-(void)FirstStartUp
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![[defaults objectForKey:@"First_Start_Up"] isEqualToString:@"NO"]) {
+       [self showViewWithId:2 withSender:self];
+        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Welcome" message:@"Welcome to the Freelance Assistant App. Please fill in your information to use for your invoices." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        
+        
+        [defaults setObject:@"NO" forKey:@"First_Start_Up"];
+    }
+    else
+    {
+        //[self performSegueWithIdentifier:@"" sender:self];
+    }
+    
+    
+    
+    
 }
 @end

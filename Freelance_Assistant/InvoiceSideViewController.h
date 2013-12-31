@@ -18,8 +18,6 @@
 @end
 
 
-
-
 @interface InvoiceSideViewController : CoreDataTableViewController
 @property (nonatomic, weak) id <invoiceSideViewController> delegate;
 @property (nonatomic, weak) id <AddInvoiceDelegate> addInvoiceDelegate;

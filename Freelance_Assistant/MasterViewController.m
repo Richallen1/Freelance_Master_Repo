@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "DetailViewContainerController.h"
 #import "DetailViewController.h"
+#import "StartUpViewController.h"
 
 @interface MasterViewController ()
 
@@ -17,24 +18,9 @@
 @implementation MasterViewController
 @synthesize menuItems=_menuItems;
 
-//- (void)awakeFromNib
-//{
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        self.clearsSelectionOnViewWillAppear = NO;
-//        self.preferredContentSize = CGSizeMake(320.0, 600.0);
-//    }
-//    [super awakeFromNib];
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:@"Rich Allen" forKey:@"User_Name"];
-    [defaults setObject:@"27 Ecton Road" forKey:@"User_Address_1"];
-    [defaults setObject:@"KT15 1UE" forKey:@"User_Address_2"];
-    [defaults setObject:@"rich.allenlx@gmail.com" forKey:@"User_Email"];
-    
     
     _menuItems = @[@"Invoices", @"Clients", @"Settings", @"Help"];
     self.detailViewContainerController = (DetailViewContainerController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -78,6 +64,7 @@
     if (indexPath.row == 2) {
         [self.detailViewContainerController showViewWithId:2 withSender:self];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -48,6 +48,12 @@
 		F4E105371871A48D0013BCBA /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105341871A48D0013BCBA /* EmailViewController.m */; };
 		F4E1053C1871A99F0013BCBA /* PaymentTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105391871A99F0013BCBA /* PaymentTermsViewController.m */; };
 		F4E1053D1871A99F0013BCBA /* BankDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1053B1871A99F0013BCBA /* BankDetailsViewController.m */; };
+		F4E105811871E94F0013BCBA /* MaintananceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105801871E94F0013BCBA /* MaintananceViewController.m */; };
+		F4E105C91871F2A20013BCBA /* Maintainence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E105C81871F2A20013BCBA /* Maintainence.storyboard */; };
+		F4E105CB1871F2B50013BCBA /* BETA_End.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E105CA1871F2B50013BCBA /* BETA_End.storyboard */; };
+		F4E105CE1872DFA70013BCBA /* StartUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105CD1872DFA70013BCBA /* StartUpViewController.m */; };
+		F4E105D418731DEB0013BCBA /* HelpDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105D318731DEB0013BCBA /* HelpDetailViewController.m */; };
+		F4E105D718731FF50013BCBA /* HelpSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105D618731FF50013BCBA /* HelpSideViewController.m */; };
 		F4E509AB186F19C4003C326F /* AddInvoicePopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E509AA186F19C4003C326F /* AddInvoicePopoverViewController.m */; };
 		F4E509AE186F439E003C326F /* ClientPickerPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E509AD186F439E003C326F /* ClientPickerPopoverViewController.m */; };
 /* End PBXBuildFile section */
@@ -129,6 +135,16 @@
 		F4E105391871A99F0013BCBA /* PaymentTermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentTermsViewController.m; sourceTree = "<group>"; };
 		F4E1053A1871A99F0013BCBA /* BankDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankDetailsViewController.h; sourceTree = "<group>"; };
 		F4E1053B1871A99F0013BCBA /* BankDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankDetailsViewController.m; sourceTree = "<group>"; };
+		F4E1057F1871E94F0013BCBA /* MaintananceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintananceViewController.h; sourceTree = "<group>"; };
+		F4E105801871E94F0013BCBA /* MaintananceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintananceViewController.m; sourceTree = "<group>"; };
+		F4E105C81871F2A20013BCBA /* Maintainence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maintainence.storyboard; sourceTree = "<group>"; };
+		F4E105CA1871F2B50013BCBA /* BETA_End.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BETA_End.storyboard; sourceTree = "<group>"; };
+		F4E105CC1872DFA70013BCBA /* StartUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartUpViewController.h; sourceTree = "<group>"; };
+		F4E105CD1872DFA70013BCBA /* StartUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartUpViewController.m; sourceTree = "<group>"; };
+		F4E105D218731DEB0013BCBA /* HelpDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpDetailViewController.h; sourceTree = "<group>"; };
+		F4E105D318731DEB0013BCBA /* HelpDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpDetailViewController.m; sourceTree = "<group>"; };
+		F4E105D518731FF50013BCBA /* HelpSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpSideViewController.h; sourceTree = "<group>"; };
+		F4E105D618731FF50013BCBA /* HelpSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpSideViewController.m; sourceTree = "<group>"; };
 		F4E509A9186F19C4003C326F /* AddInvoicePopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddInvoicePopoverViewController.h; sourceTree = "<group>"; };
 		F4E509AA186F19C4003C326F /* AddInvoicePopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddInvoicePopoverViewController.m; sourceTree = "<group>"; };
 		F4E509AC186F439E003C326F /* ClientPickerPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientPickerPopoverViewController.h; sourceTree = "<group>"; };
@@ -196,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				9B95F493186C4F82007318DC /* Core Data */,
-				9B95F3D61869C0A7007318DC /* iPad Classes */,
 				9B95F3D51869C09A007318DC /* Application Classes */,
+				9B95F3D61869C0A7007318DC /* iPad Classes */,
 				9B95F3A41869BF4B007318DC /* Main_iPhone.storyboard */,
 				9B95F3B31869BF4B007318DC /* Images.xcassets */,
 				9B95F3991869BF4B007318DC /* Supporting Files */,
@@ -246,7 +262,10 @@
 		9B95F3D61869C0A7007318DC /* iPad Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9B95F3A71869BF4B007318DC /* Main_iPad.storyboard */,
+				F4E105D118730F750013BCBA /* MaintainnceVC */,
+				F4E105C71871F2840013BCBA /* UX Files */,
+				F4E1057F1871E94F0013BCBA /* MaintananceViewController.h */,
+				F4E105801871E94F0013BCBA /* MaintananceViewController.m */,
 				9B95F4AF186E110F007318DC /* Popovers */,
 				9B95F48F186C4C78007318DC /* SideViewControllers */,
 				9B95F488186C41CD007318DC /* DetialViewControllers */,
@@ -269,6 +288,8 @@
 				9B95F4AD186CC34E007318DC /* ClientsDetailViewController.m */,
 				F4E1052B1871A1450013BCBA /* SettingsDetailViewController.h */,
 				F4E1052C1871A1450013BCBA /* SettingsDetailViewController.m */,
+				F4E105D218731DEB0013BCBA /* HelpDetailViewController.h */,
+				F4E105D318731DEB0013BCBA /* HelpDetailViewController.m */,
 			);
 			name = DetialViewControllers;
 			sourceTree = "<group>";
@@ -284,6 +305,8 @@
 				9B95F4AA186CC0D3007318DC /* ClientsSideViewController.m */,
 				F4E1052118719D270013BCBA /* SettingsSideViewController.h */,
 				F4E1052218719D270013BCBA /* SettingsSideViewController.m */,
+				F4E105D518731FF50013BCBA /* HelpSideViewController.h */,
+				F4E105D618731FF50013BCBA /* HelpSideViewController.m */,
 			);
 			name = SideViewControllers;
 			sourceTree = "<group>";
@@ -315,6 +338,8 @@
 				F4E509AD186F439E003C326F /* ClientPickerPopoverViewController.m */,
 				F4E1050518702D0E0013BCBA /* AddChargeTableViewController.h */,
 				F4E1050618702D0E0013BCBA /* AddChargeTableViewController.m */,
+				F4E105CC1872DFA70013BCBA /* StartUpViewController.h */,
+				F4E105CD1872DFA70013BCBA /* StartUpViewController.m */,
 			);
 			name = Popovers;
 			sourceTree = "<group>";
@@ -347,6 +372,23 @@
 				F4E1053B1871A99F0013BCBA /* BankDetailsViewController.m */,
 			);
 			name = "Settings VCs";
+			sourceTree = "<group>";
+		};
+		F4E105C71871F2840013BCBA /* UX Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B95F3A71869BF4B007318DC /* Main_iPad.storyboard */,
+				F4E105C81871F2A20013BCBA /* Maintainence.storyboard */,
+				F4E105CA1871F2B50013BCBA /* BETA_End.storyboard */,
+			);
+			name = "UX Files";
+			sourceTree = "<group>";
+		};
+		F4E105D118730F750013BCBA /* MaintainnceVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MaintainnceVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,8 +469,10 @@
 			files = (
 				F4E10512187084C20013BCBA /* tempLogo.jpg in Resources */,
 				9B95F3A91869BF4B007318DC /* Main_iPad.storyboard in Resources */,
+				F4E105C91871F2A20013BCBA /* Maintainence.storyboard in Resources */,
 				9B95F3B41869BF4B007318DC /* Images.xcassets in Resources */,
 				9B95F3A61869BF4B007318DC /* Main_iPhone.storyboard in Resources */,
+				F4E105CB1871F2B50013BCBA /* BETA_End.storyboard in Resources */,
 				F4E1051918708F720013BCBA /* InvoiceView.xib in Resources */,
 				9B95F39D1869BF4B007318DC /* InfoPlist.strings in Resources */,
 			);
@@ -453,12 +497,14 @@
 				9B95F4AB186CC0D3007318DC /* ClientsSideViewController.m in Sources */,
 				9B95F3B21869BF4B007318DC /* DetailViewController.m in Sources */,
 				F4E1053D1871A99F0013BCBA /* BankDetailsViewController.m in Sources */,
+				F4E105D718731FF50013BCBA /* HelpSideViewController.m in Sources */,
 				F4E1053C1871A99F0013BCBA /* PaymentTermsViewController.m in Sources */,
 				9B95F3AF1869BF4B007318DC /* MasterViewController.m in Sources */,
 				9B95F4A8186C5397007318DC /* CoreDataTableViewController.m in Sources */,
 				F4E509AB186F19C4003C326F /* AddInvoicePopoverViewController.m in Sources */,
 				9B95F49F186C5314007318DC /* Client.m in Sources */,
 				9B95F3A31869BF4B007318DC /* AppDelegate.m in Sources */,
+				F4E105D418731DEB0013BCBA /* HelpDetailViewController.m in Sources */,
 				F4E1052318719D280013BCBA /* SettingsSideViewController.m in Sources */,
 				F4E1052D1871A1450013BCBA /* SettingsDetailViewController.m in Sources */,
 				9B95F39F1869BF4B007318DC /* main.m in Sources */,
@@ -471,8 +517,10 @@
 				9B95F4AE186CC34E007318DC /* ClientsDetailViewController.m in Sources */,
 				9B95F48B186C466C007318DC /* InvoiceDetialViewController.m in Sources */,
 				F4E105351871A48D0013BCBA /* UserInfoViewController.m in Sources */,
+				F4E105CE1872DFA70013BCBA /* StartUpViewController.m in Sources */,
 				9B95F4B2186E1156007318DC /* AddClientPopoverViewController.m in Sources */,
 				9B95F3AC1869BF4B007318DC /* Freelance_Assistant.xcdatamodeld in Sources */,
+				F4E105811871E94F0013BCBA /* MaintananceViewController.m in Sources */,
 				9B95F4A5186C5315007318DC /* Invoice.m in Sources */,
 				9B95F3D31869BFCA007318DC /* DetailViewContainerController.m in Sources */,
 				9B95F492186C4CA1007318DC /* InvoiceSideViewController.m in Sources */,

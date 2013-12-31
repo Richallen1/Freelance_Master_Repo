@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MaintananceViewController.h"
 #import "MasterViewController.h"
 
 @implementation AppDelegate
@@ -16,12 +16,43 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    splitViewController.delegate = (id)navigationController.topViewController;
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *appStartCheck = [defaults objectForKey:@"App_Startup_Check"];
+//    
+//    NSLog(@"%@", appStartCheck);
+//    
+//    if ([appStartCheck isEqualToString:@"check"]) {
+//         NSLog(@"ZZZZZZZ");
+        /* Main Launch Code */
+        // Override point for customization after application launch.
+        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)navigationController.topViewController;
+//    }
+//    else
+//    {
+//         NSLog(@"CCCCCCCCC");
+//        /* BETA End Launch Code*/
+//        UIStoryboard *storyBoard;
+//        storyBoard = [UIStoryboard storyboardWithName:@"Maintainence" bundle:nil];
+//        UIViewController *initViewController = [storyBoard instantiateInitialViewController];
+//        [self.window setRootViewController:initViewController];
+//    }
+
+    
+    
+   
+    
+    /* Maintainence Launch Code
+     UIStoryboard *storyBoard;
+     storyBoard = [UIStoryboard storyboardWithName:@"MainStoryBoard_iPhone5" bundle:nil];
+     UIViewController *initViewController = [storyBoard instantiateInitialViewController];
+     [self.window setRootViewController:initViewController];*/
+
     return YES;
 }
 							
