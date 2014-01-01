@@ -29,6 +29,7 @@
 @property (weak, nonatomic) id<InvoiceDetailDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *markAsPaidBtn;
 @property (nonatomic, strong) NSMutableArray *invoiceRows;
+@property (weak, nonatomic) IBOutlet UIToolbar *editBtn;
 
 
 

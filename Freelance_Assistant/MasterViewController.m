@@ -53,11 +53,11 @@
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // Return NO if you do not want the specified item to be editable.
+//    return YES;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -85,6 +85,27 @@
         [self.detailViewContainerController showViewWithId:3 withSender:segue.destinationViewController];
     }
 }
+//-(void)FirstStartUp
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if (![[defaults objectForKey:@"First_Start_Up"] isEqualToString:@"NO"]) {
+//        [self showViewWithId:2 withSender:self];
+//        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Welcome" message:@"Welcome to the Freelance Assistant App. Please fill in your information to use for your invoices." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+//        [alert show];
+//        
+//        
+//        
+//        [defaults setObject:@"NO" forKey:@"First_Start_Up"];
+//    }
+//    else
+//    {
+//        //[self performSegueWithIdentifier:@"" sender:self];
+//    }
+//    
+//    
+//    
+//    
+//}
 
 
 

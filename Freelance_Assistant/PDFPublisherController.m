@@ -226,13 +226,18 @@
             //Invoicer Name
             if (label.tag == 5) {
                 if (label.text != nil) {
-                label.text = [defaults objectForKey:@"User_Name"];
+                    if ([defaults objectForKey:@"User_Name"] != NULL) {
+                        label.text = [defaults objectForKey:@"User_Name"];
+                    }
+                
                 }
             }
             //Invoicer Addr
             if (label.tag == 6) {
                 if (label.text != nil) {
+                    if ([defaults objectForKey:@"User_Address_1"] != NULL) {
                 label.text = [defaults objectForKey:@"User_Address_1"];
+                }
                 }
             }
             //Invoicer City
@@ -245,7 +250,10 @@
             //Invoicer Postcode
             if (label.tag == 8) {
                 if (label.text != nil) {
-                label.text = [defaults objectForKey:@"User_Address_2"] ;
+                    if ([defaults objectForKey:@"User_Address_2"] != NULL) {
+                        label.text = [defaults objectForKey:@"User_Address_2"] ;
+                    }
+                
                 }
             }
             //Proj Name
@@ -264,28 +272,38 @@
             if (label.tag == 11) {
                 if (label.text != nil) {
                     NSString *str =[NSString stringWithFormat:@"Payment due in %@ days",[defaults objectForKey:@"inv_term_period"]];
-                label.text = str;
+                    if (str != NULL) {
+                        label.text = str;
+                    }
+                
                 }
             }
             //inv AC number
             if (label.tag == 12) {
                 if (label.text != nil) {
                     NSString *str = [NSString stringWithFormat:@"Account Number: %@", [defaults objectForKey:@"User_Account_Number"]];
-                    label.text = str;
+                    if (str != NULL) {
+                        label.text = str;
+                    }
+                    
                 }
             }
             //inv Sort
             if (label.tag == 13) {
                 if (label.text != nil) {
                     NSString *str = [NSString stringWithFormat:@"Sort Code: %@", [defaults objectForKey:@"User_Sort_Code"]];
-                    label.text = str;
+                    if (str != NULL) {
+                        label.text = str;
+                    }
                 }
             }
             //inv notes
             if (label.tag == 14) {
                 if (label.text != nil) {
                     NSString *str = [NSString stringWithFormat:@"VAT Number: %@", [defaults objectForKey:@"User_VAT"]];
-                    label.text = str;
+                    if (str != NULL) {
+                        label.text = str;
+                    }
                 }
             }
             [self drawText:label.text inFrame:label.frame];

@@ -19,6 +19,7 @@
     NSArray *InvoiceRowObjects;
     UIPopoverController *addInvoiceController;
     NSString *todaysDate;
+   // NSMutableArray *InvoiceRowObjects;
 }
 @end
 
@@ -27,25 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSString *to  = @"1/1/2014";
-    NSDateFormatter *f = [[NSDateFormatter alloc] init];
-    [f setDateFormat:@"dd/MM/yyyy"];
-    //NSDate *startDate = [NSDate date];
-    NSDate *startDate = [[NSDate alloc]init];
-    NSLog(@"%@",startDate);
-    NSDate *endDate = [f dateFromString:to];
-    NSLog(@"%@",endDate);
-    
-    
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
-                                                        fromDate:startDate
-                                                          toDate:endDate
-                                                         options:0];
-    
-    NSLog(@"%ld", (long)components.day);
-    
     
     //Get Date Info
     NSDate *now = [[NSDate alloc] init];
@@ -66,6 +48,10 @@
 }
 - (long)GetDueDateFromDate:(NSString *)to
 {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int terms = [[defaults objectForKey:@"inv_term_period"]integerValue];
+    
     NSDateFormatter *f = [[NSDateFormatter alloc] init];
     [f setDateFormat:@"dd/MM/yyyy"];
     NSDate *startDate = [[NSDate alloc]init];
@@ -78,7 +64,9 @@
                                                         fromDate:startDate
                                                           toDate:endDate
                                                          options:0];
-    return components.day;
+    
+    
+    return components.day+terms;
 }
 
 #pragma mark - Table view data source
@@ -112,7 +100,7 @@
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
-
+    NSError *error = nil;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Invoice"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date"
                                                                                      ascending:YES
@@ -122,6 +110,8 @@
                                                                         managedObjectContext:context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    
+    InvoiceRowObjects = [context executeFetchRequest:request error:&error];
 
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,6 +119,43 @@
     Invoice *invoinceSelected = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate fillDetailViewWithInvoiceData:invoinceSelected fromSender:self];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        
+        Invoice *inv = [InvoiceRowObjects objectAtIndex:indexPath.row];
+        
+        [self deleteInvoiceWithNumber:inv.invoiceNumber];
+        [tableView reloadData];
+        NSLog(@"DELETE ROW NUMBER %ld", (long)indexPath.row);
+    }
+}
+/**********************************************************
+ Method:(void)deleteInvoiceWithNumber:(NSString *)invNumber
+ Description:Deletes a invoice for a given invoice number
+ Tag:Core Data
+ **********************************************************/
+-(void)deleteInvoiceWithNumber:(NSString *)invNumber
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Invoice"];
+    request.predicate = [NSPredicate predicateWithFormat:@"invoiceNumber = %@", invNumber];
+    NSError *error = nil;
+    NSArray *invoices = [context executeFetchRequest:request error:&error];
+    if (invoices.count == 0) {
+        //Nothing to Delete.
+    }
+    if (invoices.count == 1) {
+        //Delete all invoices matching that unique number!
+        for (NSManagedObject *invoice in invoices) {
+            [context deleteObject:invoice];
+        }
+    }
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

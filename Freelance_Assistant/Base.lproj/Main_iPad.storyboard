@@ -358,6 +358,7 @@
                         <outlet property="chargesTableView" destination="0z3-g8-NlP" id="gUo-e0-KlV"/>
                         <outlet property="clientNameField" destination="7uH-KB-41g" id="MAH-qV-20k"/>
                         <outlet property="dateField" destination="8xB-jY-awH" id="IKc-ne-GSb"/>
+                        <outlet property="editBtn" destination="1zo-29-JXi" id="ZD7-6d-4DG"/>
                         <outlet property="invoiceField" destination="yRo-VS-ONH" id="ynE-di-P0u"/>
                         <outlet property="markAsPaidBtn" destination="DRg-Sh-3lw" id="0A0-67-ZbU"/>
                         <outlet property="projectField" destination="cim-fr-6MU" id="nMs-aw-FZf"/>

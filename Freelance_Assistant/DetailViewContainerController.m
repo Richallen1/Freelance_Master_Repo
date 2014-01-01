@@ -98,25 +98,4 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
--(void)FirstStartUp
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![[defaults objectForKey:@"First_Start_Up"] isEqualToString:@"NO"]) {
-       [self showViewWithId:2 withSender:self];
-        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Welcome" message:@"Welcome to the Freelance Assistant App. Please fill in your information to use for your invoices." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-        
-        
-        
-        [defaults setObject:@"NO" forKey:@"First_Start_Up"];
-    }
-    else
-    {
-        //[self performSegueWithIdentifier:@"" sender:self];
-    }
-    
-    
-    
-    
-}
 @end

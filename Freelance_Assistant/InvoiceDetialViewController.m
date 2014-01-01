@@ -37,6 +37,8 @@
 @synthesize vatLabel=_vatLabel;
 @synthesize totalLabel=_totalLabel;
 @synthesize invoiceRows=_invoiceRows;
+@synthesize editBtn=_editBtn;
+
 
 - (void)viewDidLoad
 {
@@ -232,13 +234,41 @@
     [self ClearFields];
 }
 
-- (IBAction)MarkAsPaid:(id)sender {
+- (IBAction)MarkAsPaid:(id)sender
+{
+    Invoice *inv = [self getInvoiceForNumber:_invoiceField.text];
+    NSNumber *n = [[NSNumber alloc]initWithInt:1];
+    inv.paid = n;
+    
+    NSError *err;
+    [context save:&err];
+    
+    if (err) {
+        NSLog(@"%@", err);
+    }
 }
 
 - (IBAction)addItem:(id)sender {
 }
 
-- (IBAction)editItems:(id)sender {
+- (IBAction)editItems:(id)sender
+{
+    {
+        NSLog(@"Entered Editing Mode....");
+        
+        if (self.chargesTableView.editing == NO)
+        {
+            _editBtn.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+            [self.chargesTableView setEditing: YES animated: YES];
+        }
+        else
+        {
+            NSLog(@"End Editing Mode....");
+            _editBtn.tintColor = nil;
+            
+            [self.chargesTableView setEditing: NO animated: YES];
+        }
+    }
 }
 -(void)fillDetailViewWithInvoiceData:(Invoice *)invoice fromSender:(id)sender
 {
