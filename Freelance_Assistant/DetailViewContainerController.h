@@ -21,7 +21,7 @@
 @property (strong, nonatomic) DetailViewController *detailViewController3;
 @property (strong, nonatomic) DetailViewController *detailViewController4;
 
-@property (weak, nonatomic) IBOutlet UIImageView *labelImg1;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel1;
+
+@property (weak, nonatomic) IBOutlet UITextView *infoTextView;
 
 @end

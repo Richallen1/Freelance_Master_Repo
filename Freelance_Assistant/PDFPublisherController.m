@@ -318,8 +318,8 @@
         if([view isKindOfClass:[UIImageView class]])
         {
             
-            UIImage* logo = [UIImage imageNamed:@"tempLogo.jpg"];
-            [self drawImage:logo inRect:view.frame];
+//            UIImage* logo = [UIImage imageNamed:@"tempLogo.jpg"];
+//            [self drawImage:logo inRect:view.frame];
         }
     }
 }

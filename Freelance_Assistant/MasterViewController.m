@@ -5,6 +5,8 @@
 //  Created by Rich Allen on 24/12/2013.
 //  Copyright (c) 2013 Magic Entertainment. All rights reserved.
 //
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 #import "MasterViewController.h"
 #import "DetailViewContainerController.h"
@@ -22,11 +24,12 @@
 {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor redColor];
+    self.tableView.backgroundColor = UIColorFromRGB(0xF2F2F2);
     
     _menuItems = @[@"Invoices", @"Clients", @"Settings", @"Help"];
     self.detailViewContainerController = (DetailViewContainerController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    [self FirstStartUp];
+    
+    
    
 }
 
@@ -58,12 +61,6 @@
     return cell;
 }
 
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    // Return NO if you do not want the specified item to be editable.
-//    return YES;
-//}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 2) {
@@ -90,17 +87,7 @@
         [self.detailViewContainerController showViewWithId:3 withSender:segue.destinationViewController];
     }
 }
--(void)FirstStartUp
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![[defaults objectForKey:@"First_Start_Up"] isEqualToString:@"NO"]) {
-        [self.detailViewContainerController showViewWithId:2 withSender:self];
-        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Welcome" message:@"Welcome to the Freelance Assistant App. Please fill in your information to use for your invoices." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-        
-        [defaults setObject:@"NO" forKey:@"First_Start_Up"];
-            }
-}
+
 
 
 

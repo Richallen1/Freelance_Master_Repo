@@ -38,5 +38,7 @@
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Stored" message:@"Your details have been saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
+    
+    NSLog(@"Stored User Email: %@",[defaults objectForKey:@"User_Name"]);
 }
 @end

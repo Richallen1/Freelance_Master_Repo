@@ -5,6 +5,7 @@
 //  Created by Rich Allen on 26/12/2013.
 //  Copyright (c) 2013 Magic Entertainment. All rights reserved.
 //
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "InvoiceSideViewController.h"
 #import "AppDelegate.h"
@@ -28,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.tableView.backgroundColor = UIColorFromRGB(0xF2F2F2);
     //Get Date Info
     NSDate *now = [[NSDate alloc] init];
 	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -75,25 +76,27 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    cell.backgroundColor = [UIColor clearColor];
     Invoice *inv = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
     cell.textLabel.text = inv.projectName;
-    
-    
-    long daysDue = [self GetDueDateFromDate:inv.date];
- 
-    if (daysDue <= 0) {
-        NSString *detailStr = @"This Invoice is Overdue!";
-        cell.detailTextLabel.textColor = [UIColor redColor];
-        cell.detailTextLabel.text = detailStr;
-    }
-    else
-    {
-    NSString *detailStr = [NSString stringWithFormat:@"This Invoice due in %ld days", daysDue];
-        cell.detailTextLabel.text = detailStr;
-    }
-    
+    NSNumber *paid = [[NSNumber alloc]initWithInt:1];
+        if (inv.paid == paid) {
+                cell.detailTextLabel.text = @"Paid";
+        }
+        else
+        {
+            long daysDue = [self GetDueDateFromDate:inv.date];
+            if (daysDue <= 0) {
+                NSString *detailStr = @"This Invoice is Overdue!";
+                cell.detailTextLabel.textColor = [UIColor redColor];
+                cell.detailTextLabel.text = detailStr;
+            }
+            else
+            {
+            NSString *detailStr = [NSString stringWithFormat:@"This Invoice due in %ld days", daysDue];
+                cell.detailTextLabel.text = detailStr;
+            }
+        }
     
     return cell;
 }

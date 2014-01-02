@@ -35,22 +35,22 @@
 
 - (IBAction)updateClient:(id)sender
 {
-//        NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:context];
-//        NSManagedObject *newClient = [[NSManagedObject alloc]initWithEntity:entityDesc insertIntoManagedObjectContext:context];
-//    
-//        [newClient setValue:self.firstName.text forKey:@"firstName"];
-//        [newClient setValue:self.surname.text forKey:@"lastName"];
-//        [newClient setValue:self.company.text forKey:@"company"];
-//        [newClient setValue:self.address.text forKey:@"address"];
-//        [newClient setValue:self.address2.text forKey:@"address2"];
-//        [newClient setValue:self.city.text forKey:@"city"];
-//        [newClient setValue:self.state.text forKey:@"state"];
-//        [newClient setValue:self.zip.text forKey:@"zip"];
-//        [newClient setValue:self.phone.text forKey:@"phone"];
-//        [newClient setValue:self.email.text forKey:@"email"];
-//    
-//        NSError *err;
-//        [context save:&err];
+        NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:context];
+        NSManagedObject *newClient = [[NSManagedObject alloc]initWithEntity:entityDesc insertIntoManagedObjectContext:context];
+    
+        [newClient setValue:self.firstName.text forKey:@"firstName"];
+        [newClient setValue:self.surname.text forKey:@"lastName"];
+        [newClient setValue:self.company.text forKey:@"company"];
+        [newClient setValue:self.address.text forKey:@"address"];
+        [newClient setValue:self.address2.text forKey:@"address2"];
+        [newClient setValue:self.city.text forKey:@"city"];
+        [newClient setValue:self.state.text forKey:@"state"];
+        [newClient setValue:self.zip.text forKey:@"zip"];
+        [newClient setValue:self.phone.text forKey:@"phone"];
+        [newClient setValue:self.email.text forKey:@"email"];
+    
+        NSError *err;
+        [context save:&err];
 
 }
 

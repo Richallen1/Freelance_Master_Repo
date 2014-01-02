@@ -252,6 +252,7 @@
     if (err) {
         NSLog(@"%@", err);
     }
+    [self.delegate reloadTableFromDetailView];
 }
 
 - (IBAction)addItem:(id)sender {
@@ -321,7 +322,8 @@
     
         //Table View Data
         NSSet *chargesSet = invoice.invoice_charges;
-    if ([chargesSet count] != 0) {
+        NSLog(@"Charges Set: %@", chargesSet);
+        if ([chargesSet count] != 0) {
         NSLog(@"%lu", (unsigned long)chargesSet.count);
         NSLog(@"%@", invoice.projectName);
         
@@ -335,7 +337,7 @@
             
             [dict setObject:invChg.date forKey:@"Date"];
             [dict setObject:invChg.desc forKey:@"Desc"];
-            [dict setObject:invChg.price forKey:@"Price"];
+            [dict setObject:invChg.price forKey:@"subTotal"];
             [dict setObject:invChg.vat forKey:@"VAT"];
             [dict setObject:invChg.total forKey:@"Total"];
             [dict setObject:invChg.qty forKey:@"Qty"];
@@ -527,7 +529,7 @@
     
     NSMutableDictionary *currentDict = [[NSMutableDictionary alloc]init];
     
-    NSLog(@"%@", currentDict);
+    NSLog(@"Charges Dict: %@", currentDict);
     
     currentDict = [_invoiceRows objectAtIndex:indexPath.row];
     //cell.textLabel.text = [currentDict objectForKey:@"Desc"];

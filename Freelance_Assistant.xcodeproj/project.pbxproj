@@ -53,6 +53,8 @@
 		F4E105CE1872DFA70013BCBA /* StartUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105CD1872DFA70013BCBA /* StartUpViewController.m */; };
 		F4E105D418731DEB0013BCBA /* HelpDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105D318731DEB0013BCBA /* HelpDetailViewController.m */; };
 		F4E105D718731FF50013BCBA /* HelpSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E105D618731FF50013BCBA /* HelpSideViewController.m */; };
+		F4E105D918756A440013BCBA /* leatherbook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4E105D818756A440013BCBA /* leatherbook.jpg */; };
+		F4E105DD187578A80013BCBA /* mainBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4E105DC187578A80013BCBA /* mainBG.jpg */; };
 		F4E509AB186F19C4003C326F /* AddInvoicePopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E509AA186F19C4003C326F /* AddInvoicePopoverViewController.m */; };
 		F4E509AE186F439E003C326F /* ClientPickerPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E509AD186F439E003C326F /* ClientPickerPopoverViewController.m */; };
 /* End PBXBuildFile section */
@@ -112,6 +114,7 @@
 		9B95F4AD186CC34E007318DC /* ClientsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientsDetailViewController.m; sourceTree = "<group>"; };
 		9B95F4B0186E1156007318DC /* AddClientPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientPopoverViewController.h; sourceTree = "<group>"; };
 		9B95F4B1186E1156007318DC /* AddClientPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientPopoverViewController.m; sourceTree = "<group>"; };
+		F4284D2018759E1A00B6EC08 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
 		F4E1050518702D0E0013BCBA /* AddChargeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddChargeTableViewController.h; sourceTree = "<group>"; };
 		F4E1050618702D0E0013BCBA /* AddChargeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddChargeTableViewController.m; sourceTree = "<group>"; };
 		F4E1050E187084C20013BCBA /* tempLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tempLogo.jpg; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 		F4E105D318731DEB0013BCBA /* HelpDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpDetailViewController.m; sourceTree = "<group>"; };
 		F4E105D518731FF50013BCBA /* HelpSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpSideViewController.h; sourceTree = "<group>"; };
 		F4E105D618731FF50013BCBA /* HelpSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpSideViewController.m; sourceTree = "<group>"; };
+		F4E105D818756A440013BCBA /* leatherbook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leatherbook.jpg; sourceTree = "<group>"; };
+		F4E105DC187578A80013BCBA /* mainBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mainBG.jpg; sourceTree = "<group>"; };
 		F4E509A9186F19C4003C326F /* AddInvoicePopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddInvoicePopoverViewController.h; sourceTree = "<group>"; };
 		F4E509AA186F19C4003C326F /* AddInvoicePopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddInvoicePopoverViewController.m; sourceTree = "<group>"; };
 		F4E509AC186F439E003C326F /* ClientPickerPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientPickerPopoverViewController.h; sourceTree = "<group>"; };
@@ -177,6 +182,7 @@
 		9B95F3841869BF4B007318DC = {
 			isa = PBXGroup;
 			children = (
+				F4284D2018759E1A00B6EC08 /* icon1.png */,
 				9B95F3981869BF4B007318DC /* Freelance_Assistant */,
 				9B95F3C11869BF4B007318DC /* Freelance_AssistantTests */,
 				9B95F38F1869BF4B007318DC /* Frameworks */,
@@ -221,6 +227,8 @@
 		9B95F3991869BF4B007318DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F4E105DC187578A80013BCBA /* mainBG.jpg */,
+				F4E105D818756A440013BCBA /* leatherbook.jpg */,
 				9B95F39A1869BF4B007318DC /* Freelance_Assistant-Info.plist */,
 				9B95F39B1869BF4B007318DC /* InfoPlist.strings */,
 				9B95F39E1869BF4B007318DC /* main.m */,
@@ -464,9 +472,11 @@
 			files = (
 				F4E10512187084C20013BCBA /* tempLogo.jpg in Resources */,
 				9B95F3A91869BF4B007318DC /* Main_iPad.storyboard in Resources */,
+				F4E105D918756A440013BCBA /* leatherbook.jpg in Resources */,
 				F4E105C91871F2A20013BCBA /* Maintainence.storyboard in Resources */,
 				9B95F3B41869BF4B007318DC /* Images.xcassets in Resources */,
 				9B95F3A61869BF4B007318DC /* Main_iPhone.storyboard in Resources */,
+				F4E105DD187578A80013BCBA /* mainBG.jpg in Resources */,
 				F4E105CB1871F2B50013BCBA /* BETA_End.storyboard in Resources */,
 				F4E1051918708F720013BCBA /* InvoiceView.xib in Resources */,
 				9B95F39D1869BF4B007318DC /* InfoPlist.strings in Resources */,
@@ -660,6 +670,7 @@
 				INFOPLIST_FILE = "Freelance_Assistant/Freelance_Assistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -675,6 +686,7 @@
 				INFOPLIST_FILE = "Freelance_Assistant/Freelance_Assistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

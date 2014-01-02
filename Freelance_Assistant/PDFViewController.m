@@ -103,8 +103,19 @@
     {
         toRecipients = [NSArray arrayWithObject:@""];
     }
-    NSArray *bccRecipients = [NSArray arrayWithObject:[defaults objectForKey:@"User_Email"]];
-	
+    
+    NSArray *bccRecipients;
+    
+	if ([defaults objectForKey:@"User_Email"] == NULL) {
+        bccRecipients = [NSArray arrayWithObject:@""];
+    }
+    else
+    {
+        bccRecipients = [NSArray arrayWithObject:[defaults objectForKey:@"User_Email"]];
+    }
+    NSLog(@"User Email: %@", bccRecipients);
+    NSLog(@"Client Email: %@", toRecipients);
+    
 	[picker setToRecipients:toRecipients];
     [picker setBccRecipients:bccRecipients];
 

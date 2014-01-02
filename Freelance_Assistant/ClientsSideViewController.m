@@ -5,6 +5,7 @@
 //  Created by Rich Allen on 26/12/2013.
 //  Copyright (c) 2013 Magic Entertainment. All rights reserved.
 //
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "ClientsSideViewController.h"
 #import "AppDelegate.h"
@@ -25,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.backgroundColor = UIColorFromRGB(0xF2F2F2);
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
     
@@ -45,7 +47,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Client *client = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = client.company;
     
     return cell;
