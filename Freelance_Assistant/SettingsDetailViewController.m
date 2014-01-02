@@ -33,6 +33,8 @@
 {
     [super viewDidLoad];
 
+
+    
     NSUserDefaults *defaults = [[NSUserDefaults alloc]init];
     _userNameLabel.text  = [defaults objectForKey:@"User_Name"];
     _userAddressLabel.text = [defaults objectForKey:@"User_Address_1"];

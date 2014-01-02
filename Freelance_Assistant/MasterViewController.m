@@ -22,8 +22,12 @@
 {
     [super viewDidLoad];
     
+    self.tableView.backgroundColor = [UIColor redColor];
+    
     _menuItems = @[@"Invoices", @"Clients", @"Settings", @"Help"];
     self.detailViewContainerController = (DetailViewContainerController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    [self FirstStartUp];
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +52,8 @@
 {
     NSString *CellIdentifier = [self.menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+ 
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = [_menuItems objectAtIndex:indexPath.row];
     return cell;
 }
@@ -85,27 +90,17 @@
         [self.detailViewContainerController showViewWithId:3 withSender:segue.destinationViewController];
     }
 }
-//-(void)FirstStartUp
-//{
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    if (![[defaults objectForKey:@"First_Start_Up"] isEqualToString:@"NO"]) {
-//        [self showViewWithId:2 withSender:self];
-//        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Welcome" message:@"Welcome to the Freelance Assistant App. Please fill in your information to use for your invoices." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-//        [alert show];
-//        
-//        
-//        
-//        [defaults setObject:@"NO" forKey:@"First_Start_Up"];
-//    }
-//    else
-//    {
-//        //[self performSegueWithIdentifier:@"" sender:self];
-//    }
-//    
-//    
-//    
-//    
-//}
+-(void)FirstStartUp
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![[defaults objectForKey:@"First_Start_Up"] isEqualToString:@"NO"]) {
+        [self.detailViewContainerController showViewWithId:2 withSender:self];
+        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Welcome" message:@"Welcome to the Freelance Assistant App. Please fill in your information to use for your invoices." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        [defaults setObject:@"NO" forKey:@"First_Start_Up"];
+            }
+}
 
 
 

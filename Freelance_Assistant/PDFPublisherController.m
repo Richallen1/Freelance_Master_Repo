@@ -96,7 +96,7 @@
     NSString *path = [arrayPaths objectAtIndex:0];
     NSString* pdfFileName = [path stringByAppendingPathComponent:fileName];
     
-    NSLog(@"%@", pdfFileName);
+    NSLog(@"PDF File: %@", pdfFileName);
     
     return pdfFileName;
     

@@ -12,26 +12,21 @@
 @interface HelpSideViewController ()<HelpDetailDelegate>
 {
     NSMutableArray *helpTopics;
+    NSMutableArray *helpDetail;
     
 }
 @end
 
 @implementation HelpSideViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     helpTopics = [[NSMutableArray alloc]init];
+    helpDetail = [[NSMutableArray alloc]init];
+    
+    [self BuildHelpLibrary];
 
 }
 
@@ -59,17 +54,38 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSMutableDictionary *currentDict = [helpTopics objectAtIndex:indexPath.row];
-    cell.textLabel.text = [currentDict objectForKey:@"topic"];
+    
+    cell.textLabel.text = [helpTopics objectAtIndex:indexPath.row];
     
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    [self.delegate PassHelpDataWithTopic:@"sssssss" andArticle:@"dddddd"];
+    [self.delegate PassHelpDataWithTopic:[helpTopics objectAtIndex:indexPath.row] andArticle:[helpDetail objectAtIndex:indexPath.row]];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+- (void)BuildHelpLibrary
+{
 
+    [helpTopics addObject:@"How to start an Invoice"];
+    [helpTopics addObject:@"How to add a Client"];
+    [helpTopics addObject:@"Change my details"];
+    [helpTopics addObject:@"Email out my Invoice"];
+    [helpTopics addObject:@"Update a Client's details"];
+
+    
+    [helpDetail addObject:@"Simply select the invoice menu and then click the + button and you will be asked for the project name. Once you have done that then choose the row with your new invoice and fill in the details on the right side."];
+    [helpDetail addObject:@"Select the Client menu and then press the + sign. You will then be given a popup where you can enter the client info and then press the add client button."];
+    [helpDetail addObject:@"Once you have pressed the Save and Preview button you will have the option to send the client the email directly."];
+    [helpDetail addObject:@"Choose the Clienton the left hand side and then make the required changes. Once complete hit the update client button."];
+    [helpDetail addObject:@""];
+
+    
+    
+    
+    
+    
+}
 @end

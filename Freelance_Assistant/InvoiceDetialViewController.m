@@ -199,8 +199,6 @@
         }
     }
 }
-
-
 - (BOOL)CheckFieldsForSave
 {
     if ([_dateField.text  isEqual: @""]) {
@@ -223,7 +221,15 @@
         [alert show];
         return false;
     }
-  
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"User_Name"] == NULL || [defaults objectForKey:@"User_Address_1"] == NULL || [defaults objectForKey:@"User_Address_2"] == NULL)
+    {
+        [self SaveInvoice];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Some info missing" message:@"Please go to the setting menu as your information is missing. Your invoice has been saved so you can return later." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        return false;
+    }
     return true;
 }
 - (IBAction)DeleteInvoice:(id)sender
@@ -269,6 +275,17 @@
             [self.chargesTableView setEditing: NO animated: YES];
         }
     }
+}
+-(void)clearFields
+{
+    _projectField.text = @"";
+    _invoiceField.text = @"";
+    _dateField.text = @"";
+    _clientNameField.text = @"";
+    _subTotalLabel.text = @"";
+    _vatLabel.text = @"";
+    _totalLabel.text = @"";
+    _invoiceRows = nil;
 }
 -(void)fillDetailViewWithInvoiceData:(Invoice *)invoice fromSender:(id)sender
 {
@@ -415,8 +432,7 @@
     }
     if ([segue.identifier isEqualToString:@"Preview Segue"]) {
         
-        
-        
+
         [self SaveInvoice];
         
         NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc]init];

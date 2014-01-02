@@ -47,9 +47,9 @@
 - (IBAction)doneButton:(id)sender
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:_address1 forKey:@"User_Address_1"];
-    [defaults setObject:_address2 forKey:@"User_Address_2"];
-    [defaults setObject:_postCode forKey:@"User_Postcode"];
+    [defaults setObject:_address1.text forKey:@"User_Address_1"];
+    [defaults setObject:_address2.text forKey:@"User_Address_2"];
+    [defaults setObject:_postCode.text forKey:@"User_Postcode"];
     [defaults synchronize];
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Stored" message:@"Your details have been saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];

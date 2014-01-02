@@ -14,6 +14,7 @@
 @class Invoice;
 @protocol invoiceSideViewController
 @optional
+-(void)clearFields;
 -(void)fillDetailViewWithInvoiceData:(Invoice *)invoice fromSender:(id)sender;
 @end
 

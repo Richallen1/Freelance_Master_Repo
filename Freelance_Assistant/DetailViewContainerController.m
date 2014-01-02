@@ -14,12 +14,24 @@
 @end
 
 @implementation DetailViewContainerController
+@synthesize infoLabel1=_infoLabel1;
+@synthesize labelImg1=_labelImg1;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"User_Name"] == NULL || [defaults objectForKey:@"User_Address_1"] == NULL || [defaults objectForKey:@"User_Address_2"] == NULL)
+    {
+        _infoLabel1.hidden = false;
+        _labelImg1.hidden = false;
+    }
+    else
+    {
+        _infoLabel1.hidden = true;
+        _labelImg1.hidden = true;
+    }
     
 	self.detailViewController1 = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController1"];
     self.detailViewController2 = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController2"];
@@ -29,12 +41,8 @@
     [self addChildViewController:self.detailViewController2];
     [self addChildViewController:self.detailViewController3];
     [self addChildViewController:self.detailViewController4];
+    
 
-    
-    
-    
-    [self FirstStartUp];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +78,6 @@
 
     }
     [self showChildViewController:viewController];
-      
 }
 
 -(void)showChildViewController:(UIViewController*)content {
@@ -87,7 +94,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = NSLocalizedString(@"Home", @"Home");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }

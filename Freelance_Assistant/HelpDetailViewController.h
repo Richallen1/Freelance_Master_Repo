@@ -11,5 +11,6 @@
 @interface HelpDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *helpTopicLabel;
 @property (weak, nonatomic) IBOutlet UITextView *helpTextView;
+- (IBAction)contactUs:(id)sender;
 
 @end
