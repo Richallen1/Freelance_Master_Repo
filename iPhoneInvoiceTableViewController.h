@@ -10,8 +10,8 @@
 #import "CoreDataTableViewController.h"
 
 
-@interface iPhoneInvoiceTableViewController : UITableViewController
-- (IBAction)AddInvoice:(id)sender;
+@interface iPhoneInvoiceTableViewController : CoreDataTableViewController
+
 
 
 @end

@@ -17,7 +17,6 @@
 		9B86FBD1188196E1009FE411 /* CameraRecieptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FBD0188196E1009FE411 /* CameraRecieptViewController.m */; };
 		9B86FC1518830A41009FE411 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC1418830A41009FE411 /* Invoice.m */; };
 		9B86FC1818830A41009FE411 /* Reciept.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC1718830A41009FE411 /* Reciept.m */; };
-		9B86FC1A18833F84009FE411 /* camera_icon_800_clr_13235.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FC1918833F84009FE411 /* camera_icon_800_clr_13235.png */; };
 		9B86FC2218834299009FE411 /* No INvoice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FC2118834299009FE411 /* No INvoice.jpg */; };
 		9B86FC37188B0B34009FE411 /* iPhoneInvoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC36188B0B34009FE411 /* iPhoneInvoiceTableViewController.m */; };
 		9B86FC3A188B0B61009FE411 /* iPhoneClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC39188B0B61009FE411 /* iPhoneClientsTableViewController.m */; };
@@ -51,6 +50,8 @@
 		9B95F4AB186CC0D3007318DC /* ClientsSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4AA186CC0D3007318DC /* ClientsSideViewController.m */; };
 		9B95F4AE186CC34E007318DC /* ClientsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4AD186CC34E007318DC /* ClientsDetailViewController.m */; };
 		9B95F4B2186E1156007318DC /* AddClientPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4B1186E1156007318DC /* AddClientPopoverViewController.m */; };
+		F4D0B7DB188D434300E32D4A /* camera_icon_800_clr_13235.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D0B7DA188D434300E32D4A /* camera_icon_800_clr_13235.png */; };
+		F4D0B7DE188D876900E32D4A /* iPhoneInvoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D0B7DD188D876900E32D4A /* iPhoneInvoiceDetailViewController.m */; };
 		F4E1050718702D0E0013BCBA /* AddChargeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1050618702D0E0013BCBA /* AddChargeTableViewController.m */; };
 		F4E10512187084C20013BCBA /* tempLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4E1050E187084C20013BCBA /* tempLogo.jpg */; };
 		F4E1051818708F720013BCBA /* PDFPublisherController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1051418708F720013BCBA /* PDFPublisherController.m */; };
@@ -98,7 +99,6 @@
 		9B86FC1418830A41009FE411 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
 		9B86FC1618830A41009FE411 /* Reciept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reciept.h; sourceTree = "<group>"; };
 		9B86FC1718830A41009FE411 /* Reciept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reciept.m; sourceTree = "<group>"; };
-		9B86FC1918833F84009FE411 /* camera_icon_800_clr_13235.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon_800_clr_13235.png; path = ../../../Downloads/camera_icon_800_clr_13235.png; sourceTree = "<group>"; };
 		9B86FC2118834299009FE411 /* No INvoice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "No INvoice.jpg"; sourceTree = "<group>"; };
 		9B86FC35188B0B34009FE411 /* iPhoneInvoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneInvoiceTableViewController.h; sourceTree = "<group>"; };
 		9B86FC36188B0B34009FE411 /* iPhoneInvoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneInvoiceTableViewController.m; sourceTree = "<group>"; };
@@ -150,6 +150,9 @@
 		9B95F4AD186CC34E007318DC /* ClientsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientsDetailViewController.m; sourceTree = "<group>"; };
 		9B95F4B0186E1156007318DC /* AddClientPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientPopoverViewController.h; sourceTree = "<group>"; };
 		9B95F4B1186E1156007318DC /* AddClientPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientPopoverViewController.m; sourceTree = "<group>"; };
+		F4D0B7DA188D434300E32D4A /* camera_icon_800_clr_13235.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_icon_800_clr_13235.png; sourceTree = "<group>"; };
+		F4D0B7DC188D876900E32D4A /* iPhoneInvoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneInvoiceDetailViewController.h; sourceTree = "<group>"; };
+		F4D0B7DD188D876900E32D4A /* iPhoneInvoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneInvoiceDetailViewController.m; sourceTree = "<group>"; };
 		F4E1050518702D0E0013BCBA /* AddChargeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddChargeTableViewController.h; sourceTree = "<group>"; };
 		F4E1050618702D0E0013BCBA /* AddChargeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddChargeTableViewController.m; sourceTree = "<group>"; };
 		F4E1050E187084C20013BCBA /* tempLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tempLogo.jpg; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 				9B86FC3C188B0B9A009FE411 /* iPhoneSettingsTableViewController.m */,
 				9B86FC3E188B0BAB009FE411 /* iPhoneHelpTableViewController.h */,
 				9B86FC3F188B0BAB009FE411 /* iPhoneHelpTableViewController.m */,
+				F4D0B7DF188D876D00E32D4A /* Detail VC's */,
 			);
 			name = "iPhone Classes";
 			sourceTree = "<group>";
@@ -294,7 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				9B86FC2118834299009FE411 /* No INvoice.jpg */,
-				9B86FC1918833F84009FE411 /* camera_icon_800_clr_13235.png */,
+				F4D0B7DA188D434300E32D4A /* camera_icon_800_clr_13235.png */,
 				F4E105DC187578A80013BCBA /* mainBG.jpg */,
 				F4E105D818756A440013BCBA /* leatherbook.jpg */,
 				9B95F39A1869BF4B007318DC /* Freelance_Assistant-Info.plist */,
@@ -417,6 +421,15 @@
 				F4E105CD1872DFA70013BCBA /* StartUpViewController.m */,
 			);
 			name = Popovers;
+			sourceTree = "<group>";
+		};
+		F4D0B7DF188D876D00E32D4A /* Detail VC's */ = {
+			isa = PBXGroup;
+			children = (
+				F4D0B7DC188D876900E32D4A /* iPhoneInvoiceDetailViewController.h */,
+				F4D0B7DD188D876900E32D4A /* iPhoneInvoiceDetailViewController.m */,
+			);
+			name = "Detail VC's";
 			sourceTree = "<group>";
 		};
 		F4E10508187082390013BCBA /* PDF Publisher */ = {
@@ -549,13 +562,13 @@
 				F4E10512187084C20013BCBA /* tempLogo.jpg in Resources */,
 				9B95F3A91869BF4B007318DC /* Main_iPad.storyboard in Resources */,
 				F4E105D918756A440013BCBA /* leatherbook.jpg in Resources */,
-				9B86FC1A18833F84009FE411 /* camera_icon_800_clr_13235.png in Resources */,
 				9B86FC2218834299009FE411 /* No INvoice.jpg in Resources */,
 				9B86FB3E1876FFC9009FE411 /* 58x58.png in Resources */,
 				F4E105C91871F2A20013BCBA /* Maintainence.storyboard in Resources */,
 				9B86FB3F1876FFC9009FE411 /* 40x40.png in Resources */,
 				9B95F3B41869BF4B007318DC /* Images.xcassets in Resources */,
 				9B95F3A61869BF4B007318DC /* Main_iPhone.storyboard in Resources */,
+				F4D0B7DB188D434300E32D4A /* camera_icon_800_clr_13235.png in Resources */,
 				F4E105DD187578A80013BCBA /* mainBG.jpg in Resources */,
 				9B86FB401876FFC9009FE411 /* 29x29.png in Resources */,
 				9B86FB3D1876FFC9009FE411 /* 152x152.png in Resources */,
@@ -609,6 +622,7 @@
 				9B95F4AE186CC34E007318DC /* ClientsDetailViewController.m in Sources */,
 				9B95F48B186C466C007318DC /* InvoiceDetialViewController.m in Sources */,
 				F4E105351871A48D0013BCBA /* UserInfoViewController.m in Sources */,
+				F4D0B7DE188D876900E32D4A /* iPhoneInvoiceDetailViewController.m in Sources */,
 				F4E105CE1872DFA70013BCBA /* StartUpViewController.m in Sources */,
 				9B95F4B2186E1156007318DC /* AddClientPopoverViewController.m in Sources */,
 				9B95F3AC1869BF4B007318DC /* Freelance_Assistant.xcdatamodeld in Sources */,
