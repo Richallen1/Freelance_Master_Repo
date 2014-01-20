@@ -109,7 +109,7 @@
         [defaults setObject:@"" forKey:@"User_Account_Number"];
         [defaults setObject:@"" forKey:@"User_Sort_Code"];
         [defaults setObject:@"" forKey:@"User_VAT"];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Welcome to Freelance Assistant" message:@"We need to get some information from you so that we can put your details on your invoices. Clieck ok to go to the settings tab and enter in the information." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Welcome to Freelance Assistant" message:@"We need to get some information from you so that we can put your details on your invoices. Click ok to go to the settings tab and enter in the information." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
         [defaults setObject:@"NO" forKey:@"First_Start_Up"];
     }

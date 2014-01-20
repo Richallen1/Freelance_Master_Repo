@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B86FB3B1876FFC9009FE411 /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FB351876FFC9009FE411 /* 76x76.png */; };
+		9B86FB3C1876FFC9009FE411 /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FB361876FFC9009FE411 /* 80x80.png */; };
+		9B86FB3D1876FFC9009FE411 /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FB371876FFC9009FE411 /* 152x152.png */; };
+		9B86FB3E1876FFC9009FE411 /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FB381876FFC9009FE411 /* 58x58.png */; };
+		9B86FB3F1876FFC9009FE411 /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FB391876FFC9009FE411 /* 40x40.png */; };
+		9B86FB401876FFC9009FE411 /* 29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FB3A1876FFC9009FE411 /* 29x29.png */; };
+		9B86FBCC18809F24009FE411 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B86FBCB18809F24009FE411 /* AddressBookUI.framework */; };
+		9B86FBD1188196E1009FE411 /* CameraRecieptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FBD0188196E1009FE411 /* CameraRecieptViewController.m */; };
+		9B86FC1518830A41009FE411 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC1418830A41009FE411 /* Invoice.m */; };
+		9B86FC1818830A41009FE411 /* Reciept.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC1718830A41009FE411 /* Reciept.m */; };
+		9B86FC1A18833F84009FE411 /* camera_icon_800_clr_13235.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FC1918833F84009FE411 /* camera_icon_800_clr_13235.png */; };
+		9B86FC2218834299009FE411 /* No INvoice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B86FC2118834299009FE411 /* No INvoice.jpg */; };
+		9B86FC37188B0B34009FE411 /* iPhoneInvoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC36188B0B34009FE411 /* iPhoneInvoiceTableViewController.m */; };
+		9B86FC3A188B0B61009FE411 /* iPhoneClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC39188B0B61009FE411 /* iPhoneClientsTableViewController.m */; };
+		9B86FC3D188B0B9A009FE411 /* iPhoneSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC3C188B0B9A009FE411 /* iPhoneSettingsTableViewController.m */; };
+		9B86FC40188B0BAB009FE411 /* iPhoneHelpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B86FC3F188B0BAB009FE411 /* iPhoneHelpTableViewController.m */; };
 		9B95F3911869BF4B007318DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B95F3901869BF4B007318DC /* Foundation.framework */; };
 		9B95F3931869BF4B007318DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B95F3921869BF4B007318DC /* CoreGraphics.framework */; };
 		9B95F3951869BF4B007318DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B95F3941869BF4B007318DC /* UIKit.framework */; };
@@ -31,7 +47,6 @@
 		9B95F492186C4CA1007318DC /* InvoiceSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F491186C4CA1007318DC /* InvoiceSideViewController.m */; };
 		9B95F49F186C5314007318DC /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F49E186C5314007318DC /* Client.m */; };
 		9B95F4A2186C5315007318DC /* Invoice_charges.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4A1186C5315007318DC /* Invoice_charges.m */; };
-		9B95F4A5186C5315007318DC /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4A4186C5315007318DC /* Invoice.m */; };
 		9B95F4A8186C5397007318DC /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4A7186C5397007318DC /* CoreDataTableViewController.m */; };
 		9B95F4AB186CC0D3007318DC /* ClientsSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4AA186CC0D3007318DC /* ClientsSideViewController.m */; };
 		9B95F4AE186CC34E007318DC /* ClientsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F4AD186CC34E007318DC /* ClientsDetailViewController.m */; };
@@ -70,6 +85,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B86FB351876FFC9009FE411 /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76x76.png; sourceTree = "<group>"; };
+		9B86FB361876FFC9009FE411 /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		9B86FB371876FFC9009FE411 /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152x152.png; sourceTree = "<group>"; };
+		9B86FB381876FFC9009FE411 /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		9B86FB391876FFC9009FE411 /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x40.png; sourceTree = "<group>"; };
+		9B86FB3A1876FFC9009FE411 /* 29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29x29.png; sourceTree = "<group>"; };
+		9B86FBCB18809F24009FE411 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		9B86FBCF188196E1009FE411 /* CameraRecieptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraRecieptViewController.h; sourceTree = "<group>"; };
+		9B86FBD0188196E1009FE411 /* CameraRecieptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraRecieptViewController.m; sourceTree = "<group>"; };
+		9B86FC1318830A41009FE411 /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
+		9B86FC1418830A41009FE411 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
+		9B86FC1618830A41009FE411 /* Reciept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reciept.h; sourceTree = "<group>"; };
+		9B86FC1718830A41009FE411 /* Reciept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reciept.m; sourceTree = "<group>"; };
+		9B86FC1918833F84009FE411 /* camera_icon_800_clr_13235.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon_800_clr_13235.png; path = ../../../Downloads/camera_icon_800_clr_13235.png; sourceTree = "<group>"; };
+		9B86FC2118834299009FE411 /* No INvoice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "No INvoice.jpg"; sourceTree = "<group>"; };
+		9B86FC35188B0B34009FE411 /* iPhoneInvoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneInvoiceTableViewController.h; sourceTree = "<group>"; };
+		9B86FC36188B0B34009FE411 /* iPhoneInvoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneInvoiceTableViewController.m; sourceTree = "<group>"; };
+		9B86FC38188B0B61009FE411 /* iPhoneClientsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneClientsTableViewController.h; sourceTree = "<group>"; };
+		9B86FC39188B0B61009FE411 /* iPhoneClientsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneClientsTableViewController.m; sourceTree = "<group>"; };
+		9B86FC3B188B0B9A009FE411 /* iPhoneSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneSettingsTableViewController.h; sourceTree = "<group>"; };
+		9B86FC3C188B0B9A009FE411 /* iPhoneSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneSettingsTableViewController.m; sourceTree = "<group>"; };
+		9B86FC3E188B0BAB009FE411 /* iPhoneHelpTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneHelpTableViewController.h; sourceTree = "<group>"; };
+		9B86FC3F188B0BAB009FE411 /* iPhoneHelpTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneHelpTableViewController.m; sourceTree = "<group>"; };
 		9B95F38D1869BF4B007318DC /* Freelance_Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freelance_Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B95F3901869BF4B007318DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B95F3921869BF4B007318DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,8 +142,6 @@
 		9B95F49E186C5314007318DC /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Client.m; path = ../Client.m; sourceTree = "<group>"; };
 		9B95F4A0186C5315007318DC /* Invoice_charges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Invoice_charges.h; path = ../Invoice_charges.h; sourceTree = "<group>"; };
 		9B95F4A1186C5315007318DC /* Invoice_charges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Invoice_charges.m; path = ../Invoice_charges.m; sourceTree = "<group>"; };
-		9B95F4A3186C5315007318DC /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Invoice.h; path = ../Invoice.h; sourceTree = "<group>"; };
-		9B95F4A4186C5315007318DC /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Invoice.m; path = ../Invoice.m; sourceTree = "<group>"; };
 		9B95F4A6186C5397007318DC /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		9B95F4A7186C5397007318DC /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		9B95F4A9186CC0D3007318DC /* ClientsSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientsSideViewController.h; sourceTree = "<group>"; };
@@ -114,7 +150,6 @@
 		9B95F4AD186CC34E007318DC /* ClientsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientsDetailViewController.m; sourceTree = "<group>"; };
 		9B95F4B0186E1156007318DC /* AddClientPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientPopoverViewController.h; sourceTree = "<group>"; };
 		9B95F4B1186E1156007318DC /* AddClientPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientPopoverViewController.m; sourceTree = "<group>"; };
-		F4284D2018759E1A00B6EC08 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
 		F4E1050518702D0E0013BCBA /* AddChargeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddChargeTableViewController.h; sourceTree = "<group>"; };
 		F4E1050618702D0E0013BCBA /* AddChargeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddChargeTableViewController.m; sourceTree = "<group>"; };
 		F4E1050E187084C20013BCBA /* tempLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tempLogo.jpg; sourceTree = "<group>"; };
@@ -158,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B86FBCC18809F24009FE411 /* AddressBookUI.framework in Frameworks */,
 				9B95F3931869BF4B007318DC /* CoreGraphics.framework in Frameworks */,
 				9B95F3971869BF4B007318DC /* CoreData.framework in Frameworks */,
 				9B95F3951869BF4B007318DC /* UIKit.framework in Frameworks */,
@@ -179,10 +215,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B86FC27188B0A86009FE411 /* iPhone Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9B86FC28188B0A98009FE411 /* UX Files */,
+				9B86FC35188B0B34009FE411 /* iPhoneInvoiceTableViewController.h */,
+				9B86FC36188B0B34009FE411 /* iPhoneInvoiceTableViewController.m */,
+				9B86FC38188B0B61009FE411 /* iPhoneClientsTableViewController.h */,
+				9B86FC39188B0B61009FE411 /* iPhoneClientsTableViewController.m */,
+				9B86FC3B188B0B9A009FE411 /* iPhoneSettingsTableViewController.h */,
+				9B86FC3C188B0B9A009FE411 /* iPhoneSettingsTableViewController.m */,
+				9B86FC3E188B0BAB009FE411 /* iPhoneHelpTableViewController.h */,
+				9B86FC3F188B0BAB009FE411 /* iPhoneHelpTableViewController.m */,
+			);
+			name = "iPhone Classes";
+			sourceTree = "<group>";
+		};
+		9B86FC28188B0A98009FE411 /* UX Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B95F3A41869BF4B007318DC /* Main_iPhone.storyboard */,
+			);
+			name = "UX Files";
+			sourceTree = "<group>";
+		};
 		9B95F3841869BF4B007318DC = {
 			isa = PBXGroup;
 			children = (
-				F4284D2018759E1A00B6EC08 /* icon1.png */,
+				9B86FC27188B0A86009FE411 /* iPhone Classes */,
 				9B95F3981869BF4B007318DC /* Freelance_Assistant */,
 				9B95F3C11869BF4B007318DC /* Freelance_AssistantTests */,
 				9B95F38F1869BF4B007318DC /* Frameworks */,
@@ -202,6 +262,7 @@
 		9B95F38F1869BF4B007318DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B86FBCB18809F24009FE411 /* AddressBookUI.framework */,
 				9B95F3901869BF4B007318DC /* Foundation.framework */,
 				9B95F3921869BF4B007318DC /* CoreGraphics.framework */,
 				9B95F3941869BF4B007318DC /* UIKit.framework */,
@@ -214,10 +275,15 @@
 		9B95F3981869BF4B007318DC /* Freelance_Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				9B86FB351876FFC9009FE411 /* 76x76.png */,
+				9B86FB361876FFC9009FE411 /* 80x80.png */,
+				9B86FB371876FFC9009FE411 /* 152x152.png */,
+				9B86FB381876FFC9009FE411 /* 58x58.png */,
+				9B86FB391876FFC9009FE411 /* 40x40.png */,
+				9B86FB3A1876FFC9009FE411 /* 29x29.png */,
 				9B95F493186C4F82007318DC /* Core Data */,
 				9B95F3D51869C09A007318DC /* Application Classes */,
 				9B95F3D61869C0A7007318DC /* iPad Classes */,
-				9B95F3A41869BF4B007318DC /* Main_iPhone.storyboard */,
 				9B95F3B31869BF4B007318DC /* Images.xcassets */,
 				9B95F3991869BF4B007318DC /* Supporting Files */,
 			);
@@ -227,6 +293,8 @@
 		9B95F3991869BF4B007318DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B86FC2118834299009FE411 /* No INvoice.jpg */,
+				9B86FC1918833F84009FE411 /* camera_icon_800_clr_13235.png */,
 				F4E105DC187578A80013BCBA /* mainBG.jpg */,
 				F4E105D818756A440013BCBA /* leatherbook.jpg */,
 				9B95F39A1869BF4B007318DC /* Freelance_Assistant-Info.plist */,
@@ -258,6 +326,8 @@
 		9B95F3D51869C09A007318DC /* Application Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9B86FBCF188196E1009FE411 /* CameraRecieptViewController.h */,
+				9B86FBD0188196E1009FE411 /* CameraRecieptViewController.m */,
 				9B95F3A11869BF4B007318DC /* AppDelegate.h */,
 				9B95F3A21869BF4B007318DC /* AppDelegate.m */,
 			);
@@ -317,13 +387,15 @@
 		9B95F493186C4F82007318DC /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				9B95F4A3186C5315007318DC /* Invoice.h */,
-				9B95F4A4186C5315007318DC /* Invoice.m */,
 				9B95F4A0186C5315007318DC /* Invoice_charges.h */,
 				9B95F4A1186C5315007318DC /* Invoice_charges.m */,
 				9B95F49D186C5314007318DC /* Client.h */,
 				9B95F49E186C5314007318DC /* Client.m */,
 				9B95F3AA1869BF4B007318DC /* Freelance_Assistant.xcdatamodeld */,
+				9B86FC1618830A41009FE411 /* Reciept.h */,
+				9B86FC1718830A41009FE411 /* Reciept.m */,
+				9B86FC1318830A41009FE411 /* Invoice.h */,
+				9B86FC1418830A41009FE411 /* Invoice.m */,
 				9B95F4A6186C5397007318DC /* CoreDataTableViewController.h */,
 				9B95F4A7186C5397007318DC /* CoreDataTableViewController.m */,
 			);
@@ -441,6 +513,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Magic Entertainment";
 				TargetAttributes = {
+					9B95F38C1869BF4B007318DC = {
+						DevelopmentTeam = CKPJ2HQV66;
+					};
 					9B95F3B81869BF4B007318DC = {
 						TestTargetID = 9B95F38C1869BF4B007318DC;
 					};
@@ -470,13 +545,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B86FB3C1876FFC9009FE411 /* 80x80.png in Resources */,
 				F4E10512187084C20013BCBA /* tempLogo.jpg in Resources */,
 				9B95F3A91869BF4B007318DC /* Main_iPad.storyboard in Resources */,
 				F4E105D918756A440013BCBA /* leatherbook.jpg in Resources */,
+				9B86FC1A18833F84009FE411 /* camera_icon_800_clr_13235.png in Resources */,
+				9B86FC2218834299009FE411 /* No INvoice.jpg in Resources */,
+				9B86FB3E1876FFC9009FE411 /* 58x58.png in Resources */,
 				F4E105C91871F2A20013BCBA /* Maintainence.storyboard in Resources */,
+				9B86FB3F1876FFC9009FE411 /* 40x40.png in Resources */,
 				9B95F3B41869BF4B007318DC /* Images.xcassets in Resources */,
 				9B95F3A61869BF4B007318DC /* Main_iPhone.storyboard in Resources */,
 				F4E105DD187578A80013BCBA /* mainBG.jpg in Resources */,
+				9B86FB401876FFC9009FE411 /* 29x29.png in Resources */,
+				9B86FB3D1876FFC9009FE411 /* 152x152.png in Resources */,
+				9B86FB3B1876FFC9009FE411 /* 76x76.png in Resources */,
 				F4E105CB1871F2B50013BCBA /* BETA_End.storyboard in Resources */,
 				F4E1051918708F720013BCBA /* InvoiceView.xib in Resources */,
 				9B95F39D1869BF4B007318DC /* InfoPlist.strings in Resources */,
@@ -510,10 +593,15 @@
 				9B95F49F186C5314007318DC /* Client.m in Sources */,
 				9B95F3A31869BF4B007318DC /* AppDelegate.m in Sources */,
 				F4E105D418731DEB0013BCBA /* HelpDetailViewController.m in Sources */,
+				9B86FBD1188196E1009FE411 /* CameraRecieptViewController.m in Sources */,
+				9B86FC40188B0BAB009FE411 /* iPhoneHelpTableViewController.m in Sources */,
 				F4E1052D1871A1450013BCBA /* SettingsDetailViewController.m in Sources */,
 				9B95F39F1869BF4B007318DC /* main.m in Sources */,
+				9B86FC3A188B0B61009FE411 /* iPhoneClientsTableViewController.m in Sources */,
 				F4E1051818708F720013BCBA /* PDFPublisherController.m in Sources */,
+				9B86FC3D188B0B9A009FE411 /* iPhoneSettingsTableViewController.m in Sources */,
 				9B95F4A2186C5315007318DC /* Invoice_charges.m in Sources */,
+				9B86FC1518830A41009FE411 /* Invoice.m in Sources */,
 				F4E1050718702D0E0013BCBA /* AddChargeTableViewController.m in Sources */,
 				F4E1051A18708F720013BCBA /* PDFViewController.m in Sources */,
 				F4E509AE186F439E003C326F /* ClientPickerPopoverViewController.m in Sources */,
@@ -524,10 +612,11 @@
 				F4E105CE1872DFA70013BCBA /* StartUpViewController.m in Sources */,
 				9B95F4B2186E1156007318DC /* AddClientPopoverViewController.m in Sources */,
 				9B95F3AC1869BF4B007318DC /* Freelance_Assistant.xcdatamodeld in Sources */,
+				9B86FC37188B0B34009FE411 /* iPhoneInvoiceTableViewController.m in Sources */,
 				F4E105811871E94F0013BCBA /* MaintananceViewController.m in Sources */,
-				9B95F4A5186C5315007318DC /* Invoice.m in Sources */,
 				9B95F3D31869BFCA007318DC /* DetailViewContainerController.m in Sources */,
 				9B95F492186C4CA1007318DC /* InvoiceSideViewController.m in Sources */,
+				9B86FC1818830A41009FE411 /* Reciept.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +653,7 @@
 				9B95F3A51869BF4B007318DC /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			path = Freelance_Assistant;
 			sourceTree = "<group>";
 		};
 		9B95F3A71869BF4B007318DC /* Main_iPad.storyboard */ = {
@@ -663,14 +753,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Allen (8HTJF229LT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Richard Allen (8HTJF229LT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";
 				INFOPLIST_FILE = "Freelance_Assistant/Freelance_Assistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -679,14 +771,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Allen (8HTJF229LT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Richard Allen (8HTJF229LT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";
 				INFOPLIST_FILE = "Freelance_Assistant/Freelance_Assistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

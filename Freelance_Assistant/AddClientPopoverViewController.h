@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 @protocol addClientDelegate
 
@@ -15,7 +16,8 @@
 @end
 
 
-@interface AddClientPopoverViewController : UIViewController
+@interface AddClientPopoverViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *companyField;
@@ -28,8 +30,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *countryField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 
-@property (nonatomic, strong) id <addClientDelegate> delegate;
+@property (nonatomic, weak) id <addClientDelegate> delegate;
 - (IBAction)addClient:(id)sender;
 - (IBAction)cancelClient:(id)sender;
+- (IBAction)showPicker:(id)sender;
+
+
 
 @end

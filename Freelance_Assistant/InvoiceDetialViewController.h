@@ -30,6 +30,13 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *markAsPaidBtn;
 @property (nonatomic, strong) NSMutableArray *invoiceRows;
 @property (weak, nonatomic) IBOutlet UIToolbar *editBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *noInvoiceImage;
+@property (weak, nonatomic) IBOutlet UILabel *recieptsAttachedLabel;
+
+
+
+
+
 
 
 

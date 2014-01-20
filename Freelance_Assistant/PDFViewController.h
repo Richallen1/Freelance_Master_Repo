@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Client.h"
 #import <MessageUI/MessageUI.h>
+#import "Invoice.h"
 
 @interface PDFViewController : UIViewController <MFMailComposeViewControllerDelegate, UINavigationControllerDelegate>
 {
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) NSString *fileName;
 @property (nonatomic, strong) NSString *filePath;
 @property (nonatomic, strong) NSString *projectName;
+@property (weak, nonatomic) Invoice *inv;
 
 -(void)showPDFFileWithFile:(NSString *)file;
 

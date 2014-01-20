@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="j9k-7K-HDF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="j9k-7K-HDF">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Start Up View Controller-->
@@ -333,6 +333,12 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Gjv-oa-pJ7"/>
+                                    <barButtonItem title="Add Reciept Photo" id="88O-g0-vVQ">
+                                        <connections>
+                                            <segue destination="fUZ-lT-6FW" kind="modal" identifier="camera_segue" id="kM3-Qi-D5T"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="nTq-qH-GsQ"/>
                                     <barButtonItem title="Mark as Paid" id="DRg-Sh-3lw">
                                         <connections>
                                             <action selector="MarkAsPaid:" destination="QMu-pu-o0Z" id="rVg-i2-KZ0"/>
@@ -345,6 +351,17 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="No INvoice.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="c3O-t6-5kf">
+                                <rect key="frame" x="0.0" y="73" width="703" height="700"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reciepts Attached" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdZ-Id-jFt">
+                                <rect key="frame" x="25" y="122" width="299" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -362,10 +379,11 @@
                         <outlet property="editBtn" destination="1zo-29-JXi" id="ZD7-6d-4DG"/>
                         <outlet property="invoiceField" destination="yRo-VS-ONH" id="ynE-di-P0u"/>
                         <outlet property="markAsPaidBtn" destination="DRg-Sh-3lw" id="0A0-67-ZbU"/>
+                        <outlet property="noInvoiceImage" destination="c3O-t6-5kf" id="LAd-En-D1L"/>
                         <outlet property="projectField" destination="cim-fr-6MU" id="nMs-aw-FZf"/>
+                        <outlet property="recieptsAttachedLabel" destination="MdZ-Id-jFt" id="7Cz-pN-N0D"/>
                         <outlet property="subTotalLabel" destination="liT-eh-r4g" id="ULT-uf-lmj"/>
                         <outlet property="totalLabel" destination="83u-xW-A7L" id="R0O-e0-SpC"/>
-                        <outlet property="vatLabel" destination="D8z-oC-18N" id="0im-hM-02l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1d-e6-gZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -630,6 +648,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzn-7d-kiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2266" y="-2453"/>
+        </scene>
+        <!--Camera Reciept View Controller-->
+        <scene sceneID="9R9-RS-0rP">
+            <objects>
+                <viewController id="fUZ-lT-6FW" customClass="CameraRecieptViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iI4-BT-sNY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kc7-lB-Oes"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e1J-hR-stc">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvL-1R-rgQ">
+                                <rect key="frame" x="396" y="630" width="116" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="fUZ-lT-6FW" eventType="touchUpInside" id="ihk-Oa-jeX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO5-Xx-Vij">
+                                <rect key="frame" x="541" y="630" width="148" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Select Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="fUZ-lT-6FW" eventType="touchUpInside" id="nNP-4v-KZQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbv-eP-wt0">
+                                <rect key="frame" x="445" y="697" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissVC:" destination="fUZ-lT-6FW" eventType="touchUpInside" id="XGj-6l-dBr"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera_icon_800_clr_13235.png" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Sk-3Iu">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="589"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xr-kc-qgp">
+                                <rect key="frame" x="543" y="697" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="fUZ-lT-6FW" eventType="touchUpInside" id="ipm-ko-0Xl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="pUf-Sk-3Iu" id="ZoN-Pf-5dG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32Z-Gp-0ZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3681" y="-3795"/>
         </scene>
         <!--Client Picker Popover View Controller-->
         <scene sceneID="YQz-4B-gkz">
@@ -919,7 +1011,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ow8-aW-wnD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i20-gf-WFW">
-                        <rect key="frame" x="0.0" y="0.0" width="550" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="550" height="542"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sP4-7Z-KgI">
@@ -1072,7 +1164,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Client: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cll-Bb-CCe">
-                                <rect key="frame" x="16" y="77" width="90" height="21"/>
+                                <rect key="frame" x="16" y="88" width="90" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1085,26 +1177,23 @@
                                     <navigationItem title="Add Client" id="LPI-r6-cRd"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5j-AV-dda">
-                                <rect key="frame" x="151" y="429" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Client">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addClient:" destination="Ujq-PD-bU2" eventType="touchUpInside" id="xyV-YQ-lAF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cj4-xo-tnh">
-                                <rect key="frame" x="297" y="429" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelClient:" destination="Ujq-PD-bU2" eventType="touchUpInside" id="EtM-bE-tiL"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdH-l9-Ari">
+                                <rect key="frame" x="0.0" y="39" width="550" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GeP-hY-bL8"/>
+                                    <barButtonItem title="Add Client" id="acf-Zb-qmU">
+                                        <connections>
+                                            <action selector="addClient:" destination="Ujq-PD-bU2" id="BUq-8W-gZY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Choose from contacts" id="fFY-EK-0SQ">
+                                        <connections>
+                                            <action selector="showPicker:" destination="Ujq-PD-bU2" id="OXt-Hy-HtQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2220,9 +2309,9 @@
                                 <rect key="frame" x="26" y="166" width="666" height="160"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">This app and all and any of its subisuaries are wholey owned by Magic Entertianment.
+                                <string key="text">This app and all and any of its subisuaries are wholly owned by Magic Entertianment.
 
-Magic Entertainment takes no resposibility for any legal issues surrounding users email. All financial affairs are the users resposibility.
+Magic Entertainment takes no responsibility for any legal issues surrounding users email. All financial affairs are the users responsibility.
 
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2270,7 +2359,7 @@ legal@magicentertainmentgroup.com</string>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Freelance Assistant is to aid in the creation and management of invoices and clients. This app is primarily aimed at Freelance professionals but can be used by a range of professions.
 
-This app has been created by Magic Entertainment (here in known as 'the creator').  The creator holds all rights to this software and its sister applications. The creator holds the right to suspend support for this product at the point at which it is discontinued
+This app has been created by Magic Entertainment (here in known as 'the creator').  The creator holds all rights to this software and its sister applications. The creator holds the right to suspend support for this product at the point at which it is discontinued.
 
 The creator does not store any client data on external servers and accepts no liability for any data loss. 
 
@@ -2300,6 +2389,8 @@ legal@magicentertainmentgroup.com</string>
     <resources>
         <image name="Help" width="28" height="26"/>
         <image name="InvoicesLogo" width="22" height="28"/>
+        <image name="No INvoice.jpg" width="1000" height="1000"/>
+        <image name="camera_icon_800_clr_13235.png" width="800" height="800"/>
         <image name="clientsLogo" width="28" height="20"/>
         <image name="mainBG.jpg" width="703" height="768"/>
         <image name="settingsLogo" width="28" height="28"/>

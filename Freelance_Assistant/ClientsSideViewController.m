@@ -31,6 +31,8 @@
     context = [appdelegate managedObjectContext];
     
     [self setupFetchedResultsController];
+    [self getClientsCount];
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,8 +50,14 @@
     
     Client *client = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
+    if ([client.company  isEqual: @""]) {
+        NSString *str = [NSString stringWithFormat:@"%@ %@",client.firstName, client.lastName];
+        cell.textLabel.text = str;
+    }
+    else
+    {
     cell.textLabel.text = client.company;
-    
+    }
     return cell;
 }
 
@@ -66,9 +74,13 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     
+    
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     Client *selectedClient = [self.fetchedResultsController objectAtIndexPath:path];
     
@@ -97,6 +109,22 @@
 -(void)tableViewReload
 {
     [self.tableView reloadData];
+}
+
+-(void)getClientsCount
+{
+    //Get Client Data from CoreData
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:desc];
+    
+    NSError *error;
+    NSArray *data = [context executeFetchRequest:request error:&error];
+    
+    NSMutableArray *clientsLocal = [[NSMutableArray alloc]init];
+    
+    NSLog(@"%lu", (unsigned long)[clientsLocal count]);
+    return;
 }
 
 @end

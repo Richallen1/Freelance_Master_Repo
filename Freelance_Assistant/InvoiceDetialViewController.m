@@ -17,13 +17,14 @@
 #import "Invoice_charges.h"
 #import "PDFViewController.h"
 #import "PDFPublisherController.h"
+#import "CameraRecieptViewController.h"
 
-
-@interface InvoiceDetialViewController ()<invoiceSideViewController, ClientPickerDelegate, AddChargeTableViewDelegate, UISplitViewControllerDelegate>
+@interface InvoiceDetialViewController ()<invoiceSideViewController, ClientPickerDelegate, AddChargeTableViewDelegate, UISplitViewControllerDelegate, CameraDelegate>
 {
     NSManagedObjectContext *context;
     UIPopoverController *clientPopupController;
     Client *clientSelected;
+    int recieptCount;
 }
 @end
 
@@ -38,7 +39,8 @@
 @synthesize totalLabel=_totalLabel;
 @synthesize invoiceRows=_invoiceRows;
 @synthesize editBtn=_editBtn;
-
+@synthesize noInvoiceImage=_noInvoiceImage;
+@synthesize recieptsAttachedLabel=_recieptsAttachedLabel;
 
 - (void)viewDidLoad
 {
@@ -49,7 +51,22 @@
 	//Core Data Context Declaration from App delegate shared context
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
+    
+    recieptCount = [self checkReciptsCount];
+    if (recieptCount == 0) {
+        _recieptsAttachedLabel.hidden = YES;
+    }
+    else
+    {
+        _recieptsAttachedLabel.hidden = NO;
+        NSString *str = [NSString stringWithFormat:@"%d Reciepts Attached", recieptCount];
+        _recieptsAttachedLabel.text = str;
+    }
+    
+    _recieptsAttachedLabel.hidden = YES;
+    _noInvoiceImage.hidden = NO;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -85,6 +102,26 @@
         }
     }
     
+}
+/**********************************************************
+ Method:(int)checkReciptsCount
+ Description:
+ Tag:Core Data
+ **********************************************************/
+-(int)checkReciptsCount
+{
+    int count = 0;
+    
+    //Get Reciepts from CoreData
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Reciept" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:desc];
+    
+    NSError *error;
+    NSArray *data = [context executeFetchRequest:request error:&error];
+    count = [data count];
+    
+    return count;
 }
 /**********************************************************
  Method: (Client *) getClientForName:(NSString *)clientName
@@ -290,7 +327,7 @@
 }
 -(void)fillDetailViewWithInvoiceData:(Invoice *)invoice fromSender:(id)sender
 {
-    
+    _noInvoiceImage.hidden = YES;
     self.delegate = sender;
     
         if (invoice.projectName != NULL) {
@@ -453,8 +490,14 @@
         pvc.filePath = fileCreated;
         pvc.client = clientSelected;
         pvc.projectName = _projectField.text;
+        pvc.inv = [self getInvoiceForNumber:_invoiceField.text];
     }
-    
+    if ([segue.identifier isEqualToString:@"camera_segue"])
+    {
+        CameraRecieptViewController *crvc = segue.destinationViewController;
+        crvc.invoice = [self getInvoiceForNumber:_invoiceField.text];
+        crvc.delegate = self;
+    }
     NSLog(@"SEGUE to: %@", segue.identifier);
 }
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
@@ -465,6 +508,18 @@
         }
     }
     return YES;
+}
+-(void)CameraDelegateDone
+{
+    if (recieptCount == 0) {
+        _recieptsAttachedLabel.hidden = YES;
+    }
+    else
+    {
+        _recieptsAttachedLabel.hidden = NO;
+        NSString *str = [NSString stringWithFormat:@"%d Reciepts Attached", recieptCount];
+        _recieptsAttachedLabel.text = str;
+    }
 }
 /**********************************************************
  Method:(void)PassClientFromPickerWithClient:(NSString *)client withSender:(id)sender
@@ -617,4 +672,5 @@
     [self.chargesTableView reloadData];
 
 }
+
 @end

@@ -9,15 +9,21 @@
 #import "PDFViewController.h"
 #import "CoreText/CoreText.h"
 #import "PDFPublisherController.h"
+#import "AppDelegate.h"
+#import "Reciept.h"
 
-
+@interface PDFViewController ()
+{
+    NSManagedObjectContext *context;
+}
+@end
 
 @implementation PDFViewController
 @synthesize fileName;
 @synthesize filePath;
 @synthesize client;
 @synthesize projectName;
-
+@synthesize inv;
 
 - (void)didReceiveMemoryWarning
 {
@@ -30,6 +36,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Core Data Context Declaration from App delegate shared context
+    AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
+    context = [appdelegate managedObjectContext];
+    
     NSLog(@"PDF Filename: %@", fileName);
     [self showPDFFileWithFile:filePath];
 }
@@ -93,8 +103,8 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *subject = [NSString stringWithFormat:@"Invoice from %@", [defaults objectForKey:@"User_Name"]];
 	[picker setSubject:subject];
-	
     NSArray *toRecipients;
+    
 	// Set up recipients
     if (client.email) {
         toRecipients = [NSArray arrayWithObject:client.email];
@@ -123,15 +133,52 @@
 	NSData *myData = [NSData dataWithContentsOfFile:filePath];
 	[picker addAttachmentData:myData mimeType:@"application/pdf" fileName:fileName];
     NSLog(@"%@", filePath);
+    
+    //Get Reciepts from CoreData
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Reciept" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    request.predicate = [NSPredicate predicateWithFormat:@"invoice_header = %@", inv];
+    [request setEntity:desc];
+    
+    NSError *error;
+    NSArray *data = [context executeFetchRequest:request error:&error];
+    
+    if ([data count] > 0) {
+        for (int i = 0; i < [data count]; i++) {
+            Reciept *curr = data[i];
+            NSData *imageData = [[NSData alloc]initWithData:curr.imageData];
+            NSString *str = [NSString stringWithFormat:@"Reciept %d",i];
+            [picker addAttachmentData:imageData mimeType:@"image/png" fileName:str];
+        }
+    }
+    
 
-	
 	// Fill out the email body text
 	NSString *emailBody = [NSString stringWithFormat:@"Please find attached my invoice for %@", projectName];
 	[picker setMessageBody:emailBody isHTML:NO];
 	
 	[self presentViewController:picker animated:YES completion:NULL];
 }
-
+/**********************************************************
+ Method:(int)checkReciptsCount
+ Description:
+ Tag:Core Data
+ **********************************************************/
+-(int)checkReciptsCount
+{
+    int count = 0;
+    
+    //Get Reciepts from CoreData
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Reciept" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:desc];
+    
+    NSError *error;
+    NSArray *data = [context executeFetchRequest:request error:&error];
+    count = [data count];
+    
+    return count;
+}
 #pragma mark - Delegate Methods
 // -------------------------------------------------------------------------------
 //	mailComposeController:didFinishWithResult:
