@@ -16,6 +16,14 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+
+    NSLog(@"%f", self.window.bounds.size.height);
+    return YES;
+
+
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -55,6 +63,10 @@
      UIViewController *initViewController = [storyBoard instantiateInitialViewController];
      [self.window setRootViewController:initViewController];*/
 
+    
+   
+    
+    
     return YES;
 }
 							

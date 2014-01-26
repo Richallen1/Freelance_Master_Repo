@@ -14,6 +14,10 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="clientInvoices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invoice" inverseName="clientForInvoice" inverseEntity="Invoice" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="newRelationship1" inverseEntity="Client" syncable="YES"/>
+        <relationship name="newRelationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="newRelationship" inverseEntity="Client" syncable="YES"/>
+        <relationship name="newRelationship2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="newRelationship3" inverseEntity="Client" syncable="YES"/>
+        <relationship name="newRelationship3" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="newRelationship2" inverseEntity="Client" syncable="YES"/>
     </entity>
     <entity name="Invoice" representedClassName="Invoice" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,7 +46,7 @@
         <relationship name="invoice_header" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="invoice_reciepts" inverseEntity="Invoice" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="493" positionY="266" width="128" height="238"/>
+        <element name="Client" positionX="493" positionY="266" width="128" height="298"/>
         <element name="Invoice" positionX="178" positionY="65" width="128" height="193"/>
         <element name="Invoice_charges" positionX="-45" positionY="-36" width="128" height="148"/>
         <element name="Reciept" positionX="-45" positionY="351" width="128" height="88"/>
