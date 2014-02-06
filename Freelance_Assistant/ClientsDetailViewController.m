@@ -19,12 +19,25 @@
 @end
 
 @implementation ClientsDetailViewController
+@synthesize firstName=_firstName;
+@synthesize surname=_surname;
+@synthesize company=_company;
+@synthesize address=_address;
+@synthesize address2=_address2;
+@synthesize city=_city;
+@synthesize state=_state;
+@synthesize zip=_zip;
+@synthesize phone=_phone;
+@synthesize country=_country;
+@synthesize email=_email;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     context = [appDelegate managedObjectContext];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,22 +48,20 @@
 
 - (IBAction)updateClient:(id)sender
 {
-        NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:context];
-        NSManagedObject *newClient = [[NSManagedObject alloc]initWithEntity:entityDesc insertIntoManagedObjectContext:context];
+    selectedClient.firstName = _firstName.text;
+    selectedClient.lastName = _surname.text;
+    selectedClient.company = _company.text;
+    selectedClient.address = _address.text;
+    selectedClient.address2 = _address2.text;
+    selectedClient.city = _city.text;
+    selectedClient.state = _state.text;
+    selectedClient.zip = _zip.text;
+    selectedClient.phone = _phone.text;
+    selectedClient.email = _email.text;
+    selectedClient.paymentTerms = @"30";
     
-        [newClient setValue:self.firstName.text forKey:@"firstName"];
-        [newClient setValue:self.surname.text forKey:@"lastName"];
-        [newClient setValue:self.company.text forKey:@"company"];
-        [newClient setValue:self.address.text forKey:@"address"];
-        [newClient setValue:self.address2.text forKey:@"address2"];
-        [newClient setValue:self.city.text forKey:@"city"];
-        [newClient setValue:self.state.text forKey:@"state"];
-        [newClient setValue:self.zip.text forKey:@"zip"];
-        [newClient setValue:self.phone.text forKey:@"phone"];
-        [newClient setValue:self.email.text forKey:@"email"];
-    
-        NSError *err;
-        [context save:&err];
+    NSError *err;
+    [context save:&err];
 
 }
 
@@ -97,7 +108,6 @@
     self.email.text = client.email;
     }
     self.delgate = sender;
-    
 }
 
 @end

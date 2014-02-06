@@ -52,9 +52,9 @@
     [defaults setObject:_postCode.text forKey:@"User_Postcode"];
     [defaults synchronize];
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Stored" message:@"Your details have been saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-    [alert show];
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone"] || [[[UIDevice currentDevice]model]  isEqual: @"iPhone Simulator"]) {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;

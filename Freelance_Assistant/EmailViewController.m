@@ -36,9 +36,12 @@
     [defaults setObject:_emailField.text forKey:@"User_Name"];
     [defaults synchronize];
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Stored" message:@"Your details have been saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-    [alert show];
+
     
     NSLog(@"Stored User Email: %@",[defaults objectForKey:@"User_Name"]);
+    
+    if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone"] || [[[UIDevice currentDevice]model]  isEqual: @"iPhone Simulator"]) {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 @end

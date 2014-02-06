@@ -2,8 +2,8 @@
 //  Invoice_charges.m
 //  Freelance_Assistant
 //
-//  Created by Rich Allen on 26/12/2013.
-//  Copyright (c) 2013 Magic Entertainment. All rights reserved.
+//  Created by Rich Allen on 24/01/2014.
+//  Copyright (c) 2014 Magic Entertainment. All rights reserved.
 //
 
 #import "Invoice_charges.h"

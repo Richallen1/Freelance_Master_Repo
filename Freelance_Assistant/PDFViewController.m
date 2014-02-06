@@ -59,7 +59,35 @@
 -(void)showPDFFileWithFile:(NSString *)file
 {
     NSString* pdfFileName = file;
-    UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 58, 703, 750)];
+    UIWebView* webView;
+    
+    
+    if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone"]) {
+        if (self.view.bounds.size.height == 568) {
+           webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 50 , 320, 480)];
+        }
+        else
+        {
+            webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 50, 320, 550)];
+        }
+    }
+    if ([[[UIDevice currentDevice]model]  isEqual: @"iPad"]) {
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 58, 703, 750)];
+    }
+    if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone Simulator"]) {
+        if (self.view.bounds.size.height == 568) {
+            webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 50 , 320, 480)];
+        }
+        else
+        {
+            webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 50 , 320, 550)];
+        }
+    }
+    if ([[[UIDevice currentDevice]model]  isEqual: @"iPad Simulator"]) {
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 58, 703, 750)];
+    }
+
+    
     NSURL *url = [NSURL fileURLWithPath:pdfFileName];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView setScalesPageToFit:YES];
@@ -202,6 +230,7 @@
     		case MFMailComposeResultSent:
     			feedbackMsg = @"Result: Mail sent";
                 msgAlert = [[UIAlertView alloc]initWithTitle:@"SENT!" message:@"Your invoice has been sent." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                //[self removeFile:fileName];
     			break;
     		case MFMailComposeResultFailed:
     			feedbackMsg = @"Result: Mail sending failed";
@@ -217,4 +246,25 @@
     }
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
+-(void)removeFile:(NSString *)fileToDelete
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString * documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSError *error;
+
+    NSString *fileToDeleteName = [NSString stringWithFormat:@"%@/%@.pdf",documentsPath,fileToDelete];
+    NSLog(@"%@", fileToDeleteName);
+    
+    BOOL success = [fileManager removeItemAtPath:fileToDeleteName error:&error];
+    if (success) {
+        NSLog(@"File Deleted -:%@ ",[error localizedDescription]);
+        
+    }
+    else
+    {
+        NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+    }
+}
+
 @end

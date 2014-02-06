@@ -28,7 +28,7 @@
 @synthesize qtyField=_qtyField;
 @synthesize totalLabel=_totalLabel;
 @synthesize vatSwitch=_vatSwitch;
-@synthesize delegate=_delegate;
+@synthesize delegate;
 @synthesize dateField=_dateField;
 
 - (void)viewDidLoad
@@ -90,6 +90,13 @@
     NSMutableDictionary *dict =[[NSMutableDictionary alloc]init];
 
     float subTotal = total - vatAmount;
+    total = subTotal * [_qtyField.text integerValue];
+    
+    NSLog(@"subTotal: %f", subTotal);
+    NSLog(@"QTY: %d", qty);
+    NSLog(@"VAT: %f", vatAmount);
+    NSLog(@"Total: %f", total);
+    
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
@@ -126,9 +133,11 @@
         [dict setObject:_chargeDescField.text forKey:@"Desc"];
         [dict setObject:_priceField.text forKey:@"Price"];
         [dict setObject:_qtyField.text forKey:@"Qty"];
-        [dict setObject:totalAsString forKey:@"Total"];
-        [dict setObject:vatAsString forKey:@"VAT"];
+
+
         [dict setObject:subTotalAsString forKey:@"subTotal"];
+        [dict setObject:vatAsString forKey:@"VAT"];
+        [dict setObject:totalAsString forKey:@"Total"];
         
         //Float Values
         NSNumber *flSubT = [[NSNumber alloc]initWithFloat:subTotal];

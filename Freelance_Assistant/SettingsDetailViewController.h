@@ -17,4 +17,6 @@
 //Section 2
 @property (weak, nonatomic) IBOutlet UILabel *paymentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bankDetialsLabel;
+
+
 @end

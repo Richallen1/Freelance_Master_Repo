@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B95F38C1869BF4B007318DC"
+               BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
                BuildableName = "Freelance_Assistant.app"
                BlueprintName = "Freelance_Assistant"
-               ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
+               ReferencedContainer = "container:freelance_assistant.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B95F3B81869BF4B007318DC"
+               BlueprintIdentifier = "9BB1B6C31892ED560092A68B"
                BuildableName = "Freelance_AssistantTests.xctest"
                BlueprintName = "Freelance_AssistantTests"
-               ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
+               ReferencedContainer = "container:freelance_assistant.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B95F38C1869BF4B007318DC"
+            BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
             BuildableName = "Freelance_Assistant.app"
             BlueprintName = "Freelance_Assistant"
-            ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
+            ReferencedContainer = "container:freelance_assistant.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B95F38C1869BF4B007318DC"
+            BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
             BuildableName = "Freelance_Assistant.app"
             BlueprintName = "Freelance_Assistant"
-            ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
+            ReferencedContainer = "container:freelance_assistant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B95F38C1869BF4B007318DC"
+            BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
             BuildableName = "Freelance_Assistant.app"
             BlueprintName = "Freelance_Assistant"
-            ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
+            ReferencedContainer = "container:freelance_assistant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

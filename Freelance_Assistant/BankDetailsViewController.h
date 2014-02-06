@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface BankDetailsViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *accountNumber;
 @property (weak, nonatomic) IBOutlet UITextField *sortCode;
+
 - (IBAction)doneButton:(id)sender;
 
 @end

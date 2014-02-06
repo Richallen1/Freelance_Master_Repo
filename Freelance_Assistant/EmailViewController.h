@@ -11,12 +11,6 @@
 @interface EmailViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 
-
-
-
-
-
-
 - (IBAction)doneButton:(id)sender;
 
 

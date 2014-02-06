@@ -79,8 +79,6 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     Client *selectedClient = [self.fetchedResultsController objectAtIndexPath:path];
     

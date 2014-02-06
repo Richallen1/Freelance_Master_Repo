@@ -2,13 +2,14 @@
 //  Invoice.m
 //  Freelance_Assistant
 //
-//  Created by Rich Allen on 12/01/2014.
+//  Created by Rich Allen on 24/01/2014.
 //  Copyright (c) 2014 Magic Entertainment. All rights reserved.
 //
 
 #import "Invoice.h"
 #import "Client.h"
 #import "Invoice_charges.h"
+#import "Reciept.h"
 
 
 @implementation Invoice
@@ -20,8 +21,8 @@
 @dynamic subTotal;
 @dynamic total;
 @dynamic vat;
-@dynamic clientForInvoice;
 @dynamic invoice_charges;
+@dynamic clientForInvoice;
 @dynamic invoice_reciepts;
 
 @end

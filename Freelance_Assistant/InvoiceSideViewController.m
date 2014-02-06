@@ -160,6 +160,7 @@
         for (NSManagedObject *invoice in invoices) {
             [context deleteObject:invoice];
         }
+        [context save:&error];
     }
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

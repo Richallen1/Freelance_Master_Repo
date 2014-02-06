@@ -2,13 +2,12 @@
 //  AppDelegate.m
 //  Freelance_Assistant
 //
-//  Created by Rich Allen on 24/12/2013.
-//  Copyright (c) 2013 Magic Entertainment. All rights reserved.
+//  Created by Rich Allen on 24/01/2014.
+//  Copyright (c) 2014 Magic Entertainment. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "MaintananceViewController.h"
-#import "MasterViewController.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
@@ -16,60 +15,17 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
--(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-
-    NSLog(@"%f", self.window.bounds.size.height);
-    return YES;
-
-
-}
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSString *appStartCheck = [defaults objectForKey:@"App_Startup_Check"];
-//    
-//    NSLog(@"%@", appStartCheck);
-//    
-//    if ([appStartCheck isEqualToString:@"check"]) {
-//         NSLog(@"ZZZZZZZ");
-    
+    //Crashalytics
+    [Crashlytics startWithAPIKey:@"310685f2178dcb0e73ee51d49d1e8a92c8e32b15"];
 
-//        /* Main Launch Code */
-//        // Override point for customization after application launch.
-//        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-//        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-//        splitViewController.delegate = (id)navigationController.topViewController;
-//    }
-//    else
-//    {
-//         NSLog(@"CCCCCCCCC");
-//        /* BETA End Launch Code*/
-//        UIStoryboard *storyBoard;
-//        storyBoard = [UIStoryboard storyboardWithName:@"Maintainence" bundle:nil];
-//        UIViewController *initViewController = [storyBoard instantiateInitialViewController];
-//        [self.window setRootViewController:initViewController];
-//    }
-
-    
-    
-   
-    
-    /* Maintainence Launch Code
-     UIStoryboard *storyBoard;
-     storyBoard = [UIStoryboard storyboardWithName:@"MainStoryBoard_iPhone5" bundle:nil];
-     UIViewController *initViewController = [storyBoard instantiateInitialViewController];
-     [self.window setRootViewController:initViewController];*/
-
-    
-   
+    //Impliment Gatekeeper Framework
     
     
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

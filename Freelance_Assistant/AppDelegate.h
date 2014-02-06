@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  Freelance_Assistant
 //
-//  Created by Rich Allen on 24/12/2013.
-//  Copyright (c) 2013 Magic Entertainment. All rights reserved.
+//  Created by Rich Allen on 24/01/2014.
+//  Copyright (c) 2014 Magic Entertainment. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
