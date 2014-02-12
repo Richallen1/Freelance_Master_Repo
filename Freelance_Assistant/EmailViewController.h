@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UserEmailStoreDelegate
+@optional
+-(void) storeEmailName:(NSString *)email;
+@end
+
 @interface EmailViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) id <UserEmailStoreDelegate> delegate;
 
 - (IBAction)doneButton:(id)sender;
 

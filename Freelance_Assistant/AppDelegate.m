@@ -17,11 +17,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     //Crashalytics
     [Crashlytics startWithAPIKey:@"310685f2178dcb0e73ee51d49d1e8a92c8e32b15"];
 
     //Impliment Gatekeeper Framework
     
+    //Dropbox Func
+    DBAccountManager *accountManager =
+    [[DBAccountManager alloc] initWithAppKey:@"2tw4s1h2895h1ct" secret:@"xkfniyp7ibp5gtl"];
+    [DBAccountManager setSharedManager:accountManager];
+    
+    DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
+    
+    if (account) {
+        NSLog(@"AA");
+        DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
+        [DBFilesystem setSharedFilesystem:filesystem];
+    }
     
     return YES;
 }
@@ -108,9 +121,13 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Freelance_Assistant.sqlite"];
     
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+    [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
+    
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          
@@ -149,4 +166,14 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma DropBox Func
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation {
+    DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+    if (account) {
+        NSLog(@"App linked successfully!");
+        return YES;
+    }
+    return NO;
+}
 @end

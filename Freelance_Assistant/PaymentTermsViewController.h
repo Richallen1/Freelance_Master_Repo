@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class PaymentTermsViewController;
-
-@protocol poverDelegate
+@protocol UserPaymentTermsStoreDelegate
 @optional
--(void)dismissPopoverDelegateMethod:(PaymentTermsViewController *)sender;
+-(void) storeUserPaymentTerms:(NSString *)paymentTerms;
 @end
 
 @interface PaymentTermsViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *paymentTermsField;
-
+@property (weak, nonatomic) id <UserPaymentTermsStoreDelegate> delegate;
 
 - (IBAction)doneButton:(id)sender;
 

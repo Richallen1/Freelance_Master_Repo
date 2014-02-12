@@ -147,6 +147,8 @@
         NSNumber *flTotal = [[NSNumber alloc]initWithFloat:total];
         [dict setObject:flTotal forKey:@"totalFL"];
         
+        NSLog(@"%@", dict);
+        
         [self.delegate addChargeViewController:self chargeDictionary:dict];
     }
 }

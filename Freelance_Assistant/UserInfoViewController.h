@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-
+@protocol UserNameStoreDelegate
+@optional
+-(void) storeUserName:(NSString *)name;
+@end
 
 
 @interface UserInfoViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *userFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *userSurname;
-
+@property (weak, nonatomic) id <UserNameStoreDelegate> delegate;
 
 - (IBAction)donButton:(id)sender;
 

@@ -16,6 +16,7 @@
 @synthesize address1=_address1;
 @synthesize address2=_address2;
 @synthesize postCode=_postCode;
+@synthesize delegate = _delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,11 +47,13 @@
 
 - (IBAction)doneButton:(id)sender
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:_address1.text forKey:@"User_Address_1"];
-    [defaults setObject:_address2.text forKey:@"User_Address_2"];
-    [defaults setObject:_postCode.text forKey:@"User_Postcode"];
-    [defaults synchronize];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:_address1.text forKey:@"User_Address_1"];
+//    [defaults setObject:_address2.text forKey:@"User_Address_2"];
+//    [defaults setObject:_postCode.text forKey:@"User_Postcode"];
+//    [defaults synchronize];
+
+    [self.delegate storeUserAddressWithAddress:_address1.text andAddress2:_address2.text andPostCode:_postCode.text];
     
     if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone"] || [[[UIDevice currentDevice]model]  isEqual: @"iPhone Simulator"]) {
         [self dismissModalViewControllerAnimated:YES];

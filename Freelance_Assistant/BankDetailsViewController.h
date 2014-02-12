@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UserBankDetailsStoreDelegate
+@optional
+-(void) storeBankDetailsWithAccountNumber:(NSString *)accountNumber andSortCode:(NSString *)sortCode;
+@end
+
 
 @interface BankDetailsViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *accountNumber;
 @property (weak, nonatomic) IBOutlet UITextField *sortCode;
+@property (weak, nonatomic) id <UserBankDetailsStoreDelegate> delegate;
 
 - (IBAction)doneButton:(id)sender;
 

@@ -79,6 +79,7 @@
         NSLog(@"2");
     }
     NSLog(@"3");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)deleteButton:(id)sender

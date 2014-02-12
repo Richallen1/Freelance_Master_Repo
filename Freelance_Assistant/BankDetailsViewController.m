@@ -36,10 +36,12 @@
 }
 - (IBAction)doneButton:(id)sender
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:_accountNumber.text forKey:@"User_Account_Number"];
-    [defaults setObject:_sortCode.text forKey:@"User_Sort_Code"];
-    [defaults synchronize];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:_accountNumber.text forKey:@"User_Account_Number"];
+//    [defaults setObject:_sortCode.text forKey:@"User_Sort_Code"];
+//    [defaults synchronize];
+
+    [self.delegate storeBankDetailsWithAccountNumber:_accountNumber.text andSortCode:_sortCode.text];
     
     if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone"] || [[[UIDevice currentDevice]model]  isEqual: @"iPhone Simulator"]) {
         [self dismissModalViewControllerAnimated:YES];

@@ -35,7 +35,8 @@
     [super viewDidLoad];
     
     NSLog(@"%f", self.view.bounds.size.height);
-    
+    self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x64c3d9);
+    self.tabBarController.tabBar.backgroundColor = UIColorFromRGB(0x64c3d9);
     
     self.tableView.backgroundColor = UIColorFromRGB(0xF2F2F2);
     //Get Date Info
@@ -48,6 +49,13 @@
     context = [appdelegate managedObjectContext];
     [self setupFetchedResultsController];
 
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Low Memory!!" message:@"You are running low on memory. You might want to close some of your other apps to get the best results." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    
+    [alert show];
 }
 
 - (long)GetDueDateFromDate:(NSString *)to
@@ -170,11 +178,18 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    
+    
     if ([segue.identifier isEqualToString:@"chosen_invoice_segue"])
     {
         iPhoneInvoiceDetailViewController *vc = segue.destinationViewController;
         vc.selectedInvoice = invoinceSelected;
         vc.delegate = self;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSLog(@"SENDER: %ld", (long)indexPath.row);
+        invoinceSelected = [InvoiceRowObjects objectAtIndex:indexPath.row];
         
     }
     if ([segue.identifier isEqualToString:@"new_invoice"])

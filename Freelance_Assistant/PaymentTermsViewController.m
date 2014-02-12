@@ -34,9 +34,11 @@
 
 - (IBAction)doneButton:(id)sender
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:_paymentTermsField.text forKey:@"inv_term_period"];
-    [defaults synchronize];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:_paymentTermsField.text forKey:@"inv_term_period"];
+//    [defaults synchronize];
+
+    [self.delegate storeUserPaymentTerms:_paymentTermsField.text];
     
     if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone"] || [[[UIDevice currentDevice]model]  isEqual: @"iPhone Simulator"]) {
         [self dismissModalViewControllerAnimated:YES];

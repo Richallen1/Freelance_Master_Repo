@@ -19,8 +19,12 @@
 //Section 2
 @property (weak, nonatomic) IBOutlet UILabel *paymentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bankDetialsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *invoiceLogo;
 
+//Dropbox Stuff
 @property (strong, nonatomic) IBOutlet UISwitch *dropboxSwitch;
+- (IBAction)dropboxChanged:(id)sender;
 
+- (IBAction)chooseLogoImage:(id)sender;
 
 @end

@@ -42,6 +42,7 @@
     
     NSLog(@"PDF Filename: %@", fileName);
     [self showPDFFileWithFile:filePath];
+    [self CheckDropbox];
 }
 
 - (void)viewDidUnload
@@ -266,5 +267,49 @@
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
 }
+#pragma Dropbox Func
+-(void)CheckDropbox
+{
+    if (![DBAccountManager sharedManager].linkedAccount)
+    {
+        NSLog(@"PDFViewController: Account Not Linked");
+    }
+    else
+    {
+        NSLog(@"PDFViewController: Account Linked");
+        [self WritePDF];
+    }
+}
+-(void)WritePDF
+{
+    NSError *err;
+    NSString *filenameForDB = [NSString stringWithFormat:@"%@.pdf", fileName];
+    
+        DBPath *rootDir = [DBPath root];
+        NSString *pathStr = [NSString stringWithFormat:@"%@/%@", rootDir, filenameForDB];
+        DBPath *path = [[DBPath alloc]initWithString:pathStr];
+        DBFileInfo *result = [[DBFilesystem sharedFilesystem]fileInfoForPath:path error:&err];
+        DBFile *file;
+    
+    if (result == nil) {
+        NSLog(@"New File");
+        DBPath *newPath = [[DBPath root] childPath: filenameForDB];
+        file = [[DBFilesystem sharedFilesystem] createFile:newPath error:nil];
+        err = nil;
+    }
+    else
+    {
+        NSLog(@"Existing File");
+        file = [[DBFilesystem sharedFilesystem]openFile:path error:&err];
+    }
+    NSLog(@"Written: %@", file);
+        NSData *myData = [NSData dataWithContentsOfFile:filePath];
+        [file writeData:myData error:&err];
+        
+        if (err) {
+            NSLog(@"%@", err);
+        }
+}
+
 
 @end

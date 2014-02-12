@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x64c3d9);
     self.tableView.backgroundColor = UIColorFromRGB(0xF2F2F2);
     clientsArray = [[NSArray alloc]init];
     selectedClient = NULL;
@@ -44,7 +45,7 @@
 #pragma Core Data Methods
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
-    
+    NSError *error;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"company"
                                                                                      ascending:YES
@@ -55,14 +56,28 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     
-    
+    clientsArray = [context executeFetchRequest:request error:&error];
     
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
- 
 
+-(void)deleteClientForCompany:(NSString *)company
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
+    request.predicate = [NSPredicate predicateWithFormat:@"company = %@", company];
+    NSError *error = nil;
+    NSArray *clients = [context executeFetchRequest:request error:&error];
+    if (clients.count == 0) {
+        //Nothing to Delete.
+    }
+    if (clients.count >= 1) {
+        //Delete all invoices matching that unique number!
+        for (Client *client in clients) {
+            [context deleteObject:client];
+        }
+        [context save:&error];
+    }
 }
+
 #pragma mark - Table view data source
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -90,8 +105,34 @@
         detailVC.selectedClient = selectedClient;
     }
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        
+        Client *cl = [clientsArray objectAtIndex:indexPath.row];
+        
+        [self deleteClientForCompany:cl.company];
+        [tableView reloadData];
+        NSLog(@"DELETE ROW NUMBER %ld", (long)indexPath.row);
+
+    }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
+
+#pragma Client Custon Delegate Methods
 -(void)tableViewReload
 {
     [self.tableView reloadData];
+    
 }
 @end

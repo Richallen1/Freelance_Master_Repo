@@ -33,12 +33,12 @@
 - (IBAction)doneButton:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    [defaults setObject:_emailField.text forKey:@"User_Name"];
-    [defaults synchronize];
-    
+//    [defaults setObject:_emailField.text forKey:@"User_Email"];
+//    [defaults synchronize];
 
+    [self.delegate storeEmailName:_emailField.text];
     
-    NSLog(@"Stored User Email: %@",[defaults objectForKey:@"User_Name"]);
+    NSLog(@"Stored User Email: %@",[defaults objectForKey:@"User_Email"]);
     
     if ([[[UIDevice currentDevice]model]  isEqual: @"iPhone"] || [[[UIDevice currentDevice]model]  isEqual: @"iPhone Simulator"]) {
         [self dismissModalViewControllerAnimated:YES];

@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B033EF118A633220034CBB8 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF018A633220034CBB8 /* Dropbox.framework */; };
+		9B033EF318A635370034CBB8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF218A635370034CBB8 /* Security.framework */; };
+		9B033EF518A635580034CBB8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF418A635580034CBB8 /* libc++.dylib */; };
+		9B033EF718A6356F0034CBB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF618A6356F0034CBB8 /* QuartzCore.framework */; };
+		9B033EF918A635EB0034CBB8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF818A635EB0034CBB8 /* CFNetwork.framework */; };
+		9B033F4C18AAE60F0034CBB8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B033F4B18AAE60F0034CBB8 /* User.m */; };
 		9B2448F81896A9F100CD6295 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2448F71896A9F100CD6295 /* Crashlytics.framework */; };
-		9B24494E18A2DA1600CD6295 /* iCloudDocumentFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24494D18A2DA1600CD6295 /* iCloudDocumentFinder.m */; };
 		9BB1B6A81892ED560092A68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B6A71892ED560092A68B /* Foundation.framework */; };
 		9BB1B6AA1892ED560092A68B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B6A91892ED560092A68B /* CoreGraphics.framework */; };
 		9BB1B6AC1892ED560092A68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B6AB1892ED560092A68B /* UIKit.framework */; };
@@ -87,9 +92,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B033EF018A633220034CBB8 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		9B033EF218A635370034CBB8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9B033EF418A635580034CBB8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		9B033EF618A6356F0034CBB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9B033EF818A635EB0034CBB8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9B033F4A18AAE60F0034CBB8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = freelance_assistant/User.h; sourceTree = SOURCE_ROOT; };
+		9B033F4B18AAE60F0034CBB8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = freelance_assistant/User.m; sourceTree = SOURCE_ROOT; };
 		9B2448F71896A9F100CD6295 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		9B24494C18A2DA1600CD6295 /* iCloudDocumentFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCloudDocumentFinder.h; path = freelance_assistant/iCloudDocumentFinder.h; sourceTree = SOURCE_ROOT; };
-		9B24494D18A2DA1600CD6295 /* iCloudDocumentFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCloudDocumentFinder.m; path = freelance_assistant/iCloudDocumentFinder.m; sourceTree = SOURCE_ROOT; };
 		9BB1B6A41892ED560092A68B /* Freelance_Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freelance_Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB1B6A71892ED560092A68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9BB1B6A91892ED560092A68B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,13 +212,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B033EF918A635EB0034CBB8 /* CFNetwork.framework in Frameworks */,
 				9BB1B786189429CC0092A68B /* libz.dylib in Frameworks */,
+				9B033EF518A635580034CBB8 /* libc++.dylib in Frameworks */,
+				9B033EF718A6356F0034CBB8 /* QuartzCore.framework in Frameworks */,
+				9B033EF318A635370034CBB8 /* Security.framework in Frameworks */,
 				9BB1B784189429C30092A68B /* SystemConfiguration.framework in Frameworks */,
 				9B2448F81896A9F100CD6295 /* Crashlytics.framework in Frameworks */,
 				9BB1B782189429B50092A68B /* CoreTelephony.framework in Frameworks */,
 				9BB1B6AA1892ED560092A68B /* CoreGraphics.framework in Frameworks */,
 				9BB1B6AE1892ED560092A68B /* CoreData.framework in Frameworks */,
 				9BB1B6AC1892ED560092A68B /* UIKit.framework in Frameworks */,
+				9B033EF118A633220034CBB8 /* Dropbox.framework in Frameworks */,
 				9BB1B6A81892ED560092A68B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,15 +242,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B24494B18A2D46200CD6295 /* iCloud */ = {
-			isa = PBXGroup;
-			children = (
-				9B24494C18A2DA1600CD6295 /* iCloudDocumentFinder.h */,
-				9B24494D18A2DA1600CD6295 /* iCloudDocumentFinder.m */,
-			);
-			name = iCloud;
-			sourceTree = "<group>";
-		};
 		9BB1B69B1892ED560092A68B = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +264,11 @@
 		9BB1B6A61892ED560092A68B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B033EF818A635EB0034CBB8 /* CFNetwork.framework */,
+				9B033EF618A6356F0034CBB8 /* QuartzCore.framework */,
+				9B033EF418A635580034CBB8 /* libc++.dylib */,
+				9B033EF218A635370034CBB8 /* Security.framework */,
+				9B033EF018A633220034CBB8 /* Dropbox.framework */,
 				9B2448F71896A9F100CD6295 /* Crashlytics.framework */,
 				9BB1B785189429CC0092A68B /* libz.dylib */,
 				9BB1B783189429C30092A68B /* SystemConfiguration.framework */,
@@ -274,7 +285,6 @@
 		9BB1B6AF1892ED560092A68B /* Freelance_Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				9B24494B18A2D46200CD6295 /* iCloud */,
 				9BB1B7001892F4630092A68B /* Core Data */,
 				9BB1B7041892F4930092A68B /* Application Classes */,
 				9BB1B7051892F4D20092A68B /* iPhone Files */,
@@ -333,6 +343,8 @@
 				9BB1B7011892F4800092A68B /* CoreDataTableViewController.h */,
 				9BB1B7021892F4800092A68B /* CoreDataTableViewController.m */,
 				9BB1B6BB1892ED560092A68B /* Freelance_Assistant.xcdatamodeld */,
+				9B033F4A18AAE60F0034CBB8 /* User.h */,
+				9B033F4B18AAE60F0034CBB8 /* User.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -639,6 +651,7 @@
 				F42C63AD189582C100F49731 /* iPhoneClientDetailViewController.m in Sources */,
 				9BB1B7121892F4FB0092A68B /* iPhoneClientsTableViewController.m in Sources */,
 				9BB1B76B18930AA70092A68B /* DetailViewContainerController.m in Sources */,
+				9B033F4C18AAE60F0034CBB8 /* User.m in Sources */,
 				9BB1B75C18930A980092A68B /* PaymentTermsViewController.m in Sources */,
 				9BB1B75918930A980092A68B /* UserInfoViewController.m in Sources */,
 				F42C63AA18957A5A00F49731 /* CustomClientViewController.m in Sources */,
@@ -667,7 +680,6 @@
 				9BB1B74A18930A440092A68B /* InvoiceSideViewController.m in Sources */,
 				9BB1B77918930AD10092A68B /* PDFViewController.m in Sources */,
 				9BB1B76E18930AA70092A68B /* SettingsDetailViewController.m in Sources */,
-				9B24494E18A2DA1600CD6295 /* iCloudDocumentFinder.m in Sources */,
 				9BB1B7131892F4FB0092A68B /* iPhoneSettingsTableViewController.m in Sources */,
 				F49C242E189555AC0018EB8C /* CustomDatePickerViewController.m in Sources */,
 				9BB1B76F18930AA70092A68B /* HelpDetailViewController.m in Sources */,
@@ -796,6 +808,8 @@
 					"$(inherited)",
 					"/Users/Rich/Desktop/Freelance\\ New\\ Universal/Freelance_Assistant",
 					"/Users/Rich/Developer/Freelance\\ Assistant\\ Universal",
+					"/Users/Rich/Desktop/Freelance\\ Assistant\\ Universal",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";
@@ -814,6 +828,8 @@
 					"$(inherited)",
 					"/Users/Rich/Desktop/Freelance\\ New\\ Universal/Freelance_Assistant",
 					"/Users/Rich/Developer/Freelance\\ Assistant\\ Universal",
+					"/Users/Rich/Desktop/Freelance\\ Assistant\\ Universal",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";

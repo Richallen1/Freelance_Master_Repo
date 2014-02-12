@@ -71,7 +71,9 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Low Memory!!" message:@"You are running low on memory. You might want to close some of your other apps to get the best results." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    
+    [alert show];
 }
 
 #pragma Core Data
@@ -179,7 +181,6 @@
 -(Invoice_charges *) InvoiceWithDict:(NSMutableDictionary *)dict invoiceForCharges:(Invoice *)inv
 {
     Invoice_charges *newCharge = nil;
-    
     newCharge = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice_charges" inManagedObjectContext:context];
     
     NSString *priceStr = [NSString stringWithFormat:@"%@",[dict objectForKey:@"Price"]];
@@ -638,12 +639,11 @@
     totalLabel.text = [currentDict objectForKey:@"Total"];
     [cell.contentView addSubview:totalLabel];
     
-    
-    
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
 }
 
@@ -658,6 +658,17 @@
         return YES;
     }
 }
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        
+        Invoice_charges *chg = [_invoiceRows objectAtIndex:indexPath.row];
+        
+        [_invoiceRows removeObject:chg];
+        [tableView reloadData];
+        NSLog(@"DELETE ROW NUMBER %ld", (long)indexPath.row);
+    }
+}
 
 - (void)ClearFields
 {
@@ -670,7 +681,6 @@
     self.clientNameField.text = @"";
     _invoiceRows = nil;
     [self.chargesTableView reloadData];
-
 }
 
 @end
