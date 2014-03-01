@@ -15,7 +15,12 @@
 @implementation CustomDatePickerViewController
 @synthesize datePicker;
 @synthesize delegate;
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,20 +29,35 @@
     }
     return self;
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     datePicker.datePickerMode = UIDatePickerModeDate;
     
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)doneButton:(id)sender
 {
         [self.delegate DateSelected:datePicker.date];

@@ -19,6 +19,12 @@
 @end
 
 @implementation CustomClientViewController
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -26,7 +32,12 @@
     context = [appdelegate managedObjectContext];
     [self FetchClientData];
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)FetchClientData
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -44,18 +55,42 @@
     }
     NSLog(@"%lu", (unsigned long)[clients count]);
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
 {
     return [clients count];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return [clients objectAtIndex:row];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
 {
     NSLog(@"Selected Row %ld", (long)row);
@@ -63,6 +98,12 @@
     clientFromPicker = [clients objectAtIndex:row];
     clientSelected = clientFromPicker;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)doneButton:(id)sender
 {
     if (!clientSelected) {

@@ -29,10 +29,16 @@
 @implementation InvoiceTableViewController
 @synthesize chosenView = _chosenView;
 
+#pragma View Controller Methods
+/*--------------------------------------------------------------------
+ Method: (void)viewDidLoad
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.tableView.backgroundColor = UIColorFromRGB(0xF2F2F2);
     //Get Date Info
     NSDate *now = [[NSDate alloc] init];
@@ -45,9 +51,13 @@
     [self setupFetchedResultsControllerFoViewChoice:_chosenView];
     [self.tableView reloadData];
     self.title = _chosenView;
-
 }
-
+/*--------------------------------------------------------------------
+ Method: (void)didReceiveMemoryWarning
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -55,16 +65,32 @@
 }
 
 #pragma mark - Table view data source
+/*--------------------------------------------------------------------
+ Method: (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [InvoiceRowObjects count];
 }
-
+/*--------------------------------------------------------------------
+ Method: (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -93,6 +119,12 @@
     
     return cell;
 }
+/*--------------------------------------------------------------------
+ Method: (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     float total = 0.00;
@@ -104,18 +136,36 @@
     return result;
 }
 #pragma mark - Table view Edit Mthods
+/*--------------------------------------------------------------------
+ Method: (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     invoinceSelected = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return YES if you want the specified item to be editable.
+/*--------------------------------------------------------------------
+ Method: (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return YES;
 }
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+/*--------------------------------------------------------------------
+ Method: (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //add code here for when you hit delete
         
@@ -126,7 +176,12 @@
     }
 }
 #pragma mark - Core Data Stack
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)setupFetchedResultsControllerFoViewChoice:(NSString *)choice
 {
     NSError *error = nil;
@@ -154,11 +209,12 @@
     
     
 }
-/**********************************************************
+/*--------------------------------------------------------------------
  Method:(void)deleteInvoiceWithNumber:(NSString *)invNumber
  Description:Deletes a invoice for a given invoice number
  Tag:Core Data
- **********************************************************/
+
+ --------------------------------------------------------------------*/
 -(void)deleteInvoiceWithNumber:(NSString *)invNumber
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Invoice"];
@@ -178,6 +234,12 @@
         [context save:&error];
     }
 }
+/*--------------------------------------------------------------------
+ Method: (User *)findUser
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(User *)findUser
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
@@ -193,6 +255,12 @@
     return [users objectAtIndex:0];
 }
 #pragma mark - Utility Functions
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (long)GetDueDateFromDate:(NSString *)to
 {
     User *user = [self findUser];
@@ -212,7 +280,11 @@
                                                          options:0];
     return components.day+terms;
 }
-
+/*--------------------------------------------------------------------
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ 
+ 
+ --------------------------------------------------------------------*/
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"chosen_invoice_segue"])
@@ -230,16 +302,34 @@
     }
 }
 #pragma mark - Delegate Methods
+/*--------------------------------------------------------------------
+ Method: (void)InvoiceStarted
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)InvoiceStarted
 {
     [self.tableView reloadData];
 }
+/*--------------------------------------------------------------------
+ Method: (void)reloadTableFromDetailView
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)reloadTableFromDetailView
 {
     [self setupFetchedResultsControllerFoViewChoice:_chosenView];
     [self.tableView reloadData];
     NSLog(@"Table Count: %lu",(unsigned long)[InvoiceRowObjects count]);
 }
+/*--------------------------------------------------------------------
+ Method: (void)reloadTableData
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)reloadTableData
 {
     [self setupFetchedResultsControllerFoViewChoice:_chosenView];

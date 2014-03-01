@@ -41,7 +41,12 @@
 @synthesize selectedInvoice;
 @synthesize invoiceRows=_invoiceRows;
 @synthesize saveAndPreviewButton=_saveAndPreviewButton;
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -62,6 +67,12 @@
     
     NSLog(@"%@", selectedInvoice);
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -70,6 +81,12 @@
     scrollView.contentSize = scrollFrame;
 }
 #pragma Core Data
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 /**********************************************************
  Method:(void)deleteInvoiceWithNumber:(NSString *)invNumber
  Description:Deletes a invoice for a given invoice number
@@ -96,6 +113,12 @@
         }
     }
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 /**********************************************************
  Method: (Client *) getClientForName:(NSString *)clientName
  Description:Gets the client company name for a given (Client *)
@@ -120,6 +143,12 @@
     Client *cl = [[Client alloc]init];
     return cl;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 /**********************************************************
  Method: (Client *) getClientForName:(NSString *)clientName
  Description:Gets the client company name for a given (Client *)
@@ -144,6 +173,12 @@
     Invoice *inv = [[Invoice alloc]init];
     return inv;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 /**********************************************************
  Method:(void) InvoiceWithDict:(NSMutableDictionary *)dict invoiceForCharges:(Invoice *)inv
  Description:Updates an invoice object with the dictionary of invoice information.
@@ -169,6 +204,12 @@
     
     return newCharge;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 /**********************************************************
  Method:(IBAction)SaveAndPreview:(id)sender
  Description:Stores and updates invioce info
@@ -228,6 +269,12 @@
         }
     }
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(User *)findUser
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
@@ -245,6 +292,12 @@
     
     
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (BOOL)CheckFieldsForSave
 {
     User *currentUser;
@@ -285,6 +338,12 @@
     return true;
 
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0)
@@ -293,21 +352,43 @@
         
     }
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)addItem:(id)sender
 {
     
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)editItem:(id)sender
 {
     
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)doneButton:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)fillDetailViewWithInvoiceData:(Invoice *)invoice
 {
     if (invoice.projectName != NULL) {
@@ -373,6 +454,12 @@
 }
 
 #pragma TEXT FIELD DELEGATE
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if (textField == dateField)
@@ -387,6 +474,12 @@
     }
     return YES;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)DateSelected:(NSDate *)date
 {
     //Get Date Info
@@ -398,6 +491,12 @@
     
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)ClientSelected:(NSString *)client;
 {
     _clientTextField.text = client;
@@ -407,6 +506,12 @@
     
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict
 {
     [_invoiceRows addObject:dict];
@@ -423,6 +528,12 @@
     
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 /**********************************************************
  Method:(void)updateLabels
  Description:Updates the total, vat and subtotal labels based on the array of charges.
@@ -466,6 +577,12 @@
     _vatLabel.text = vatAsString;
     _totalLabel.text = totalAsString;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     if ([identifier isEqualToString:@"Preview Segue"]) {
@@ -476,6 +593,12 @@
     }
     return YES;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"date_picker_segue"]) {
@@ -518,16 +641,33 @@
 
 }
 #pragma TableView Delegate Methods
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
 	
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [_invoiceRows count];
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"Drawing: %ld", (long)indexPath.row);
@@ -627,7 +767,12 @@
     
     return cell;
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //add code here for when you hit delete
@@ -638,6 +783,12 @@
         //[self deleteInvoiceCharge:chg];
     }
 }
+/*--------------------------------------------------------------------
+  Method:
+  Description:
+  Tag:
+  
+  --------------------------------------------------------------------*/
 -(void)deleteInvoiceCharge:(Invoice_charges *)charge
 {
     NSLog(@"Deleting invoice charge from row");

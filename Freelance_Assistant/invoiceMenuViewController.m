@@ -19,6 +19,12 @@
 @end
 
 @implementation invoiceMenuViewController
+/*--------------------------------------------------------------------
+ Method: (void)tutorialDone
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)tutorialDone
 {
     [tutorialView removeFromSuperview];
@@ -27,6 +33,12 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"DONE" forKey:@"firstTime"];
 }
+/*--------------------------------------------------------------------
+ Method: (void)showFirstTimeTutorial
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)showFirstTimeTutorial
 {
     tutorialView = [[UIView alloc]initWithFrame:self.view.bounds];
@@ -41,7 +53,6 @@
     tutorialImage.image = img;
     [tutorialView addSubview:tutorialImage];
     
-    
     //Add Done Button
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(104, 400, 120, 30)];
     [btn setEnabled:YES];
@@ -49,8 +60,6 @@
     [btn addTarget: self
             action: @selector(tutorialDone)
   forControlEvents: UIControlEventTouchDown];
-    
-    
     
     [btn setTitle:@"Ok I've got it!" forState:UIControlStateNormal];
     [tutorialContentView addSubview:btn];
@@ -60,6 +69,12 @@
     [self.view addSubview:tutorialView];
     
 }
+/*--------------------------------------------------------------------
+ Method: (void)viewDidLoad
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -74,19 +89,36 @@
         }
     }
 }
+/*--------------------------------------------------------------------
+ Method: (void)didReceiveMemoryWarning
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
+/*--------------------------------------------------------------------
+ Method: (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
     return [menuItems count];
 }
-
+/*--------------------------------------------------------------------
+ Method: (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -96,6 +128,12 @@
     
     return cell;
 }
+/*--------------------------------------------------------------------
+ Method: (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"chosen_invoice_menu"])

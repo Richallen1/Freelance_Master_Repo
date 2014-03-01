@@ -19,7 +19,12 @@
 
 @implementation iPhoneHelpTableViewController
 
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,21 +37,41 @@
     [self BuildHelpLibrary];
     
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 #pragma mark - Table view data source
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     return [helpTopics count];
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -56,6 +81,12 @@
     
     return cell;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"help_detail_segue"]) {
@@ -66,6 +97,12 @@
     }
 
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)BuildHelpLibrary
 {
     

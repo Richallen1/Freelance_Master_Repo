@@ -138,7 +138,7 @@
         Invoice *inv = [InvoiceRowObjects objectAtIndex:indexPath.row];
         
         [self deleteInvoiceWithNumber:inv.invoiceNumber];
-        [tableView reloadData];
+
         NSLog(@"DELETE ROW NUMBER %ld", (long)indexPath.row);
         
         [self.delegate clearFields];

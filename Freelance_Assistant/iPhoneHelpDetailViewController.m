@@ -14,7 +14,12 @@
 @synthesize helpTopic = _helpTopic;
 @synthesize helpDetail = _helpDetail;
 
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,7 +29,12 @@
     helpDetailTextView.text = _helpDetail;
 
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -36,6 +46,12 @@
     [self displayMailComposerSheet];
 }
 #pragma mark - Compose Mail/SMS
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 // -------------------------------------------------------------------------------
 //	displayMailComposerSheet
 //  Displays an email composition interface inside the application.
@@ -60,11 +76,13 @@
 	[self presentViewController:picker animated:YES completion:NULL];
 }
 #pragma mark - Delegate Methods
-// -------------------------------------------------------------------------------
-//	mailComposeController:didFinishWithResult:
-//  Dismisses the email composition interface when users tap Cancel or Send.
-//  Proceeds to update the message field with the result of the operation.
-// -------------------------------------------------------------------------------
+/*--------------------------------------------------------------------
+ Method: (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+ Description: 	mailComposeController:didFinishWithResult:Dismisses the email composition interface when users tap Cancel or Send.Proceeds to update the message field with the result of the operation.
+ Tag:
+ 
+ --------------------------------------------------------------------*/
+
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {

@@ -25,6 +25,7 @@
     UIPopoverController *clientPopupController;
     Client *clientSelected;
     int recieptCount;
+    UIImageView *holderView;
 }
 @end
 
@@ -64,11 +65,28 @@
     }
     
     _recieptsAttachedLabel.hidden = YES;
-    _noInvoiceImage.hidden = NO;
-    
+    [self ToggleInvoiceHoldImage:YES];
     
 }
-
+-(void)ToggleInvoiceHoldImage:(BOOL)check
+{
+    if (!holderView) {
+        holderView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 703, 768)];
+        UIImage *img = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"No INvoice" ofType:@"jpg"]];
+        holderView.image = img;
+    }
+    
+    if (check == NO)
+    {
+        [holderView removeFromSuperview];
+        NSLog(@"Remove View: %@", holderView);
+    }
+    else
+    {
+        [self.view addSubview:holderView];
+        NSLog(@"Add View: %@", holderView);
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -329,7 +347,7 @@
 }
 -(void)fillDetailViewWithInvoiceData:(Invoice *)invoice fromSender:(id)sender
 {
-    _noInvoiceImage.hidden = YES;
+    [self ToggleInvoiceHoldImage:NO];
     self.delegate = sender;
     
         if (invoice.projectName != NULL) {

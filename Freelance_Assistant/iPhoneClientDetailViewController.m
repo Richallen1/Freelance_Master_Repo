@@ -32,6 +32,12 @@
 @synthesize selectedClient;
 @synthesize updateClientDataBtn;
 
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -39,6 +45,12 @@
     CGSize scrollFrame = CGSizeMake(320, 436);
     scrollView.contentSize = scrollFrame;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)setTextFieldDelegates
 {
     firstNameField.delegate=self;
@@ -54,7 +66,12 @@
     phoneField.delegate=self;
    
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -75,43 +92,33 @@
     }
     [self setTextFieldDelegates];
 }
-//-(BOOL)isSmallScreen
-//{
-//    UIScrollView* sv = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 65, 320, 467)];
-//    sv.backgroundColor = [UIColor redColor];
-//    self.view = sv;
-//    CGFloat y = 467;
-//    
-//    CGSize sz = sv.frame.size;
-//    
-//    sz.height = y;
-//    sv.contentSize = sz; // This is the crucial line
-//    
-//    scrollView = sv;
-//    [scrollView addSubview:firstNameField];
-//    [scrollView addSubview:lastNameField];
-//    [scrollView addSubview:companyField];
-//    [scrollView addSubview:address1Field];
-//    [scrollView addSubview:address2Field];
-//    [scrollView addSubview:cityField];
-//    [scrollView addSubview:countyField];
-//    [scrollView addSubview:zipField];
-//    [scrollView addSubview:countryField];
-//    [scrollView addSubview:emailField];
-//    [scrollView addSubview:phoneField];
-//    [scrollView addSubview:updateClientDataBtn];
-//    
-//    return YES;
-//}
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)viewWillDisappear:(BOOL)animated
 {
     self.view = nil;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)updateButton:(id)sender
 {
     if (![emailField.text isEqualToString:@""] && (selectedClient == NULL) && ![emailField.text isEqualToString:@"[None]"]) {
@@ -128,7 +135,12 @@
     NSLog(@"3");
     
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)deleteButton:(id)sender
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
@@ -155,7 +167,12 @@
     [self.delegate tableViewReload];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)saveClient
 {
     selectedClient.firstName = self.firstNameField.text;
@@ -180,6 +197,12 @@
     [self.delegate tableViewReload];
     [self.navigationController popViewControllerAnimated:YES];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)newClient
 {
     NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:context];
@@ -213,6 +236,12 @@
         NSLog(@"%@", err);
     }
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)fillFieldsWithClientData:(Client *)client
 {
     firstNameField.text = selectedClient.firstName;
@@ -227,7 +256,12 @@
     phoneField.text = selectedClient.phone;
     emailField.text = selectedClient.email;
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 #pragma Textfield Delegate and Amimation Methods
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -236,16 +270,34 @@
     
     return YES;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     
     return YES;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self animateTextField: textField up: NO];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {
     int movementDistance = [self getMovementDistanceForTextField:textField];
@@ -259,6 +311,12 @@
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(int)getMovementDistanceForTextField:(UITextField *)textField
 {
     int returnValue = 0;
@@ -279,6 +337,12 @@
     return returnValue;
 }
 #pragma Contact Importer
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)importFromContact:(id)sender
 {
     NSLog(@"sdsdsd");
@@ -289,11 +353,23 @@
     
     [self presentModalViewController:picker animated:YES];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)peoplePickerNavigationControllerDidCancel:
 (ABPeoplePickerNavigationController *)peoplePicker
 {
     [self dismissModalViewControllerAnimated:YES];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(BOOL)checkClientForName:(NSString *)company
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
@@ -305,6 +381,12 @@
     }
     return false;
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (BOOL)peoplePickerNavigationController:
 (ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person {
@@ -314,7 +396,12 @@
     
     return NO;
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (BOOL)peoplePickerNavigationController:
 (ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person
@@ -323,7 +410,12 @@
 {
     return NO;
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)displayPerson:(ABRecordRef)person
 {
     NSString* firstName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);

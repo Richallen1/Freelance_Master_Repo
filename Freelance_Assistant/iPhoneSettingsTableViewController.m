@@ -42,6 +42,12 @@
 
 
 #pragma Dropbox Methods
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)CheckDropboxStatus
 {
     if (![DBAccountManager sharedManager].linkedAccount)
@@ -57,6 +63,12 @@
 }
 
 #pragma ViewController Life Cycle
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -74,6 +86,12 @@
     
     
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(User *)findUser
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
@@ -88,12 +106,23 @@
     }
     return [users objectAtIndex:0];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"terms_segue"]){
@@ -109,7 +138,12 @@
     }
     
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)fillUserData
 {
     if (user != NULL) {
@@ -126,6 +160,12 @@
         }
     }
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)dropboxChanged:(id)sender
 {
     if ([_dropboxSwitch isOn]) {
@@ -146,7 +186,12 @@
         self.store = nil;
     }
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 - (IBAction)chooseLogoImage:(id)sender
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -157,7 +202,12 @@
 
     [self presentViewController:picker animated:YES completion:NULL];
 }
-
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSError *error;
@@ -168,6 +218,12 @@
     [self fillUserData];
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)storeUserName:(NSString *)name
 {
     NSError *error;
@@ -175,6 +231,12 @@
     [context save:&error];
     [self fillUserData];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)storeUserAddressWithAddress:(NSString *)addr1 andAddress2:(NSString *)addr2 andPostCode:(NSString *)postcode
 {
     NSError *error;
@@ -184,6 +246,12 @@
     [context save:&error];
     [self fillUserData];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)storeEmailName:(NSString *)email
 {
     NSError *error;
@@ -191,6 +259,12 @@
     [context save:&error];
     [self fillUserData];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)storeUserPaymentTerms:(NSString *)paymentTerms
 {
     NSError *error;
@@ -198,6 +272,12 @@
     [context save:&error];
     [self fillUserData];
 }
+/*--------------------------------------------------------------------
+ Method:
+ Description:
+ Tag:
+ 
+ --------------------------------------------------------------------*/
 -(void)storeBankDetailsWithAccountNumber:(NSString *)accountNumber andSortCode:(NSString *)sortCode
 {
     NSError *error;
