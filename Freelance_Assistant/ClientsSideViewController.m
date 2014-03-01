@@ -67,6 +67,7 @@
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
 
+    NSError *error;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"company"
                                                                                      ascending:YES
@@ -78,6 +79,7 @@
                                                                                    cacheName:nil];
     
     
+    clientsArray = [context executeFetchRequest:request error:&error];
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,11 +122,9 @@
     [request setEntity:desc];
     
     NSError *error;
-    NSArray *data = [context executeFetchRequest:request error:&error];
+    NSArray *clientsLocal = [context executeFetchRequest:request error:&error];
     
-    NSMutableArray *clientsLocal = [[NSMutableArray alloc]init];
-    
-    NSLog(@"%lu", (unsigned long)[clientsLocal count]);
+    NSLog(@"Clients Count: %lu", (unsigned long)[clientsLocal count]);
     return;
 }
 

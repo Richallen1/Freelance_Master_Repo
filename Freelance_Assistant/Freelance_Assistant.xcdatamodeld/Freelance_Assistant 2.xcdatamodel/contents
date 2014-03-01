@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="V2" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Client" representedClassName="Client" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paymentTerms" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clientInvoices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invoice" inverseName="clientForInvoice" inverseEntity="Invoice" syncable="YES"/>
+    </entity>
+    <entity name="Invoice" representedClassName="Invoice" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="invoiceNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paid" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subTotal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vat" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clientForInvoice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="clientInvoices" inverseEntity="Client" syncable="YES"/>
+        <relationship name="invoice_charges" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invoice_charges" inverseName="invoice_head" inverseEntity="Invoice_charges" syncable="YES"/>
+        <relationship name="invoice_reciepts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reciept" inverseName="invoice_header" inverseEntity="Reciept" syncable="YES"/>
+    </entity>
+    <entity name="Invoice_charges" representedClassName="Invoice_charges" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qty" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vat" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="invoice_head" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="invoice_charges" inverseEntity="Invoice" syncable="YES"/>
+    </entity>
+    <entity name="Reciept" representedClassName="Reciept" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="invoice_header" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="invoice_reciepts" inverseEntity="Invoice" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="accountNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="invoiceLogo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paymentTerms" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vatNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Client" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Invoice" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Invoice_charges" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Reciept" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

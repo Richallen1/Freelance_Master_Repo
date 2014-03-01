@@ -11,6 +11,7 @@
 #import "PDFPublisherController.h"
 #import "AppDelegate.h"
 #import "Reciept.h"
+#import "User.h"
 
 @interface PDFViewController ()
 {
@@ -126,6 +127,8 @@
 // -------------------------------------------------------------------------------
 - (void)displayMailComposerSheet
 {
+    User *user;
+    
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
     
@@ -133,6 +136,23 @@
     NSString *subject = [NSString stringWithFormat:@"Invoice from %@", [defaults objectForKey:@"User_Name"]];
 	[picker setSubject:subject];
     NSArray *toRecipients;
+    
+    //Get User Info
+    
+    NSEntityDescription *userDesc = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    NSFetchRequest *userRequest = [[NSFetchRequest alloc]init];
+    [userRequest setEntity:userDesc];
+    
+    NSError *error;
+    NSArray *userData = [context executeFetchRequest:userRequest error:&error];
+    
+    if ([userData count] > 0) {
+        for (int i = 0; i < [userData count]; i++) {
+            user = userData[i];
+        }
+        
+    }
+    error = nil;
     
 	// Set up recipients
     if (client.email) {
@@ -145,12 +165,12 @@
     
     NSArray *bccRecipients;
     
-	if ([defaults objectForKey:@"User_Email"] == NULL) {
+	if (user == NULL) {
         bccRecipients = [NSArray arrayWithObject:@""];
     }
     else
     {
-        bccRecipients = [NSArray arrayWithObject:[defaults objectForKey:@"User_Email"]];
+        bccRecipients = [NSArray arrayWithObject:user.email];
     }
     NSLog(@"User Email: %@", bccRecipients);
     NSLog(@"Client Email: %@", toRecipients);
@@ -169,7 +189,7 @@
     request.predicate = [NSPredicate predicateWithFormat:@"invoice_header = %@", inv];
     [request setEntity:desc];
     
-    NSError *error;
+    
     NSArray *data = [context executeFetchRequest:request error:&error];
     
     if ([data count] > 0) {

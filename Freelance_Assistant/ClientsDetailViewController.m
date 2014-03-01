@@ -15,6 +15,7 @@
 {
     NSManagedObjectContext *context;
     Client *selectedClient;
+    UIImageView *imgView;
 }
 @end
 
@@ -30,14 +31,33 @@
 @synthesize phone=_phone;
 @synthesize country=_country;
 @synthesize email=_email;
+@synthesize updateBtnProperty=_updateBtnProperty;
+@synthesize deleteClientButton=_deleteClientButton;
+
+-(void)checkForClient
+{
+   
+    if (selectedClient == NULL) {        
+        UIImage *img = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"noClient" ofType:@"png"]];
+        imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 703, 768)];
+        imgView.image = img;
+        imgView.backgroundColor = [UIColor redColor];
+        [self.view addSubview:imgView];
+    }
+    else
+    {
+        if (imgView) {
+            [imgView removeFromSuperview];
+        }
+    }
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     context = [appDelegate managedObjectContext];
-    
-    
+    [self checkForClient];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,6 +82,7 @@
     
     NSError *err;
     [context save:&err];
+    NSLog(@"%@", selectedClient);
 
 }
 
@@ -108,6 +129,7 @@
     self.email.text = client.email;
     }
     self.delgate = sender;
+    [self checkForClient];
 }
 
 @end

@@ -19,7 +19,8 @@
 //Section 2
 @property (weak, nonatomic) IBOutlet UILabel *paymentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bankDetialsLabel;
-@property (strong, nonatomic) IBOutlet UILabel *invoiceLogo;
+@property (strong, nonatomic) IBOutlet UIButton *invoiceLogoButton;
+
 
 //Dropbox Stuff
 @property (strong, nonatomic) IBOutlet UISwitch *dropboxSwitch;

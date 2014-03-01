@@ -16,13 +16,14 @@
 #import "PDFViewController.h"
 #import "PDFPublisherController.h"
 
-@interface iPhoneInvoiceDetailViewController ()<UITextFieldDelegate, UIActionSheetDelegate, CustomDateDelegate, CustomClientDelegate, AddChargeTableViewDelegate>
+@interface iPhoneInvoiceDetailViewController ()<UITextFieldDelegate, UIAlertViewDelegate, UIActionSheetDelegate, CustomDateDelegate, CustomClientDelegate, AddChargeTableViewDelegate, iPhoneInvoiceDelegate>
 {
     NSMutableArray *invoiceRowObjects;
     NSManagedObjectContext *context;
     Client *clientSelected;
     NSDate *invoiceDate;
     BOOL invoiceComplete;
+    IBOutlet UIScrollView *scrollView;
     
 }
 @end
@@ -40,6 +41,7 @@
 @synthesize selectedInvoice;
 @synthesize invoiceRows=_invoiceRows;
 @synthesize saveAndPreviewButton=_saveAndPreviewButton;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,8 +59,16 @@
     if (selectedInvoice != NULL) {
         [self fillDetailViewWithInvoiceData:selectedInvoice];
     }
+    
+    NSLog(@"%@", selectedInvoice);
 }
-
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [scrollView layoutIfNeeded];
+    CGSize scrollFrame = CGSizeMake(320, 436);
+    scrollView.contentSize = scrollFrame;
+}
 #pragma Core Data
 /**********************************************************
  Method:(void)deleteInvoiceWithNumber:(NSString *)invNumber
@@ -176,7 +186,7 @@
             
         NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Invoice" inManagedObjectContext:context];
         Invoice *newInvoice = [[Invoice alloc]initWithEntity:entityDesc insertIntoManagedObjectContext:context];
-        
+            BOOL paid = NO;
         [newInvoice setValue:dateField.text forKey:@"date"];
         [newInvoice setValue:_invoiceNumberField.text forKey:@"invoiceNumber"];
         [newInvoice setValue:_projectNameField.text forKey:@"projectName"];
@@ -184,6 +194,7 @@
         [newInvoice setValue:_totalLabel.text forKey:@"total"];
         [newInvoice setValue:_vatLabel.text forKey:@"vat"];
         [newInvoice setValue:clientSelected forKey:@"clientForInvoice"];
+        
     
         for (NSMutableDictionary *dict in _invoiceRows)
         {
@@ -217,8 +228,30 @@
         }
     }
 }
+-(User *)findUser
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSError *error = nil;
+    NSArray *users = [context executeFetchRequest:request error:&error];
+    if (users.count == 0) {
+        User *newUser = nil;
+        
+        newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+        return newUser;
+        
+    }
+    
+    return [users objectAtIndex:0];
+    
+    
+}
 - (BOOL)CheckFieldsForSave
 {
+    User *currentUser;
+    if ([self findUser] != NULL) {
+      NSLog(@"%@", [self findUser]);
+        currentUser = [self findUser];
+    }
     if ([dateField.text  isEqual: @""]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You need to enter a vaild date before being able to save." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
@@ -239,18 +272,28 @@
         [alert show];
         return false;
     }
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"User_Name"] == NULL || [defaults objectForKey:@"User_Address_1"] == NULL || [defaults objectForKey:@"User_Address_2"] == NULL)
-    {
+   
+    if (currentUser.name == nil || currentUser.address == nil || currentUser.city == nil) {
+        NSLog(@"%@", currentUser.name);
+        NSLog(@"%@", currentUser.address);
+        NSLog(@"%@", currentUser.city);
         
-        
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Some info missing" message:@"Please go to the setting menu as your information is missing. Your invoice has been saved so you can return later." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Some info missing" message:@"Please go to the setting menu as your information is missing. Your invoice has been saved so you can return later." delegate:self cancelButtonTitle:@"Go to Settings" otherButtonTitles: nil];
         [alert show];
         return false;
     }
     return true;
 
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        [self.tabBarController setSelectedIndex:2];
+        
+    }
+}
+
 - (IBAction)addItem:(id)sender
 {
     
@@ -306,6 +349,9 @@
             NSLog(@"%@", invChg.date);
             NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
 
+            
+            NSLog(@"PRICE-----: %@",invChg.price);
+            
             [dict setObject:invChg.date forKey:@"Date"];
             [dict setObject:invChg.desc forKey:@"Desc"];
             [dict setObject:invChg.price forKey:@"subTotal"];
@@ -467,6 +513,7 @@
         pvc.projectName = _projectNameField.text;
         pvc.inv = [self getInvoiceForNumber:_invoiceNumberField.text];
         
+        [self.delegate reloadTableData];
     }
 
 }
@@ -526,9 +573,8 @@
     
     NSMutableDictionary *currentDict = [[NSMutableDictionary alloc]init];
     
-    NSLog(@"Charges Dict: %@", currentDict);
-    
     currentDict = [_invoiceRows objectAtIndex:indexPath.row];
+    NSLog(@"Charges Dict: %@", currentDict);
     //cell.textLabel.text = [currentDict objectForKey:@"Desc"];
     
     CGRect dateFrame = CGRectMake(5, 15, 60, 20);
@@ -582,9 +628,36 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-  
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        Invoice_charges *chg = [_invoiceRows objectAtIndex:indexPath.row];
+        [_invoiceRows removeObject:chg];
+        [tableView reloadData];
+        NSLog(@"DELETE ROW NUMBER %ld", (long)indexPath.row);
+        //[self deleteInvoiceCharge:chg];
+    }
 }
-
+-(void)deleteInvoiceCharge:(Invoice_charges *)charge
+{
+    NSLog(@"Deleting invoice charge from row");
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Invoice_charges"];
+    request.predicate = [NSPredicate predicateWithFormat:@"date = %@", charge.date];
+    request.predicate = [NSPredicate predicateWithFormat:@"date = %@", charge.desc];
+    NSError *error = nil;
+    NSArray *charges = [context executeFetchRequest:request error:&error];
+    if (charges.count == 0) {
+        //Nothing to Delete.
+        NSLog(@"No items found");
+    }
+    if (charges.count == 1) {
+        //Delete all invoices matching that unique number!
+        for (NSManagedObject *charge in charges) {
+            [context deleteObject:charge];
+            NSLog(@"Charge Deleted");
+            NSError *error = nil;
+            [context save:&error];
+        }
+    }
+}
 @end

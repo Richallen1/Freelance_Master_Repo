@@ -8,7 +8,8 @@
 
 #import "PDFPublisherController.h"
 #import "CoreText/CoreText.h"
-
+#import "User.h"
+#import "AppDelegate.h"
 
 @implementation PDFPublisherController
 
@@ -33,7 +34,7 @@
     UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
     
     [self drawLabelsWithInvoiceDetails:invDetails andSelectedClient:clientSelected];
-    //[self drawLogo];
+    [self drawLogo];
     
     int xOrigin = 50;
     int yOrigin = 300;
@@ -195,6 +196,9 @@
     UIView* mainView = [objects objectAtIndex:0];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    User *currentUser = [self findUser];
+    
+    
     for (UIView* view in [mainView subviews]) {
         if([view isKindOfClass:[UILabel class]])
         {
@@ -226,8 +230,8 @@
             //Invoicer Name
             if (label.tag == 5) {
                 if (label.text != nil) {
-                    if ([defaults objectForKey:@"User_Name"] != NULL) {
-                        label.text = [defaults objectForKey:@"User_Name"];
+                    if (currentUser.name != nil) {
+                        label.text = currentUser.name;
                     }
                 
                 }
@@ -235,23 +239,23 @@
             //Invoicer Addr
             if (label.tag == 6) {
                 if (label.text != nil) {
-                    if ([defaults objectForKey:@"User_Address_1"] != NULL) {
-                label.text = [defaults objectForKey:@"User_Address_1"];
+                    if (currentUser.address != nil) {
+                label.text = currentUser.address;
                 }
                 }
             }
             //Invoicer City
             if (label.tag == 7) {
-                if (label.text != nil) {
-                label.text = @"Addlestone" ;
+                if (currentUser.city != nil) {
+                label.text = currentUser.city;
                 }
                 
             }
             //Invoicer Postcode
             if (label.tag == 8) {
                 if (label.text != nil) {
-                    if ([defaults objectForKey:@"User_Address_2"] != NULL) {
-                        label.text = [defaults objectForKey:@"User_Address_2"] ;
+                    if (currentUser.postcode != nil) {
+                        label.text = currentUser.postcode;
                     }
                 
                 }
@@ -270,8 +274,8 @@
             }
             //inv terms
             if (label.tag == 11) {
-                if (label.text != nil) {
-                    NSString *str =[NSString stringWithFormat:@"Payment due in %@ days",[defaults objectForKey:@"inv_term_period"]];
+                if (currentUser.paymentTerms != nil) {
+                    NSString *str =[NSString stringWithFormat:@"Payment due in %@ days",currentUser.paymentTerms];
                     if (str != NULL) {
                         label.text = str;
                     }
@@ -280,8 +284,8 @@
             }
             //inv AC number
             if (label.tag == 12) {
-                if (label.text != nil) {
-                    NSString *str = [NSString stringWithFormat:@"Account Number: %@", [defaults objectForKey:@"User_Account_Number"]];
+                if (currentUser.accountNumber != nil) {
+                    NSString *str = [NSString stringWithFormat:@"Account Number: %@", currentUser.accountNumber];
                     if (str != NULL) {
                         label.text = str;
                     }
@@ -290,8 +294,8 @@
             }
             //inv Sort
             if (label.tag == 13) {
-                if (label.text != nil) {
-                    NSString *str = [NSString stringWithFormat:@"Sort Code: %@", [defaults objectForKey:@"User_Sort_Code"]];
+                if (currentUser.sortCode != nil) {
+                    NSString *str = [NSString stringWithFormat:@"Sort Code: %@", currentUser.sortCode];
                     if (str != NULL) {
                         label.text = str;
                     }
@@ -299,8 +303,8 @@
             }
             //inv notes
             if (label.tag == 14) {
-                if (label.text != nil) {
-                    NSString *str = [NSString stringWithFormat:@"VAT Number: %@", [defaults objectForKey:@"User_VAT"]];
+                if (currentUser.vatNumber != nil) {
+                    NSString *str = [NSString stringWithFormat:@"VAT Number: %@", currentUser.vatNumber];
                     if (str != NULL) {
                         label.text = str;
                     }
@@ -310,16 +314,33 @@
         }
     }
 }
++(User *)findUser
+{
+    NSManagedObjectContext *context;
+    AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
+    context = [appdelegate managedObjectContext];
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSError *error = nil;
+    NSArray *users = [context executeFetchRequest:request error:&error];
+    if (users.count == 0) {
+        User *newUser = nil;
+        newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+        return newUser;
+    }
+    return [users objectAtIndex:0];
+}
 +(void)drawLogo
 {
+    User *currentUser = [self findUser];
+    
     NSArray* objects = [[NSBundle mainBundle] loadNibNamed:@"InvoiceView" owner:nil options:nil];
     UIView* mainView = [objects objectAtIndex:0];
     for (UIView* view in [mainView subviews]) {
         if([view isKindOfClass:[UIImageView class]])
         {
-            
-//            UIImage* logo = [UIImage imageNamed:@"tempLogo.jpg"];
-//            [self drawImage:logo inRect:view.frame];
+            UIImage* logo = [UIImage imageWithData:currentUser.invoiceLogo];
+            [self drawImage:logo inRect:view.frame];
         }
     }
 }

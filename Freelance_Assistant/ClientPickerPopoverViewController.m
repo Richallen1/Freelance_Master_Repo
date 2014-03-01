@@ -21,28 +21,12 @@
 @synthesize clients=_clients;
 @synthesize clientPicker=_clientPicker;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
     [self getClients];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 -(void)getClients
 {
@@ -80,10 +64,6 @@
     NSString *clientFromPicker = [[NSString alloc]init];
     clientFromPicker = [self.clients objectAtIndex:row];
     [self.delegate PassClientFromPickerWithClient:clientFromPicker withSender:self];
-    
-    
-    //  [self getClientForName:[self.clients objectAtIndex:row]];
-    
 }
 
 @end

@@ -9,15 +9,17 @@
 #import "AppDelegate.h"
 #import <Crashlytics/Crashlytics.h>
 
+
 @implementation AppDelegate
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize window = _window;
+@synthesize managedObjectContext = __managedObjectContext;
+@synthesize managedObjectModel = __managedObjectModel;
+@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize fetchedResultsController = __fetchedResultsController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
     //Crashalytics
     [Crashlytics startWithAPIKey:@"310685f2178dcb0e73ee51d49d1e8a92c8e32b15"];
 
@@ -35,7 +37,7 @@
         DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
         [DBFilesystem setSharedFilesystem:filesystem];
     }
-    
+    [self setupFetchedResultsController];
     return YES;
 }
 
@@ -67,6 +69,31 @@
     [self saveContext];
 }
 
+- (void)setupFetchedResultsController
+{
+    // 1 - Decide what Entity you want
+    NSString *entityName = @"Client"; // Put your entity name here
+    NSLog(@"Setting up a Fetched Results Controller for the Entity named %@", entityName);
+    
+    // 2 - Request that Entity
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    
+    // 3 - Filter it if you want
+    //request.predicate = [NSPredicate predicateWithFormat:@"Person.name = Blah"];
+    
+    // 4 - Sort it if you want
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"company"
+                                                                                     ascending:YES
+                                                                                      selector:@selector(localizedCaseInsensitiveCompare:)]];
+    // 5 - Fetch it
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    [self.fetchedResultsController performFetch:nil];
+}
+
+
 - (void)saveContext
 {
     NSError *error = nil;
@@ -81,8 +108,180 @@
     }
 }
 
-#pragma mark - Core Data stack
 
+
+#pragma Core Data Stack with iCloud Sync
+
+- (NSManagedObjectContext *)managedObjectContext {
+    
+    if (__managedObjectContext != nil) {
+        return __managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    
+    if (coordinator != nil) {
+        NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        
+        [moc performBlockAndWait:^{
+            [moc setPersistentStoreCoordinator: coordinator];
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(mergeChangesFrom_iCloud:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:coordinator];
+        }];
+        __managedObjectContext = moc;
+    }
+    
+    return __managedObjectContext;
+}
+
+- (void)mergeChangesFrom_iCloud:(NSNotification *)notification {
+    
+	NSLog(@"Merging in changes from iCloud...");
+    
+    NSManagedObjectContext* moc = [self managedObjectContext];
+    
+    [moc performBlock:^{
+        
+        [moc mergeChangesFromContextDidSaveNotification:notification];
+        
+        NSNotification* refreshNotification = [NSNotification notificationWithName:@"SomethingChanged"
+                                                                            object:self
+                                                                          userInfo:[notification userInfo]];
+        
+        [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
+    }];
+}
+
+/**
+ Returns the managed object model for the application.
+ If the model doesn't already exist, it is created from the application's model.
+ */
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (__managedObjectModel != nil)
+    {
+        return __managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Freelance_Assistant" withExtension:@"momd"];
+    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return __managedObjectModel;
+}
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if((__persistentStoreCoordinator != nil)) {
+        return __persistentStoreCoordinator;
+    }
+    
+    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    NSPersistentStoreCoordinator *psc = __persistentStoreCoordinator;
+    
+    // Set up iCloud in another thread:
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // ** Note: if you adapt this code for your own use, you MUST change this variable:
+        NSString *iCloudEnabledAppID = @"CKPJ2HQV66.MagicEntertainment.Freelance-Assistant";
+        
+        // ** Note: if you adapt this code for your own use, you should change this variable:
+        NSString *dataFileName = @"Freelance_Assistant2.sqlite";
+        
+        // ** Note: For basic usage you shouldn't need to change anything else
+        
+        NSString *iCloudDataDirectoryName = @"Data.nosync";
+        NSString *iCloudLogsDirectoryName = @"Logs";
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSURL *localStore = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:dataFileName];
+        NSURL *iCloud = [fileManager URLForUbiquityContainerIdentifier:nil];
+        
+        if (iCloud) {
+            
+            NSLog(@"iCloud is working");
+            
+            NSURL *iCloudLogsPath = [NSURL fileURLWithPath:[[iCloud path] stringByAppendingPathComponent:iCloudLogsDirectoryName]];
+            
+            NSLog(@"iCloudEnabledAppID = %@",iCloudEnabledAppID);
+            NSLog(@"dataFileName = %@", dataFileName);
+            NSLog(@"iCloudDataDirectoryName = %@", iCloudDataDirectoryName);
+            NSLog(@"iCloudLogsDirectoryName = %@", iCloudLogsDirectoryName);
+            NSLog(@"iCloud = %@", iCloud);
+            NSLog(@"iCloudLogsPath = %@", iCloudLogsPath);
+            
+            if([fileManager fileExistsAtPath:[[iCloud path] stringByAppendingPathComponent:iCloudDataDirectoryName]] == NO) {
+                NSError *fileSystemError;
+                [fileManager createDirectoryAtPath:[[iCloud path] stringByAppendingPathComponent:iCloudDataDirectoryName]
+                       withIntermediateDirectories:YES
+                                        attributes:nil
+                                             error:&fileSystemError];
+                if(fileSystemError != nil) {
+                    NSLog(@"Error creating database directory %@", fileSystemError);
+                }
+            }
+            
+            NSString *iCloudData = [[[iCloud path]
+                                     stringByAppendingPathComponent:iCloudDataDirectoryName]
+                                    stringByAppendingPathComponent:dataFileName];
+            
+            NSLog(@"iCloudData = %@", iCloudData);
+            
+            NSMutableDictionary *options = [NSMutableDictionary dictionary];
+            [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+            [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
+            [options setObject:iCloudEnabledAppID            forKey:NSPersistentStoreUbiquitousContentNameKey];
+            [options setObject:iCloudLogsPath                forKey:NSPersistentStoreUbiquitousContentURLKey];
+            
+            [psc lock];
+            
+            [psc addPersistentStoreWithType:NSSQLiteStoreType
+                              configuration:nil
+                                        URL:[NSURL fileURLWithPath:iCloudData]
+                                    options:options
+                                      error:nil];
+            
+            [psc unlock];
+        }
+        else {
+            NSLog(@"iCloud is NOT working - using a local store");
+            NSMutableDictionary *options = [NSMutableDictionary dictionary];
+            [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+            [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
+            
+            [psc lock];
+            
+            [psc addPersistentStoreWithType:NSSQLiteStoreType
+                              configuration:nil
+                                        URL:localStore
+                                    options:options
+                                      error:nil];
+            [psc unlock];
+            
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:self userInfo:nil];
+        });
+    });
+    
+    return __persistentStoreCoordinator;
+}
+
+#pragma mark - Application's Documents directory
+
+/**
+ Returns the URL to the application's Documents directory.
+ */
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
+
+#pragma mark - Core Data stack
+/*
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
@@ -119,7 +318,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Freelance_Assistant.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Freelance_Assistant2.sqlite"];
     
     NSMutableDictionary *options = [NSMutableDictionary dictionary];
     [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
@@ -128,29 +327,7 @@
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
+
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }    
@@ -165,6 +342,9 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
+*/
 
 #pragma DropBox Func
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url

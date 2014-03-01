@@ -65,6 +65,8 @@
     
     _recieptsAttachedLabel.hidden = YES;
     _noInvoiceImage.hidden = NO;
+    
+    
 }
 
 
@@ -272,7 +274,6 @@
 }
 - (IBAction)DeleteInvoice:(id)sender
 {
-    
     [self deleteInvoiceWithNumber:_invoiceField.text];
     [self.delegate reloadTableFromDetailView];
     [self ClearFields];

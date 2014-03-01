@@ -23,6 +23,8 @@
     [super viewDidLoad];
 	AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

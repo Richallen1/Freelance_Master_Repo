@@ -27,8 +27,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *countryField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (strong, nonatomic) IBOutlet UIButton *updateClientDataBtn;
 @property (strong, nonatomic) Client *selectedClient;
 @property (weak, nonatomic) id <iPhoneClientDetailDelegate> delegate;
+
+
+//Title Labels for scroll View Purpose
+
+
 
 - (IBAction)updateButton:(id)sender;
 - (IBAction)deleteButton:(id)sender;

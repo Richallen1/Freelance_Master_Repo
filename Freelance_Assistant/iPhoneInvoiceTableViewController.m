@@ -24,17 +24,61 @@
     NSString *todaysDate;
     Client *slectedClient;
    // NSMutableArray *InvoiceRowObjects;
+    UIView *tutorialView;
 }
 
 @end
 
 @implementation iPhoneInvoiceTableViewController
 
+-(void)tutorialDone
+{
+    [tutorialView removeFromSuperview];
+    tutorialView = nil;
+    self.tabBarController.selectedIndex = 2;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"DONE" forKey:@"firstTime"];
+}
+-(void)showFirstTimeTutorial
+{
+    tutorialView = [[UIView alloc]initWithFrame:self.view.bounds];
+    tutorialView.backgroundColor = [UIColor blackColor];
+    tutorialView.alpha = 0.3;
+    
+    UIView *tutorialContentView = [[UIView alloc]initWithFrame:self.view.bounds];
+    
+    //Add Image View
+    UIImage *img = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TutorialView" ofType:@"png"]];
+    UIImageView *tutorialImage = [[UIImageView alloc]initWithFrame:CGRectMake(20, 20, 280, 340)];
+    tutorialImage.image = img;
+    [tutorialView addSubview:tutorialImage];
+    
+    
+    //Add Done Button
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(104, 400, 120, 30)];
+    [btn setEnabled:YES];
+    [btn setUserInteractionEnabled:YES];
+    [btn addTarget: self
+            action: @selector(tutorialDone)
+         forControlEvents: UIControlEventTouchDown];
+
+
+    
+    [btn setTitle:@"Ok I've got it!" forState:UIControlStateNormal];
+    [tutorialContentView addSubview:btn];
+    
+    
+    [tutorialView addSubview:tutorialContentView];
+    [self.view addSubview:tutorialView];
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSLog(@"%f", self.view.bounds.size.height);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x64c3d9);
     self.tabBarController.tabBar.backgroundColor = UIColorFromRGB(0x64c3d9);
     
@@ -49,6 +93,12 @@
     context = [appdelegate managedObjectContext];
     [self setupFetchedResultsController];
 
+    
+    if (![[defaults objectForKey:@"firstTime"] isEqualToString:@"DONE"]) {
+        if (self.view.bounds.size.height >= 568) {
+            [self showFirstTimeTutorial];
+        }
+    }
 }
 - (void)didReceiveMemoryWarning
 {
@@ -60,7 +110,6 @@
 
 - (long)GetDueDateFromDate:(NSString *)to
 {
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int terms = [[defaults objectForKey:@"inv_term_period"]integerValue];
     
@@ -76,11 +125,8 @@
                                                         fromDate:startDate
                                                           toDate:endDate
                                                          options:0];
-    
-    
     return components.day+terms;
 }
-
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -108,10 +154,8 @@
             cell.detailTextLabel.text = detailStr;
         }
     }
-    
     return cell;
 }
-
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
     NSError *error = nil;
@@ -140,16 +184,12 @@
 }
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //add code here for when you hit delete
-        
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         Invoice *inv = [InvoiceRowObjects objectAtIndex:indexPath.row];
-
         [self deleteInvoiceWithNumber:inv.invoiceNumber];
         [tableView reloadData];
         NSLog(@"DELETE ROW NUMBER %ld", (long)indexPath.row);
-        
-
     }
 }
 /**********************************************************
@@ -178,19 +218,13 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    
-    
     if ([segue.identifier isEqualToString:@"chosen_invoice_segue"])
     {
+        NSIndexPath *index = [self.tableView indexPathForSelectedRow];
         iPhoneInvoiceDetailViewController *vc = segue.destinationViewController;
+        invoinceSelected = [InvoiceRowObjects objectAtIndex:index.row];
         vc.selectedInvoice = invoinceSelected;
         vc.delegate = self;
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSLog(@"SENDER: %ld", (long)indexPath.row);
-        invoinceSelected = [InvoiceRowObjects objectAtIndex:indexPath.row];
-        
     }
     if ([segue.identifier isEqualToString:@"new_invoice"])
     {
@@ -198,7 +232,6 @@
         vc.delegate = self;
     }
 }
-
 -(void)InvoiceStarted
 {
     [self.tableView reloadData];
@@ -207,11 +240,11 @@
 {
     [self setupFetchedResultsController];
     [self.tableView reloadData];
+    NSLog(@"Table Count: %lu",(unsigned long)[InvoiceRowObjects count]);
 }
 -(void)reloadTableData
 {
     [self setupFetchedResultsController];
     [self.tableView reloadData];
 }
-
 @end

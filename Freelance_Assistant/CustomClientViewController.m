@@ -19,16 +19,6 @@
 @end
 
 @implementation CustomClientViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -54,31 +44,33 @@
     }
     NSLog(@"%lu", (unsigned long)[clients count]);
 }
-
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
 {
-    
     return [clients count];
 }
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
     return [clients objectAtIndex:row];
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
 {
-    NSLog(@"Selected Row %d", row);
+    NSLog(@"Selected Row %ld", (long)row);
     NSString *clientFromPicker = [[NSString alloc]init];
     clientFromPicker = [clients objectAtIndex:row];
     clientSelected = clientFromPicker;
-    
 }
 - (IBAction)doneButton:(id)sender
 {
-    [self.delegate ClientSelected:clientSelected];
+    if (!clientSelected) {
+      [self.delegate ClientSelected:[clients objectAtIndex:0]];
+    }
+    else
+    {
+        [self.delegate ClientSelected:clientSelected];
+    }
 }
-
 @end

@@ -96,10 +96,5 @@
     [helpDetail addObject:@"No. The data is only stored on the device. Future versions will have the option to back up with iCloud however this is not available yet."];
     [helpDetail addObject:@"You can press the contact us button on the top right hand corner of the help page, or email direct to support@magicentertainmentgroup.com"];
 
-    
-    
-    
-    
-    
 }
 @end

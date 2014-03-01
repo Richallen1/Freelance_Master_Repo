@@ -42,9 +42,9 @@
         <relationship name="invoice_header" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="invoice_reciepts" inverseEntity="Invoice" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="205" positionY="-13" width="128" height="238"/>
-        <element name="Invoice" positionX="-20" positionY="-81" width="128" height="193"/>
-        <element name="Invoice_charges" positionX="-198" positionY="-189" width="128" height="148"/>
-        <element name="Reciept" positionX="-198" positionY="155" width="128" height="88"/>
+        <element name="Client" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Invoice" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Invoice_charges" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Reciept" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

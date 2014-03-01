@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) id<ClientDetailDelegate> delgate;
 
+@property (strong, nonatomic) IBOutlet UIButton *updateBtnProperty;
+@property (strong, nonatomic) IBOutlet UIButton *deleteClientButton;
 
 
 - (IBAction)updateClient:(id)sender;

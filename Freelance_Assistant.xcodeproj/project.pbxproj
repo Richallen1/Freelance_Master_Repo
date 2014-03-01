@@ -12,8 +12,16 @@
 		9B033EF518A635580034CBB8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF418A635580034CBB8 /* libc++.dylib */; };
 		9B033EF718A6356F0034CBB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF618A6356F0034CBB8 /* QuartzCore.framework */; };
 		9B033EF918A635EB0034CBB8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B033EF818A635EB0034CBB8 /* CFNetwork.framework */; };
-		9B033F4C18AAE60F0034CBB8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B033F4B18AAE60F0034CBB8 /* User.m */; };
+		9B125AC818BC9C2900D6078B /* invoiceMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B125AC718BC9C2900D6078B /* invoiceMenuViewController.m */; };
+		9B125ACB18BC9E9D00D6078B /* InvoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B125ACA18BC9E9D00D6078B /* InvoiceTableViewController.m */; };
+		9B1CC01F18AD3B7400B988EA /* iPhoneHelpDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1CC01E18AD3B7400B988EA /* iPhoneHelpDetailViewController.m */; };
+		9B1CC02318B3740700B988EA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1CC02218B3740700B988EA /* User.m */; };
+		9B1CC07718B4C9F300B988EA /* FirstTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1CC07518B4C9F300B988EA /* FirstTutorialViewController.m */; };
+		9B1CC07818B4C9F300B988EA /* FirstTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1CC07618B4C9F300B988EA /* FirstTutorialViewController.xib */; };
+		9B1CC08218B79A0800B988EA /* TutorialView.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B1CC08118B79A0800B988EA /* TutorialView.png */; };
 		9B2448F81896A9F100CD6295 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2448F71896A9F100CD6295 /* Crashlytics.framework */; };
+		9B86E4D718BE87AA00A65360 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B86E4D618BE87AA00A65360 /* libGoogleAnalyticsServices.a */; };
+		9B86E4D918BF3EEA00A65360 /* noClient.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B86E4D818BF3EEA00A65360 /* noClient.png */; };
 		9BB1B6A81892ED560092A68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B6A71892ED560092A68B /* Foundation.framework */; };
 		9BB1B6AA1892ED560092A68B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B6A91892ED560092A68B /* CoreGraphics.framework */; };
 		9BB1B6AC1892ED560092A68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B6AB1892ED560092A68B /* UIKit.framework */; };
@@ -97,9 +105,23 @@
 		9B033EF418A635580034CBB8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		9B033EF618A6356F0034CBB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9B033EF818A635EB0034CBB8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		9B033F4A18AAE60F0034CBB8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = freelance_assistant/User.h; sourceTree = SOURCE_ROOT; };
-		9B033F4B18AAE60F0034CBB8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = freelance_assistant/User.m; sourceTree = SOURCE_ROOT; };
+		9B125AC618BC9C2900D6078B /* invoiceMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = invoiceMenuViewController.h; path = freelance_assistant/invoiceMenuViewController.h; sourceTree = SOURCE_ROOT; };
+		9B125AC718BC9C2900D6078B /* invoiceMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = invoiceMenuViewController.m; path = freelance_assistant/invoiceMenuViewController.m; sourceTree = SOURCE_ROOT; };
+		9B125AC918BC9E9D00D6078B /* InvoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvoiceTableViewController.h; path = freelance_assistant/InvoiceTableViewController.h; sourceTree = SOURCE_ROOT; };
+		9B125ACA18BC9E9D00D6078B /* InvoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InvoiceTableViewController.m; path = freelance_assistant/InvoiceTableViewController.m; sourceTree = SOURCE_ROOT; };
+		9B1CC01D18AD3B7400B988EA /* iPhoneHelpDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhoneHelpDetailViewController.h; path = freelance_assistant/iPhoneHelpDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		9B1CC01E18AD3B7400B988EA /* iPhoneHelpDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhoneHelpDetailViewController.m; path = freelance_assistant/iPhoneHelpDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		9B1CC02018B24D6500B988EA /* Freelance_Assistant 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Freelance_Assistant 2.xcdatamodel"; sourceTree = "<group>"; };
+		9B1CC02118B3740700B988EA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = freelance_assistant/User.h; sourceTree = SOURCE_ROOT; };
+		9B1CC02218B3740700B988EA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = freelance_assistant/User.m; sourceTree = SOURCE_ROOT; };
+		9B1CC07418B4C9F300B988EA /* FirstTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstTutorialViewController.h; path = freelance_assistant/FirstTutorialViewController.h; sourceTree = SOURCE_ROOT; };
+		9B1CC07518B4C9F300B988EA /* FirstTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstTutorialViewController.m; path = freelance_assistant/FirstTutorialViewController.m; sourceTree = SOURCE_ROOT; };
+		9B1CC07618B4C9F300B988EA /* FirstTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstTutorialViewController.xib; path = freelance_assistant/FirstTutorialViewController.xib; sourceTree = SOURCE_ROOT; };
+		9B1CC08118B79A0800B988EA /* TutorialView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TutorialView.png; sourceTree = "<group>"; };
+		9B1CC0CD18B7C03700B988EA /* Freelance_Assistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Freelance_Assistant.entitlements; sourceTree = "<group>"; };
 		9B2448F71896A9F100CD6295 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		9B86E4D618BE87AA00A65360 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		9B86E4D818BF3EEA00A65360 /* noClient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noClient.png; sourceTree = "<group>"; };
 		9BB1B6A41892ED560092A68B /* Freelance_Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freelance_Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB1B6A71892ED560092A68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9BB1B6A91892ED560092A68B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -197,6 +219,12 @@
 		9BB1B781189429B50092A68B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9BB1B783189429C30092A68B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BB1B785189429CC0092A68B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9BCD7F4B18C10243002966AB /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		9BCD7F4C18C10243002966AB /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		9BCD7F4D18C10243002966AB /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		9BCD7F4E18C10243002966AB /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		9BCD7F4F18C10243002966AB /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		9BCD7F5018C10243002966AB /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		F42C63A818957A5A00F49731 /* CustomClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomClientViewController.h; sourceTree = "<group>"; };
 		F42C63A918957A5A00F49731 /* CustomClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClientViewController.m; sourceTree = "<group>"; };
 		F42C63AB189582C100F49731 /* iPhoneClientDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneClientDetailViewController.h; sourceTree = "<group>"; };
@@ -215,6 +243,7 @@
 				9B033EF918A635EB0034CBB8 /* CFNetwork.framework in Frameworks */,
 				9BB1B786189429CC0092A68B /* libz.dylib in Frameworks */,
 				9B033EF518A635580034CBB8 /* libc++.dylib in Frameworks */,
+				9B86E4D718BE87AA00A65360 /* libGoogleAnalyticsServices.a in Frameworks */,
 				9B033EF718A6356F0034CBB8 /* QuartzCore.framework in Frameworks */,
 				9B033EF318A635370034CBB8 /* Security.framework in Frameworks */,
 				9BB1B784189429C30092A68B /* SystemConfiguration.framework in Frameworks */,
@@ -242,6 +271,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B125ACC18BCD65700D6078B /* Depricted Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9BB1B7091892F4FB0092A68B /* iPhoneInvoiceTableViewController.h */,
+				9BB1B70A1892F4FB0092A68B /* iPhoneInvoiceTableViewController.m */,
+			);
+			name = "Depricted Classes";
+			sourceTree = "<group>";
+		};
+		9B1CC06B18B4C85900B988EA /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				9B1CC07418B4C9F300B988EA /* FirstTutorialViewController.h */,
+				9B1CC07618B4C9F300B988EA /* FirstTutorialViewController.xib */,
+				9B1CC07518B4C9F300B988EA /* FirstTutorialViewController.m */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
 		9BB1B69B1892ED560092A68B = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +319,7 @@
 				9B033EF018A633220034CBB8 /* Dropbox.framework */,
 				9B2448F71896A9F100CD6295 /* Crashlytics.framework */,
 				9BB1B785189429CC0092A68B /* libz.dylib */,
+				9B86E4D618BE87AA00A65360 /* libGoogleAnalyticsServices.a */,
 				9BB1B783189429C30092A68B /* SystemConfiguration.framework */,
 				9BB1B781189429B50092A68B /* CoreTelephony.framework */,
 				9BB1B6A71892ED560092A68B /* Foundation.framework */,
@@ -285,6 +334,9 @@
 		9BB1B6AF1892ED560092A68B /* Freelance_Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				9BCD7F4A18C100DE002966AB /* Google Analytics */,
+				9B125ACC18BCD65700D6078B /* Depricted Classes */,
+				9B1CC0CD18B7C03700B988EA /* Freelance_Assistant.entitlements */,
 				9BB1B7001892F4630092A68B /* Core Data */,
 				9BB1B7041892F4930092A68B /* Application Classes */,
 				9BB1B7051892F4D20092A68B /* iPhone Files */,
@@ -332,6 +384,7 @@
 		9BB1B7001892F4630092A68B /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				9BB1B6BB1892ED560092A68B /* Freelance_Assistant.xcdatamodeld */,
 				9BB1B6FD1892F45B0092A68B /* Invoice.h */,
 				9BB1B6FE1892F45B0092A68B /* Invoice.m */,
 				9BB1B6FA1892F45B0092A68B /* Reciept.h */,
@@ -342,9 +395,8 @@
 				9BB1B6F51892F45B0092A68B /* Invoice_charges.m */,
 				9BB1B7011892F4800092A68B /* CoreDataTableViewController.h */,
 				9BB1B7021892F4800092A68B /* CoreDataTableViewController.m */,
-				9BB1B6BB1892ED560092A68B /* Freelance_Assistant.xcdatamodeld */,
-				9B033F4A18AAE60F0034CBB8 /* User.h */,
-				9B033F4B18AAE60F0034CBB8 /* User.m */,
+				9B1CC02118B3740700B988EA /* User.h */,
+				9B1CC02218B3740700B988EA /* User.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -356,6 +408,10 @@
 				F49C241F189512C00018EB8C /* CameraRecieptViewController.m */,
 				9BB1B6B81892ED560092A68B /* AppDelegate.h */,
 				9BB1B6B91892ED560092A68B /* AppDelegate.m */,
+				9B125AC618BC9C2900D6078B /* invoiceMenuViewController.h */,
+				9B125AC718BC9C2900D6078B /* invoiceMenuViewController.m */,
+				9B125AC918BC9E9D00D6078B /* InvoiceTableViewController.h */,
+				9B125ACA18BC9E9D00D6078B /* InvoiceTableViewController.m */,
 			);
 			name = "Application Classes";
 			sourceTree = "<group>";
@@ -363,10 +419,9 @@
 		9BB1B7051892F4D20092A68B /* iPhone Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B1CC06B18B4C85900B988EA /* Tutorial */,
 				F49C24281895529B0018EB8C /* Custom Pickers */,
 				9BB1B7061892F4DC0092A68B /* UX Files */,
-				9BB1B7091892F4FB0092A68B /* iPhoneInvoiceTableViewController.h */,
-				9BB1B70A1892F4FB0092A68B /* iPhoneInvoiceTableViewController.m */,
 				9BB1B70B1892F4FB0092A68B /* iPhoneClientsTableViewController.h */,
 				9BB1B70C1892F4FB0092A68B /* iPhoneClientsTableViewController.m */,
 				9BB1B70D1892F4FB0092A68B /* iPhoneSettingsTableViewController.h */,
@@ -393,6 +448,8 @@
 				9BB1B7191892F5320092A68B /* iPhoneInvoiceDetailViewController.m */,
 				F42C63AB189582C100F49731 /* iPhoneClientDetailViewController.h */,
 				F42C63AC189582C100F49731 /* iPhoneClientDetailViewController.m */,
+				9B1CC01D18AD3B7400B988EA /* iPhoneHelpDetailViewController.h */,
+				9B1CC01E18AD3B7400B988EA /* iPhoneHelpDetailViewController.m */,
 			);
 			name = "Detail VCs";
 			sourceTree = "<group>";
@@ -435,8 +492,8 @@
 				9BB1B732189309690092A68B /* AddClientPopoverViewController.m */,
 				9BB1B733189309690092A68B /* AddInvoicePopoverViewController.h */,
 				9BB1B734189309690092A68B /* AddInvoicePopoverViewController.m */,
-				9BB1B736189309690092A68B /* ClientPickerPopoverViewController.m */,
 				9BB1B735189309690092A68B /* ClientPickerPopoverViewController.h */,
+				9BB1B736189309690092A68B /* ClientPickerPopoverViewController.m */,
 				9BB1B737189309690092A68B /* AddChargeTableViewController.h */,
 				9BB1B738189309690092A68B /* AddChargeTableViewController.m */,
 				9BB1B739189309690092A68B /* StartUpViewController.h */,
@@ -505,9 +562,24 @@
 				9BB1B77318930AD10092A68B /* InvoiceView.xib */,
 				9BB1B77418930AD10092A68B /* PDFViewController.h */,
 				9BB1B77518930AD10092A68B /* PDFViewController.m */,
+				9B1CC08118B79A0800B988EA /* TutorialView.png */,
 				9BB1B77618930AD10092A68B /* tempLogo.jpg */,
+				9B86E4D818BF3EEA00A65360 /* noClient.png */,
 			);
 			name = "PDF Publisher";
+			sourceTree = "<group>";
+		};
+		9BCD7F4A18C100DE002966AB /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				9BCD7F4B18C10243002966AB /* GAI.h */,
+				9BCD7F4C18C10243002966AB /* GAIDictionaryBuilder.h */,
+				9BCD7F4D18C10243002966AB /* GAIFields.h */,
+				9BCD7F4E18C10243002966AB /* GAILogger.h */,
+				9BCD7F4F18C10243002966AB /* GAITrackedViewController.h */,
+				9BCD7F5018C10243002966AB /* GAITracker.h */,
+			);
+			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		F49C24281895529B0018EB8C /* Custom Pickers */ = {
@@ -569,6 +641,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Magic Entertainment";
 				TargetAttributes = {
+					9BB1B6A31892ED560092A68B = {
+						DevelopmentTeam = CKPJ2HQV66;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					9BB1B6C31892ED560092A68B = {
 						TestTargetID = 9BB1B6A31892ED560092A68B;
 					};
@@ -600,10 +680,13 @@
 				9BB1B7211892F5C10092A68B /* mainBG.jpg in Resources */,
 				9BB1B71F1892F5C10092A68B /* No INvoice.jpg in Resources */,
 				9BB1B72B189308EE0092A68B /* BETA_End.storyboard in Resources */,
+				9B1CC07818B4C9F300B988EA /* FirstTutorialViewController.xib in Resources */,
 				9BB1B72A189308EE0092A68B /* Maintainence.storyboard in Resources */,
 				9BB1B77818930AD10092A68B /* InvoiceView.xib in Resources */,
 				9BB1B7201892F5C10092A68B /* camera_icon_800_clr_13235.png in Resources */,
 				9BB1B729189308EE0092A68B /* Main_iPad.storyboard in Resources */,
+				9B1CC08218B79A0800B988EA /* TutorialView.png in Resources */,
+				9B86E4D918BF3EEA00A65360 /* noClient.png in Resources */,
 				9BB1B77A18930AD10092A68B /* tempLogo.jpg in Resources */,
 				9BB1B7161892F5160092A68B /* Main_iPhone.storyboard in Resources */,
 				9BB1B6B41892ED560092A68B /* InfoPlist.strings in Resources */,
@@ -646,12 +729,13 @@
 				9BB1B76C18930AA70092A68B /* InvoiceDetialViewController.m in Sources */,
 				9BB1B6FC1892F45B0092A68B /* Reciept.m in Sources */,
 				9BB1B74C18930A440092A68B /* HelpSideViewController.m in Sources */,
+				9B1CC07718B4C9F300B988EA /* FirstTutorialViewController.m in Sources */,
 				9BB1B7141892F4FB0092A68B /* iPhoneHelpTableViewController.m in Sources */,
 				9BB1B73F189309690092A68B /* StartUpViewController.m in Sources */,
 				F42C63AD189582C100F49731 /* iPhoneClientDetailViewController.m in Sources */,
 				9BB1B7121892F4FB0092A68B /* iPhoneClientsTableViewController.m in Sources */,
 				9BB1B76B18930AA70092A68B /* DetailViewContainerController.m in Sources */,
-				9B033F4C18AAE60F0034CBB8 /* User.m in Sources */,
+				9B1CC02318B3740700B988EA /* User.m in Sources */,
 				9BB1B75C18930A980092A68B /* PaymentTermsViewController.m in Sources */,
 				9BB1B75918930A980092A68B /* UserInfoViewController.m in Sources */,
 				F42C63AA18957A5A00F49731 /* CustomClientViewController.m in Sources */,
@@ -663,12 +747,14 @@
 				9BB1B6BD1892ED560092A68B /* Freelance_Assistant.xcdatamodeld in Sources */,
 				9BB1B6FF1892F45B0092A68B /* Invoice.m in Sources */,
 				9BB1B73E189309690092A68B /* AddChargeTableViewController.m in Sources */,
+				9B1CC01F18AD3B7400B988EA /* iPhoneHelpDetailViewController.m in Sources */,
 				9BB1B75B18930A980092A68B /* EmailViewController.m in Sources */,
 				9BB1B73D189309690092A68B /* ClientPickerPopoverViewController.m in Sources */,
 				9BB1B74918930A440092A68B /* MasterViewController.m in Sources */,
 				9BB1B6F61892F45B0092A68B /* Invoice_charges.m in Sources */,
 				9BB1B71A1892F5320092A68B /* iPhoneInvoiceDetailViewController.m in Sources */,
 				9BB1B73B189309690092A68B /* AddClientPopoverViewController.m in Sources */,
+				9B125AC818BC9C2900D6078B /* invoiceMenuViewController.m in Sources */,
 				9BB1B72E1893091A0092A68B /* MaintananceViewController.m in Sources */,
 				F49C2420189512C00018EB8C /* CameraRecieptViewController.m in Sources */,
 				9BB1B75A18930A980092A68B /* AddressInfoViewController.m in Sources */,
@@ -680,6 +766,7 @@
 				9BB1B74A18930A440092A68B /* InvoiceSideViewController.m in Sources */,
 				9BB1B77918930AD10092A68B /* PDFViewController.m in Sources */,
 				9BB1B76E18930AA70092A68B /* SettingsDetailViewController.m in Sources */,
+				9B125ACB18BC9E9D00D6078B /* InvoiceTableViewController.m in Sources */,
 				9BB1B7131892F4FB0092A68B /* iPhoneSettingsTableViewController.m in Sources */,
 				F49C242E189555AC0018EB8C /* CustomDatePickerViewController.m in Sources */,
 				9BB1B76F18930AA70092A68B /* HelpDetailViewController.m in Sources */,
@@ -804,6 +891,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Freelance_Assistant/Freelance_Assistant.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Richard Allen (CKPJ2HQV66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Richard Allen (CKPJ2HQV66)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Rich/Desktop/Freelance\\ New\\ Universal/Freelance_Assistant",
@@ -814,7 +904,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";
 				INFOPLIST_FILE = "Freelance_Assistant/Freelance_Assistant-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Rich/Desktop/Freelance\\ Assistant\\ Universal",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "12B9FA1C-920A-44D7-8A62-DB56AEDA814B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -824,6 +919,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Freelance_Assistant/Freelance_Assistant.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Richard Allen (CKPJ2HQV66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Richard Allen (CKPJ2HQV66)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Rich/Desktop/Freelance\\ New\\ Universal/Freelance_Assistant",
@@ -834,7 +932,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";
 				INFOPLIST_FILE = "Freelance_Assistant/Freelance_Assistant-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Rich/Desktop/Freelance\\ Assistant\\ Universal",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "12B9FA1C-920A-44D7-8A62-DB56AEDA814B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -917,9 +1020,10 @@
 		9BB1B6BB1892ED560092A68B /* Freelance_Assistant.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9B1CC02018B24D6500B988EA /* Freelance_Assistant 2.xcdatamodel */,
 				9BB1B6BC1892ED560092A68B /* Freelance_Assistant.xcdatamodel */,
 			);
-			currentVersion = 9BB1B6BC1892ED560092A68B /* Freelance_Assistant.xcdatamodel */;
+			currentVersion = 9B1CC02018B24D6500B988EA /* Freelance_Assistant 2.xcdatamodel */;
 			path = Freelance_Assistant.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

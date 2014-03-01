@@ -28,13 +28,13 @@
 @end
 
 @implementation iPhoneSettingsTableViewController
-@synthesize userNameLabel=_userNameLabel;
-@synthesize userAddressLabel=_userAddressLabel;
-@synthesize userEmailLabel=_userEmailLabel;
-@synthesize paymentLabel=_paymentLabel;
-@synthesize bankDetialsLabel=_bankDetialsLabel;
-@synthesize dropboxSwitch=_dropboxSwitch;
-
+@synthesize userNameLabel = _userNameLabel;
+@synthesize userAddressLabel = _userAddressLabel;
+@synthesize userEmailLabel = _userEmailLabel;
+@synthesize paymentLabel = _paymentLabel;
+@synthesize bankDetialsLabel = _bankDetialsLabel;
+@synthesize dropboxSwitch = _dropboxSwitch;
+@synthesize invoiceLogoButton = _invoiceLogoButton;
 -(void)viewWillAppear:(BOOL)animated
 {
     [self fillUserData];
@@ -87,8 +87,6 @@
         
     }
     return [users objectAtIndex:0];
-
-
 }
 - (void)didReceiveMemoryWarning
 {
@@ -98,7 +96,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [segue.destinationViewController setDelegate:self];
+    if ([segue.identifier isEqualToString:@"terms_segue"]){
+        
+    }
+    else if ([segue.identifier isEqualToString:@"legal_segue"]){
+        
+    }
+    else
+    {
+        NSLog(@"Delegate set");
+        [segue.destinationViewController setDelegate:self];
+    }
+    
 }
 
 -(void)fillUserData
@@ -111,6 +120,9 @@
         
         if (![user.accountNumber isEqualToString:@""]) {
             _bankDetialsLabel.text = @"Stored";
+        }
+        if (user.invoiceLogo != NULL) {
+            [_invoiceLogoButton setTitle:@"Change Image" forState:UIControlStateNormal];
         }
     }
 }
@@ -142,8 +154,10 @@
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
+
     [self presentViewController:picker animated:YES completion:NULL];
 }
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSError *error;
@@ -151,7 +165,7 @@
     NSData *imageData = UIImagePNGRepresentation(chosenImage);
     user.invoiceLogo = imageData;
     [context save:&error];
-    
+    [self fillUserData];
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 -(void)storeUserName:(NSString *)name

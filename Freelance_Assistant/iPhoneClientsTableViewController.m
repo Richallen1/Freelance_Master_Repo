@@ -58,6 +58,8 @@
     
     clientsArray = [context executeFetchRequest:request error:&error];
     
+    
+    
 }
 
 -(void)deleteClientForCompany:(NSString *)company

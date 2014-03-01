@@ -16,7 +16,7 @@
 #import "User.h"
 #import "AppDelegate.h"
 
-@interface SettingsDetailViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UserNameStoreDelegate, UserAddressStoreDelegate, UserEmailStoreDelegate, UserPaymentTermsStoreDelegate, UserBankDetailsStoreDelegate>
+@interface SettingsDetailViewController () <UIImagePickerControllerDelegate, UIImagePickerControllerDelegate,  UINavigationControllerDelegate, UserNameStoreDelegate, UserAddressStoreDelegate, UserEmailStoreDelegate, UserPaymentTermsStoreDelegate, UserBankDetailsStoreDelegate>
 {
     NSManagedObjectContext *context;
     User *user;
@@ -33,7 +33,6 @@
 @synthesize paymentLabel=_paymentLabel;
 @synthesize bankDetialsLabel=_bankDetialsLabel;
 
-
 -(void)viewWillAppear:(BOOL)animated
 {
     _dropboxSwitch.on = NO;
@@ -49,7 +48,7 @@
     context = [appdelegate managedObjectContext];
     
     user = [self findUser];
-    
+   
 }
 -(void)fillUserData
 {
@@ -72,15 +71,12 @@
     NSArray *users = [context executeFetchRequest:request error:&error];
     if (users.count == 0) {
         User *newUser = nil;
-        
         newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
         return newUser;
-        
     }
     return [users objectAtIndex:0];
-    
-    
 }
+
 -(void)storeUserName:(NSString *)name
 {
     NSError *error;
@@ -168,9 +164,5 @@
         [[[DBAccountManager sharedManager] linkedAccount] unlink];
         self.store = nil;
     }
-}
-- (IBAction)chooseLogoImage:(id)sender
-{
-
 }
 @end

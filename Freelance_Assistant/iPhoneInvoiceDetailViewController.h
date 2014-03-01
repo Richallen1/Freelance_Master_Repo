@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *subTotalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *vatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
-@property (weak, nonatomic) Invoice *selectedInvoice;
+@property (strong, nonatomic) Invoice *selectedInvoice;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
 @property (nonatomic, strong) NSMutableArray *invoiceRows;
 @property (weak, nonatomic) id <iPhoneInvoiceDelegate> delegate;

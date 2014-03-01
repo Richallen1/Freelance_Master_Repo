@@ -19,6 +19,7 @@
     int qty;
     float total;
     float vatRate;
+    float subTotal;
 }
 @end
 
@@ -57,7 +58,7 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return 8;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -89,22 +90,24 @@
     NSLog(@"Button Pressed");
     NSMutableDictionary *dict =[[NSMutableDictionary alloc]init];
 
-    float subTotal = total - vatAmount;
-    total = subTotal * [_qtyField.text integerValue];
+    subTotal = total - vatAmount;
+    total = total * [_qtyField.text intValue];
     
     NSLog(@"subTotal: %f", subTotal);
     NSLog(@"QTY: %d", qty);
     NSLog(@"VAT: %f", vatAmount);
     NSLog(@"Total: %f", total);
-    
+   
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
-    NSString *subTotalAsString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:subTotal]];
-    NSString *vatAsString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:vatAmount]];
-    NSString *totalAsString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:total]];
+    NSString *subTotalAsString = [numberFormatter stringFromNumber:[NSDecimalNumber numberWithFloat:subTotal]];
+    NSString *vatAsString = [numberFormatter stringFromNumber:[NSDecimalNumber numberWithFloat:vatAmount]];
+    NSString *totalAsString = [numberFormatter stringFromNumber:[NSDecimalNumber numberWithFloat:total]];
     
-    
+    NSLog(@"%@", subTotalAsString);
+    NSLog(@"%@", vatAsString);
+    NSLog(@"%@", totalAsString);
     
     if ([_dateField.text  isEqual: @""]) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"No Date" message:@"Please enter the date of the charge" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
@@ -134,7 +137,6 @@
         [dict setObject:_priceField.text forKey:@"Price"];
         [dict setObject:_qtyField.text forKey:@"Qty"];
 
-
         [dict setObject:subTotalAsString forKey:@"subTotal"];
         [dict setObject:vatAsString forKey:@"VAT"];
         [dict setObject:totalAsString forKey:@"Total"];
@@ -158,7 +160,7 @@
 - (IBAction)priceChanged:(id)sender
 {
     NSLog(@"Price Changed");
-    total = [_priceField.text integerValue];
+    total = [_priceField.text floatValue];
     NSLog(@"%f", total);
     NSString *str  =[NSString stringWithFormat:@"£%.02f", total];
     _totalLabel.text = str;
@@ -168,7 +170,7 @@
 - (IBAction)qtyChanged:(id)sender
 {
     NSLog(@"Qty Changed");
-    qty = [_qtyField.text integerValue];
+    qty = [_qtyField.text intValue];
     total = total * qty;
     NSString *str  =[NSString stringWithFormat:@"£%.02f", total];
     _totalLabel.text = str;

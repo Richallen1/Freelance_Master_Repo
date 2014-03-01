@@ -13,7 +13,7 @@
 @interface iPhoneClientDetailViewController ()<UITextFieldDelegate>
 {
     NSManagedObjectContext *context;
-  
+    IBOutlet UIScrollView *scrollView;  
 }
 @end
 
@@ -30,7 +30,15 @@
 @synthesize emailField;
 @synthesize phoneField;
 @synthesize selectedClient;
+@synthesize updateClientDataBtn;
 
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [scrollView layoutIfNeeded];
+    CGSize scrollFrame = CGSizeMake(320, 436);
+    scrollView.contentSize = scrollFrame;
+}
 -(void)setTextFieldDelegates
 {
     firstNameField.delegate=self;
@@ -46,6 +54,7 @@
     phoneField.delegate=self;
    
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,31 +64,69 @@
     context = [appdelegate managedObjectContext];
     
     if (selectedClient != NULL) {
+        [updateClientDataBtn setTitle:@"Update Client" forState:UIControlStateNormal];
         [self fillFieldsWithClientData:selectedClient];
         NSLog(@"FILL");
     }
+    else
+    {
+        [updateClientDataBtn setTitle:@"Add Client" forState:UIControlStateNormal];
+        
+    }
     [self setTextFieldDelegates];
 }
-
+//-(BOOL)isSmallScreen
+//{
+//    UIScrollView* sv = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 65, 320, 467)];
+//    sv.backgroundColor = [UIColor redColor];
+//    self.view = sv;
+//    CGFloat y = 467;
+//    
+//    CGSize sz = sv.frame.size;
+//    
+//    sz.height = y;
+//    sv.contentSize = sz; // This is the crucial line
+//    
+//    scrollView = sv;
+//    [scrollView addSubview:firstNameField];
+//    [scrollView addSubview:lastNameField];
+//    [scrollView addSubview:companyField];
+//    [scrollView addSubview:address1Field];
+//    [scrollView addSubview:address2Field];
+//    [scrollView addSubview:cityField];
+//    [scrollView addSubview:countyField];
+//    [scrollView addSubview:zipField];
+//    [scrollView addSubview:countryField];
+//    [scrollView addSubview:emailField];
+//    [scrollView addSubview:phoneField];
+//    [scrollView addSubview:updateClientDataBtn];
+//    
+//    return YES;
+//}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    self.view = nil;
+}
 - (IBAction)updateButton:(id)sender
 {
     if (![emailField.text isEqualToString:@""] && (selectedClient == NULL) && ![emailField.text isEqualToString:@"[None]"]) {
         [self newClient];
         NSLog(@"1");
+        [self.navigationController popViewControllerAnimated:YES];
         
     }
     if (selectedClient != NULL && ![emailField.text isEqualToString:@""] && ![emailField.text isEqualToString:@"[None]"]) {
         [self saveClient];
         NSLog(@"2");
+        [self.navigationController popViewControllerAnimated:YES];
     }
     NSLog(@"3");
-    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (IBAction)deleteButton:(id)sender
@@ -108,8 +155,6 @@
     [self.delegate tableViewReload];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
 
 -(void)saveClient
 {
