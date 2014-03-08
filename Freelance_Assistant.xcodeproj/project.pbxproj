@@ -79,6 +79,10 @@
 		9BB1B782189429B50092A68B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B781189429B50092A68B /* CoreTelephony.framework */; };
 		9BB1B784189429C30092A68B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B783189429C30092A68B /* SystemConfiguration.framework */; };
 		9BB1B786189429CC0092A68B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B785189429CC0092A68B /* libz.dylib */; };
+		F415508E18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F415508D18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard */; };
+		F415509118CB3E7A0082132E /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F415509018CB3E7A0082132E /* DashboardCell.m */; };
+		F415509418CB40B70082132E /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F415509318CB40B70082132E /* DashboardViewController.m */; };
+		F415509618CB44100082132E /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F415509518CB44100082132E /* EventKit.framework */; };
 		F42C63AA18957A5A00F49731 /* CustomClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C63A918957A5A00F49731 /* CustomClientViewController.m */; };
 		F42C63AD189582C100F49731 /* iPhoneClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C63AC189582C100F49731 /* iPhoneClientDetailViewController.m */; };
 		F49C2420189512C00018EB8C /* CameraRecieptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C241F189512C00018EB8C /* CameraRecieptViewController.m */; };
@@ -212,6 +216,12 @@
 		9BB1B781189429B50092A68B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9BB1B783189429C30092A68B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BB1B785189429CC0092A68B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F415508D18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneFaceliftStoryboard.storyboard; sourceTree = "<group>"; };
+		F415508F18CB3E7A0082132E /* DashboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardCell.h; sourceTree = "<group>"; };
+		F415509018CB3E7A0082132E /* DashboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardCell.m; sourceTree = "<group>"; };
+		F415509218CB40B70082132E /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		F415509318CB40B70082132E /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		F415509518CB44100082132E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		F42C63A818957A5A00F49731 /* CustomClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomClientViewController.h; sourceTree = "<group>"; };
 		F42C63A918957A5A00F49731 /* CustomClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClientViewController.m; sourceTree = "<group>"; };
 		F42C63AB189582C100F49731 /* iPhoneClientDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneClientDetailViewController.h; sourceTree = "<group>"; };
@@ -228,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F415509618CB44100082132E /* EventKit.framework in Frameworks */,
 				9B033EF918A635EB0034CBB8 /* CFNetwork.framework in Frameworks */,
 				9BB1B786189429CC0092A68B /* libz.dylib in Frameworks */,
 				9B033EF518A635580034CBB8 /* libc++.dylib in Frameworks */,
@@ -299,6 +310,7 @@
 		9BB1B6A61892ED560092A68B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F415509518CB44100082132E /* EventKit.framework */,
 				F4EE5B1F18C2019100FBD3EB /* Dropbox.framework */,
 				9B033EF818A635EB0034CBB8 /* CFNetwork.framework */,
 				9B033EF618A6356F0034CBB8 /* QuartzCore.framework */,
@@ -413,6 +425,8 @@
 				9BB1B70E1892F4FB0092A68B /* iPhoneSettingsTableViewController.m */,
 				9BB1B70F1892F4FB0092A68B /* iPhoneHelpTableViewController.h */,
 				9BB1B7101892F4FB0092A68B /* iPhoneHelpTableViewController.m */,
+				F415509218CB40B70082132E /* DashboardViewController.h */,
+				F415509318CB40B70082132E /* DashboardViewController.m */,
 				9BB1B7171892F5210092A68B /* Detail VCs */,
 			);
 			name = "iPhone Files";
@@ -422,6 +436,9 @@
 			isa = PBXGroup;
 			children = (
 				9BB1B7151892F5160092A68B /* Main_iPhone.storyboard */,
+				F415508D18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard */,
+				F415508F18CB3E7A0082132E /* DashboardCell.h */,
+				F415509018CB3E7A0082132E /* DashboardCell.m */,
 			);
 			name = "UX Files";
 			sourceTree = "<group>";
@@ -649,6 +666,7 @@
 			files = (
 				9BB1B7211892F5C10092A68B /* mainBG.jpg in Resources */,
 				9BB1B71F1892F5C10092A68B /* No INvoice.jpg in Resources */,
+				F415508E18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard in Resources */,
 				9B1CC07818B4C9F300B988EA /* FirstTutorialViewController.xib in Resources */,
 				9BB1B77818930AD10092A68B /* InvoiceView.xib in Resources */,
 				9BB1B7201892F5C10092A68B /* camera_icon_800_clr_13235.png in Resources */,
@@ -719,6 +737,7 @@
 				9BB1B75B18930A980092A68B /* EmailViewController.m in Sources */,
 				9BB1B73D189309690092A68B /* ClientPickerPopoverViewController.m in Sources */,
 				9BB1B74918930A440092A68B /* MasterViewController.m in Sources */,
+				F415509418CB40B70082132E /* DashboardViewController.m in Sources */,
 				9BB1B6F61892F45B0092A68B /* Invoice_charges.m in Sources */,
 				9BB1B71A1892F5320092A68B /* iPhoneInvoiceDetailViewController.m in Sources */,
 				9BB1B73B189309690092A68B /* AddClientPopoverViewController.m in Sources */,
@@ -728,6 +747,7 @@
 				9BB1B75A18930A980092A68B /* AddressInfoViewController.m in Sources */,
 				9BB1B76A18930AA70092A68B /* DetailViewController.m in Sources */,
 				9BB1B7111892F4FB0092A68B /* iPhoneInvoiceTableViewController.m in Sources */,
+				F415509118CB3E7A0082132E /* DashboardCell.m in Sources */,
 				9BB1B74B18930A440092A68B /* ClientsSideViewController.m in Sources */,
 				9BB1B77718930AD10092A68B /* PDFPublisherController.m in Sources */,
 				9BB1B76D18930AA70092A68B /* ClientsDetailViewController.m in Sources */,
