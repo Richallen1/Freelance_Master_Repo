@@ -79,6 +79,12 @@
 		9BB1B782189429B50092A68B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B781189429B50092A68B /* CoreTelephony.framework */; };
 		9BB1B784189429C30092A68B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B783189429C30092A68B /* SystemConfiguration.framework */; };
 		9BB1B786189429CC0092A68B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB1B785189429CC0092A68B /* libz.dylib */; };
+		9BE2342D18CCB1EC00C33475 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE2342C18CCB1EC00C33475 /* Dropbox.framework */; };
+		9BE2343018CCB79900C33475 /* DashboardCellImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2342E18CCB79900C33475 /* DashboardCellImg.png */; };
+		9BE2343118CCB79900C33475 /* ToolBarImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2342F18CCB79900C33475 /* ToolBarImg.png */; };
+		9BE2343318CCB8B500C33475 /* DashboardCellImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2343218CCB8B500C33475 /* DashboardCellImg2.png */; };
+		9BE2343618CE589200C33475 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2343518CE589200C33475 /* AddEventViewController.m */; };
+		9BE2343918CE5A2800C33475 /* CustomTimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2343818CE5A2800C33475 /* CustomTimePickerViewController.m */; };
 		F415508E18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F415508D18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard */; };
 		F415509118CB3E7A0082132E /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F415509018CB3E7A0082132E /* DashboardCell.m */; };
 		F415509418CB40B70082132E /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F415509318CB40B70082132E /* DashboardViewController.m */; };
@@ -87,7 +93,6 @@
 		F42C63AD189582C100F49731 /* iPhoneClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C63AC189582C100F49731 /* iPhoneClientDetailViewController.m */; };
 		F49C2420189512C00018EB8C /* CameraRecieptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C241F189512C00018EB8C /* CameraRecieptViewController.m */; };
 		F49C242E189555AC0018EB8C /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C242D189555AC0018EB8C /* CustomDatePickerViewController.m */; };
-		F4EE5B2018C2019100FBD3EB /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EE5B1F18C2019100FBD3EB /* Dropbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +221,14 @@
 		9BB1B781189429B50092A68B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9BB1B783189429C30092A68B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BB1B785189429CC0092A68B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9BE2342C18CCB1EC00C33475 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		9BE2342E18CCB79900C33475 /* DashboardCellImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DashboardCellImg.png; sourceTree = "<group>"; };
+		9BE2342F18CCB79900C33475 /* ToolBarImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolBarImg.png; sourceTree = "<group>"; };
+		9BE2343218CCB8B500C33475 /* DashboardCellImg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DashboardCellImg2.png; sourceTree = "<group>"; };
+		9BE2343418CE589200C33475 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		9BE2343518CE589200C33475 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		9BE2343718CE5A2800C33475 /* CustomTimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTimePickerViewController.h; sourceTree = "<group>"; };
+		9BE2343818CE5A2800C33475 /* CustomTimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTimePickerViewController.m; sourceTree = "<group>"; };
 		F415508D18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneFaceliftStoryboard.storyboard; sourceTree = "<group>"; };
 		F415508F18CB3E7A0082132E /* DashboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardCell.h; sourceTree = "<group>"; };
 		F415509018CB3E7A0082132E /* DashboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardCell.m; sourceTree = "<group>"; };
@@ -230,7 +243,6 @@
 		F49C241F189512C00018EB8C /* CameraRecieptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraRecieptViewController.m; sourceTree = "<group>"; };
 		F49C242C189555AC0018EB8C /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
 		F49C242D189555AC0018EB8C /* CustomDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerViewController.m; sourceTree = "<group>"; };
-		F4EE5B1F18C2019100FBD3EB /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +257,7 @@
 				9B033EF718A6356F0034CBB8 /* QuartzCore.framework in Frameworks */,
 				9B033EF318A635370034CBB8 /* Security.framework in Frameworks */,
 				9BB1B784189429C30092A68B /* SystemConfiguration.framework in Frameworks */,
-				F4EE5B2018C2019100FBD3EB /* Dropbox.framework in Frameworks */,
+				9BE2342D18CCB1EC00C33475 /* Dropbox.framework in Frameworks */,
 				9B2448F81896A9F100CD6295 /* Crashlytics.framework in Frameworks */,
 				9BB1B782189429B50092A68B /* CoreTelephony.framework in Frameworks */,
 				9BB1B6AA1892ED560092A68B /* CoreGraphics.framework in Frameworks */,
@@ -310,8 +322,8 @@
 		9BB1B6A61892ED560092A68B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BE2342C18CCB1EC00C33475 /* Dropbox.framework */,
 				F415509518CB44100082132E /* EventKit.framework */,
-				F4EE5B1F18C2019100FBD3EB /* Dropbox.framework */,
 				9B033EF818A635EB0034CBB8 /* CFNetwork.framework */,
 				9B033EF618A6356F0034CBB8 /* QuartzCore.framework */,
 				9B033EF418A635580034CBB8 /* libc++.dylib */,
@@ -348,6 +360,9 @@
 		9BB1B6B01892ED560092A68B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9BE2343218CCB8B500C33475 /* DashboardCellImg2.png */,
+				9BE2342E18CCB79900C33475 /* DashboardCellImg.png */,
+				9BE2342F18CCB79900C33475 /* ToolBarImg.png */,
 				9BB1B71B1892F5C10092A68B /* No INvoice.jpg */,
 				9BB1B71C1892F5C10092A68B /* camera_icon_800_clr_13235.png */,
 				9BB1B71D1892F5C10092A68B /* mainBG.jpg */,
@@ -427,6 +442,8 @@
 				9BB1B7101892F4FB0092A68B /* iPhoneHelpTableViewController.m */,
 				F415509218CB40B70082132E /* DashboardViewController.h */,
 				F415509318CB40B70082132E /* DashboardViewController.m */,
+				9BE2343418CE589200C33475 /* AddEventViewController.h */,
+				9BE2343518CE589200C33475 /* AddEventViewController.m */,
 				9BB1B7171892F5210092A68B /* Detail VCs */,
 			);
 			name = "iPhone Files";
@@ -576,6 +593,8 @@
 				F49C242D189555AC0018EB8C /* CustomDatePickerViewController.m */,
 				F42C63A818957A5A00F49731 /* CustomClientViewController.h */,
 				F42C63A918957A5A00F49731 /* CustomClientViewController.m */,
+				9BE2343718CE5A2800C33475 /* CustomTimePickerViewController.h */,
+				9BE2343818CE5A2800C33475 /* CustomTimePickerViewController.m */,
 			);
 			name = "Custom Pickers";
 			sourceTree = "<group>";
@@ -665,11 +684,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB1B7211892F5C10092A68B /* mainBG.jpg in Resources */,
+				9BE2343118CCB79900C33475 /* ToolBarImg.png in Resources */,
 				9BB1B71F1892F5C10092A68B /* No INvoice.jpg in Resources */,
+				9BE2343018CCB79900C33475 /* DashboardCellImg.png in Resources */,
 				F415508E18CB3CAB0082132E /* iPhoneFaceliftStoryboard.storyboard in Resources */,
 				9B1CC07818B4C9F300B988EA /* FirstTutorialViewController.xib in Resources */,
 				9BB1B77818930AD10092A68B /* InvoiceView.xib in Resources */,
 				9BB1B7201892F5C10092A68B /* camera_icon_800_clr_13235.png in Resources */,
+				9BE2343318CCB8B500C33475 /* DashboardCellImg2.png in Resources */,
 				9BB1B729189308EE0092A68B /* Main_iPad.storyboard in Resources */,
 				9B1CC08218B79A0800B988EA /* TutorialView.png in Resources */,
 				9B86E4D918BF3EEA00A65360 /* noClient.png in Resources */,
@@ -714,6 +736,7 @@
 			files = (
 				9BB1B76C18930AA70092A68B /* InvoiceDetialViewController.m in Sources */,
 				9BB1B6FC1892F45B0092A68B /* Reciept.m in Sources */,
+				9BE2343918CE5A2800C33475 /* CustomTimePickerViewController.m in Sources */,
 				9BB1B74C18930A440092A68B /* HelpSideViewController.m in Sources */,
 				9B1CC07718B4C9F300B988EA /* FirstTutorialViewController.m in Sources */,
 				9BB1B7141892F4FB0092A68B /* iPhoneHelpTableViewController.m in Sources */,
@@ -741,6 +764,7 @@
 				9BB1B6F61892F45B0092A68B /* Invoice_charges.m in Sources */,
 				9BB1B71A1892F5320092A68B /* iPhoneInvoiceDetailViewController.m in Sources */,
 				9BB1B73B189309690092A68B /* AddClientPopoverViewController.m in Sources */,
+				9BE2343618CE589200C33475 /* AddEventViewController.m in Sources */,
 				9B125AC818BC9C2900D6078B /* invoiceMenuViewController.m in Sources */,
 				9BB1B72E1893091A0092A68B /* MaintananceViewController.m in Sources */,
 				F49C2420189512C00018EB8C /* CameraRecieptViewController.m in Sources */,
@@ -889,6 +913,7 @@
 					"/Users/Rich/Desktop/Freelance\\ Assistant\\ Universal",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					/Users/Home/Developer/Freelance_Master_Repo,
+					/Users/Rich/Developer/Freelance_Master_Repo,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";
@@ -918,6 +943,7 @@
 					"/Users/Rich/Desktop/Freelance\\ Assistant\\ Universal",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					/Users/Home/Developer/Freelance_Master_Repo,
+					/Users/Rich/Developer/Freelance_Master_Repo,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freelance_Assistant/Freelance_Assistant-Prefix.pch";

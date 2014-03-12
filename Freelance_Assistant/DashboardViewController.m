@@ -5,6 +5,8 @@
 //  Created by Richard Allen on 08/03/2014.
 //  Copyright (c) 2014 Magic Entertainment. All rights reserved.
 //
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 #import "DashboardViewController.h"
 #import "DashboardCell.h"
@@ -18,6 +20,9 @@
     EKEventStore *store;
     NSMutableArray *_todaysEvents;
     NSMutableArray *_tomorrowEvents;
+    IBOutlet UINavigationBar *navBar;
+    IBOutlet UIToolbar *jobsToolBar;
+    IBOutlet UISegmentedControl *segmentViewChanger;
 }
 @end
 
@@ -27,12 +32,44 @@
 {
     [super viewDidLoad];
     
+    
+    [segmentViewChanger addTarget:self
+                           action:@selector(segmentChangedToIndex:)
+               forControlEvents:UIControlEventValueChanged];
+    segmentViewChanger.selectedSegmentIndex = 0;
+    
     _events = [[NSArray alloc]init];
     store = [[EKEventStore alloc] init];
     _remainingEvents = [[NSMutableArray alloc]init];
     _todaysEvents = [[NSMutableArray alloc]init];
     _tomorrowEvents = [[NSMutableArray alloc]init];
+    
+    
+    UIImage *img = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"ToolBarImg" ofType:@"png"]];
+    
+    [navBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
 
+    [jobsToolBar setBackgroundImage:img forToolbarPosition:0 barMetrics:0];
+
+    
+}
+-(void)segmentChangedToIndex:(UISegmentedControl *)index
+{
+    if (index.selectedSegmentIndex == 0)
+    {
+        [self SetupCalendar];
+    }
+    else
+    {
+        
+    }
+}
+-(void)SetupRevenueView
+{
+    
+}
+-(void)SetupCalendar
+{
     [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         // handle access here
         
@@ -43,13 +80,15 @@
         }
         else
         {
-        //Handle denied Access
+            //Handle denied Access
+            UIView *view = [[UIView alloc]initWithFrame:self.view.bounds];
+            view.backgroundColor = [UIColor redColor];
+            [self.view addSubview:view];
         }
-        
-        
     }];
-    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -57,18 +96,32 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma TableView Delegate Methods
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 3;
-	
-}
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (section == 0) return @"Today";
-    if (section == 1) return @"Tomorrow";
+    return 3;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+
+        [headerView setBackgroundColor:UIColorFromRGB(0xb5a2de)];
     
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, -6, 320, 30)];
     
-    return @"Next 7 days";
+    if (section == 0) {
+       titleLabel.text = @"Today";
+    }
+    if (section == 1) {
+        titleLabel.text = @"Tomorrow";
+    }
+    else
+    {
+        titleLabel.text = @"Next 7 days";
+    }
+    
+    [headerView addSubview:titleLabel];
+    return headerView;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -86,9 +139,7 @@
     DashboardCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        NSLog(@"New Cell.....");
         cell = [[DashboardCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-
     }
 
     NSDateFormatter *df = [[NSDateFormatter alloc]init];
@@ -96,8 +147,6 @@
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
     [timeFormatter setDateFormat:@"HH:mm"];
-    
-    NSLog(@"dsdsds");
     
     if (indexPath.section == 0)
     {
@@ -118,14 +167,11 @@
     if (indexPath.section == 2)
     {
         EKEvent *evt = [_remainingEvents objectAtIndex:indexPath.row];
-        cell.categoryView.backgroundColor = [UIColor blueColor];
+        cell.categoryView.backgroundColor = [UIColor purpleColor];
         cell.jobLabel.text = evt.title;
         cell.dateLabel.text = [df stringFromDate:evt.startDate];
         cell.timeLabel.text = [timeFormatter stringFromDate:evt.startDate];
     }
-    
-    
-    
     return cell;
 }
 
@@ -133,6 +179,7 @@
 {
     
 }
+
 -(void)GetEvents
 {
     unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
@@ -156,7 +203,7 @@
                                               toDate:[NSDate date]
                                              options:0];
     
-    NSDateComponents* tomorrowDateOnlyComponents = [calendar components:flags fromDate:today];
+    NSDateComponents* tomorrowDateOnlyComponents = [calendar components:flags fromDate:tomorrow];
     NSDate *tomorrowDateOnly = [calendar dateFromComponents:tomorrowDateOnlyComponents];
     
     // Create the end date components
@@ -184,13 +231,14 @@
             NSDateComponents* components = [calendar components:flags fromDate:evt.startDate];
             NSDate* eventDateOnly = [calendar dateFromComponents:components];
             
-
+            
             if (eventDateOnly == todayDateOnly) {
                 [_todaysEvents addObject:evt];
                 
             }
             if (eventDateOnly == tomorrowDateOnly) {
                 [_tomorrowEvents addObject:evt];
+                
                 
             }
             if (eventDateOnly != tomorrowDateOnly || eventDateOnly != todayDateOnly) {

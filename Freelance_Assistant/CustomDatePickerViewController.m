@@ -15,20 +15,7 @@
 @implementation CustomDatePickerViewController
 @synthesize datePicker;
 @synthesize delegate;
-/*--------------------------------------------------------------------
- Method:
- Description:
- Tag:
- 
- --------------------------------------------------------------------*/
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
 /*--------------------------------------------------------------------
  Method:
  Description:
