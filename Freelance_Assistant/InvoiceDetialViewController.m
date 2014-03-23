@@ -486,6 +486,9 @@
     }
     if ([segue.identifier isEqualToString:@"charge_detail_segue"]) {
         
+        
+        NSLog(@"1");
+        
         [segue.destinationViewController setDelegate:self];
         
     }
