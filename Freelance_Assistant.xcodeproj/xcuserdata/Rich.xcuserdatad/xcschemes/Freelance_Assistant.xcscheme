@@ -17,7 +17,7 @@
                BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
                BuildableName = "Freelance_Assistant.app"
                BlueprintName = "Freelance_Assistant"
-               ReferencedContainer = "container:freelance_assistant.xcodeproj">
+               ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "9BB1B6C31892ED560092A68B"
                BuildableName = "Freelance_AssistantTests.xctest"
                BlueprintName = "Freelance_AssistantTests"
-               ReferencedContainer = "container:freelance_assistant.xcodeproj">
+               ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
             BuildableName = "Freelance_Assistant.app"
             BlueprintName = "Freelance_Assistant"
-            ReferencedContainer = "container:freelance_assistant.xcodeproj">
+            ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
             BuildableName = "Freelance_Assistant.app"
             BlueprintName = "Freelance_Assistant"
-            ReferencedContainer = "container:freelance_assistant.xcodeproj">
+            ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "9BB1B6A31892ED560092A68B"
             BuildableName = "Freelance_Assistant.app"
             BlueprintName = "Freelance_Assistant"
-            ReferencedContainer = "container:freelance_assistant.xcodeproj">
+            ReferencedContainer = "container:Freelance_Assistant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

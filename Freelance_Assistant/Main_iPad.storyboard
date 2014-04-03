@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="j9k-7K-HDF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="j9k-7K-HDF">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Start Up View Controller-->
@@ -635,6 +635,7 @@
                     <value key="contentSizeForViewInPopover" type="size" width="400" height="260"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="260"/>
                     <connections>
                         <outlet property="invoiceNumberField" destination="092-Tb-yZ9" id="zDJ-Kg-1fy"/>
                         <outlet property="projectNameField" destination="owL-Yn-Wwd" id="Yhc-QB-h7o"/>
@@ -653,7 +654,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Kc7-lB-Oes"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e1J-hR-stc">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvL-1R-rgQ">
@@ -749,6 +750,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="300"/>
                     <connections>
                         <outlet property="clientPicker" destination="A45-uZ-0m0" id="llJ-Gw-ScT"/>
                     </connections>
@@ -870,7 +872,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEm-F3-NMJ">
-                                                    <rect key="frame" x="371" y="11" width="51" height="31"/>
+                                                    <rect key="frame" x="371" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="vatSwitchChange:" destination="S1L-1J-D6A" eventType="valueChanged" id="6DX-Rm-VLb"/>
@@ -916,6 +918,7 @@
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="450" height="330"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="440" height="307"/>
                     <connections>
                         <outlet property="chargeDescField" destination="2ev-1R-vea" id="Znh-85-Vqh"/>
                         <outlet property="dateField" destination="1Jy-GX-W0K" id="k1K-gT-tvK"/>
@@ -1188,6 +1191,7 @@
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="550" height="550"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="550" height="542"/>
                     <connections>
                         <outlet property="address2Field" destination="xNJ-Nb-6mQ" id="PP0-MH-i9Q"/>
                         <outlet property="addressField" destination="4Np-UE-Kcw" id="Xux-qi-qwD"/>
@@ -1920,6 +1924,7 @@
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="400" height="176"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="176"/>
                     <connections>
                         <outlet property="userFirstName" destination="Y5h-ba-3Pi" id="cAX-7k-Z7B"/>
                         <outlet property="userSurname" destination="IsD-MC-45E" id="1yd-4y-UDF"/>
@@ -2036,6 +2041,7 @@
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="400" height="220"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="220"/>
                     <connections>
                         <outlet property="address1" destination="f76-4E-Ygb" id="Yfx-nh-Sap"/>
                         <outlet property="address2" destination="1q2-ai-yYU" id="3ZY-JB-D1A"/>
@@ -2121,6 +2127,7 @@
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="400" height="132"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="132"/>
                     <connections>
                         <outlet property="emailField" destination="4gy-5Z-Ogi" id="JZU-B3-tAG"/>
                     </connections>
@@ -2204,6 +2211,7 @@
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="400" height="132"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="132"/>
                     <connections>
                         <outlet property="paymentTermsField" destination="ki8-p4-SoS" id="Sr7-hp-YYL"/>
                     </connections>
@@ -2303,6 +2311,7 @@
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="400" height="176"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="176"/>
                     <connections>
                         <outlet property="accountNumber" destination="mHV-Wn-4I4" id="Lhd-v3-nYt"/>
                         <outlet property="sortCode" destination="JrM-hk-xPc" id="UCC-li-Hbl"/>
