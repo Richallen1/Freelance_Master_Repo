@@ -93,6 +93,7 @@
 		F42C63AD189582C100F49731 /* iPhoneClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C63AC189582C100F49731 /* iPhoneClientDetailViewController.m */; };
 		F49C2420189512C00018EB8C /* CameraRecieptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C241F189512C00018EB8C /* CameraRecieptViewController.m */; };
 		F49C242E189555AC0018EB8C /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C242D189555AC0018EB8C /* CustomDatePickerViewController.m */; };
+		F4B71F8F18ED59E000CBE5B5 /* CheckAvaialabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B71F8E18ED59E000CBE5B5 /* CheckAvaialabilityViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +244,8 @@
 		F49C241F189512C00018EB8C /* CameraRecieptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraRecieptViewController.m; sourceTree = "<group>"; };
 		F49C242C189555AC0018EB8C /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
 		F49C242D189555AC0018EB8C /* CustomDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerViewController.m; sourceTree = "<group>"; };
+		F4B71F8D18ED59E000CBE5B5 /* CheckAvaialabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckAvaialabilityViewController.h; sourceTree = "<group>"; };
+		F4B71F8E18ED59E000CBE5B5 /* CheckAvaialabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckAvaialabilityViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +434,7 @@
 		9BB1B7051892F4D20092A68B /* iPhone Files */ = {
 			isa = PBXGroup;
 			children = (
+				F4B71F8C18ED59AC00CBE5B5 /* Calendar Management */,
 				9B1CC06B18B4C85900B988EA /* Tutorial */,
 				F49C24281895529B0018EB8C /* Custom Pickers */,
 				9BB1B7061892F4DC0092A68B /* UX Files */,
@@ -599,6 +603,15 @@
 			name = "Custom Pickers";
 			sourceTree = "<group>";
 		};
+		F4B71F8C18ED59AC00CBE5B5 /* Calendar Management */ = {
+			isa = PBXGroup;
+			children = (
+				F4B71F8D18ED59E000CBE5B5 /* CheckAvaialabilityViewController.h */,
+				F4B71F8E18ED59E000CBE5B5 /* CheckAvaialabilityViewController.m */,
+			);
+			name = "Calendar Management";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -750,6 +763,7 @@
 				F42C63AA18957A5A00F49731 /* CustomClientViewController.m in Sources */,
 				9BB1B6BA1892ED560092A68B /* AppDelegate.m in Sources */,
 				9BB1B73C189309690092A68B /* AddInvoicePopoverViewController.m in Sources */,
+				F4B71F8F18ED59E000CBE5B5 /* CheckAvaialabilityViewController.m in Sources */,
 				9BB1B7031892F4800092A68B /* CoreDataTableViewController.m in Sources */,
 				9BB1B6B61892ED560092A68B /* main.m in Sources */,
 				9BB1B75D18930A980092A68B /* BankDetailsViewController.m in Sources */,
